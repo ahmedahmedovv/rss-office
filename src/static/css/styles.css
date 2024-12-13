@@ -21,13 +21,15 @@ body {
 }
 
 .sidebar {
-    width: 400px;
-    margin-right: 40px;
-    position: sticky;
-    top: 20px;
-    max-height: calc(100vh - 40px);
+    width: 360px;
+    margin-right: 24px;
+    position: fixed;
+    left: 24px;
+    top: 24px;
+    max-height: calc(100vh - 48px);
     overflow-y: auto;
     overflow-x: hidden;
+    z-index: 100;
 }
 
 /* Sidebar scrollbar styles */
@@ -51,8 +53,9 @@ body {
 
 /* Content area styles */
 .content {
+    margin-left: 384px;
     flex: 1;
-    max-width: 1200px;
+    max-width: calc(100% - 384px);
     overflow-y: auto;
 }
 
@@ -61,13 +64,14 @@ body {
     cursor: move;
     user-select: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 12px 16px;
     margin: 6px 0;
     border-left: 3px solid transparent;
     border-radius: 6px;
     transition: all 0.2s ease;
+    gap: 8px;
 }
 
 .category-filter:nth-child(odd) {
@@ -128,7 +132,7 @@ body {
 
 /* Category count badge */
 .category-count {
-    float: right;
+    margin-left: auto;
     background-color: #e1e4e8;
     padding: 2px 6px;
     border-radius: 10px;
@@ -201,7 +205,9 @@ input:checked + .toggle-slider:before {
 }
 
 .container-lg {
-    max-width: 1800px !important;
+    padding-left: 0 !important;
+    padding-right: 24px !important;
+    max-width: none !important;
 }
 
 /* Button group styles */
@@ -249,7 +255,7 @@ input:checked + .toggle-slider:before {
 
 .drag-handle {
     cursor: move;
-    color: #959da5;
+    color: #6a737d;
     margin-right: 8px;
     font-size: 14px;
 }

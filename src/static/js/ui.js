@@ -3,6 +3,7 @@ class UIManager {
         this.currentArticleIndex = -1;
         this.visibleArticles = [];
         this.showOnlyUnread = $('#showOnlyUnread').is(':checked');
+        this.currentSortDirection = 'newest';
         this.initializeEventListeners();
     }
 
@@ -89,51 +90,55 @@ class UIManager {
     }
 
     initializeSortingHandlers() {
-        $('.BtnGroup-item').click(function() {
-            const sortType = $(this).data('sort');
+        $('.BtnGroup-item').click((e) => {
+            const $button = $(e.currentTarget);
             $('.BtnGroup-item').removeClass('selected');
-            $(this).addClass('selected');
-            this.handleArticleSorting(sortType);
+            $button.addClass('selected');
+            
+            this.currentSortDirection = $button.data('sort');
+            
+            const currentCategory = $('.category-filter.active').data('category');
+            this.filterArticles(currentCategory);
         });
     }
 
-    handleArticleSorting(sortType) {
-        // Sorting logic implementation
-    }
-
-    filterArticles(category) {
-        console.log('Starting filterArticles');
-
-        if (!Array.isArray(articleManager.allArticles)) {
-            console.error('allArticles is not an array:', articleManager.allArticles);
-            $('#articles').html(`
-                <div class="flash flash-error">
-                    Error: Invalid articles data structure
-                </div>
-            `);
-            return;
+    filterArticles(category = null) {
+        let filteredArticles = [...articleManager.allArticles];
+        
+        if (category) {
+            filteredArticles = filteredArticles.filter(article => article.category === category);
         }
-
-        // Update counts in the background
-        setTimeout(() => this.updateCategoryCounts(), 0);
-
-        const filteredArticles = articleManager.allArticles.filter(article => {
-            if (category && article.category !== category) return false;
-            if (this.showOnlyUnread && articleManager.isArticleRead(article.link)) return false;
-            return true;
+        
+        if (this.showOnlyUnread) {
+            filteredArticles = filteredArticles.filter(article => 
+                !articleManager.isArticleRead(article.link)
+            );
+        }
+        
+        filteredArticles.sort((a, b) => {
+            const dateA = new Date(a.pub_date || 0);
+            const dateB = new Date(b.pub_date || 0);
+            
+            if (this.currentSortDirection === 'newest') {
+                return dateB - dateA;
+            } else {
+                return dateA - dateB;
+            }
         });
+
+        const headerText = category ? `${category} Articles` : 'All Articles';
+        $('#content-header').text(headerText);
 
         if (filteredArticles.length === 0) {
             $('#articles').html(`
-                <div class="flash flash-warn">
-                    No articles found${category ? ` in category "${category}"` : ''}
-                    ${this.showOnlyUnread ? ' (showing only unread)' : ''}
+                <div class="blankslate">
+                    <h3>No articles found</h3>
+                    <p>Try changing your filters or check back later for new articles.</p>
                 </div>
             `);
             return;
         }
 
-        // Batch render articles for better performance
         const BATCH_SIZE = 50;
         const batches = Math.ceil(filteredArticles.length / BATCH_SIZE);
         
@@ -174,7 +179,7 @@ class UIManager {
                 if (!categoryCounts[article.category]) {
                     categoryCounts[article.category] = 0;
                 }
-                if (!this.showOnlyUnread || !articleManager.isArticleRead(article.link)) {
+                if (!articleManager.isArticleRead(article.link)) {
                     categoryCounts[article.category]++;
                 }
             }

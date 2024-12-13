@@ -28,7 +28,7 @@ $(document).ready(function() {
 
             articleManager.allArticles = feedsResponse;
             
-            // Process categories in background
+            // Process categories and update counts
             setTimeout(() => {
                 feedsResponse.forEach(article => {
                     if (article.category) {
@@ -36,6 +36,7 @@ $(document).ready(function() {
                     }
                 });
                 categoryManager.updateCategoryFilters();
+                uiManager.updateCategoryCounts();
             }, 0);
             
             // Show articles immediately
