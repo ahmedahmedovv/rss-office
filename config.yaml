@@ -1,6 +1,6 @@
 rss:
   urls_file: "url.md"
-  default_history_days: 30
+  default_history_days: 2
   max_entries_per_fetch: 100
 
 logging:

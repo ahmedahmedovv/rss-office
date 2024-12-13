@@ -54,12 +54,27 @@ def setup_logger(config):
     return logger
 
 def clean_html(text: str) -> str:
-    """Remove HTML tags and decode HTML entities."""
+    """Remove HTML tags, decode HTML entities, and normalize special characters."""
     if not text:
         return ""
+    
+    # First decode HTML entities
     text = unescape(text)
+    
+    # Remove HTML tags
     clean = re.sub(r'<[^>]+>', '', text)
+    
+    # Normalize special characters
+    # Option 1: Replace specific characters
+    clean = clean.replace('„', '"')  # Replace German opening quotes with standard quotes
+    
+    # Option 2: Or use Unicode normalization
+    from unicodedata import normalize
+    clean = normalize('NFKC', clean)  # Normalize Unicode characters
+    
+    # Remove extra whitespace
     clean = ' '.join(clean.split())
+    
     return clean.strip()
 
 def make_timezone_aware(dt: datetime) -> datetime:
