@@ -15,19 +15,31 @@ class UIManager {
     }
 
     initializeMarkAllReadHandler() {
-        $('#markAllRead').change(async (e) => {
-            const isChecked = $(e.target).is(':checked');
-            const currentCategory = $('.category-filter.active').data('category');
-            
-            if (isChecked) {
+        $('#markAllRead').click(async () => {
+            try {
+                const currentCategory = $('.category-filter.active').data('category');
+                if (!currentCategory) return;
+
                 const visibleArticles = $('.article-box:visible');
-                for (const article of visibleArticles) {
-                    const link = $(article).data('link');
-                    await articleManager.markAsRead(link);
+                if (visibleArticles.length === 0) return;
+
+                const result = await readManager.toggleReadStatus(visibleArticles);
+                
+                if (result.success) {
+                    // Refresh the UI
+                    this.filterArticles(currentCategory);
+                    this.updateCategoryCounts();
+                    
+                    // Show appropriate message
+                    const message = result.action === 'read' 
+                        ? 'All articles marked as read' 
+                        : 'All articles marked as unread';
+                    this.showToast(message, 'success');
                 }
+            } catch (error) {
+                console.error('Error toggling read status:', error);
+                this.showToast('Failed to update articles', 'error');
             }
-            
-            this.filterArticles(currentCategory);
         });
     }
 
@@ -55,7 +67,7 @@ class UIManager {
         
         const $article = $(article);
         const link = $article.data('link');
-        articleManager.markAsRead(link);
+        readManager.markAsRead(link);
     }
 
     initializeKeyboardNavigation() {
@@ -122,7 +134,7 @@ class UIManager {
         
         if (this.showOnlyUnread) {
             filteredArticles = filteredArticles.filter(article => 
-                !articleManager.isArticleRead(article.link)
+                !readManager.isRead(article.link)
             );
         }
         
@@ -186,7 +198,7 @@ class UIManager {
                 if (!categoryCounts[article.category]) {
                     categoryCounts[article.category] = 0;
                 }
-                if (!articleManager.isArticleRead(article.link)) {
+                if (!readManager.isRead(article.link)) {
                     categoryCounts[article.category]++;
                 }
             }

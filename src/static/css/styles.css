@@ -365,14 +365,23 @@ input:checked + .toggle-slider:before {
 
 /* Styles for mark all checkbox */
 #markAllRead {
-    cursor: pointer;
+    padding: 4px 12px;
+    font-size: 18px;
+    line-height: 1;
+    background-color: #f6f8fa;
+    border: 1px solid rgba(27, 31, 36, 0.15);
+    transition: all 0.2s ease;
+    color: #24292f;
 }
 
-.mark-all-container {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #586069;
+#markAllRead:hover {
+    background-color: #f0f9f2;
+    border-color: #2ea44f;
+    color: #2ea44f;
+}
+
+#markAllRead .octicon {
+    vertical-align: text-bottom;
 }
 
 /* Button group and tooltip styles */
