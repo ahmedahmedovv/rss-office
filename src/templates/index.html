@@ -2,151 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSS Feed Reader</title>
+    <title>RSS Feeds</title>
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
-    <style>
-        /* Custom color palette and styling */
-        :root {
-            --custom-border: #e1e4e8;
-            --custom-bg: #f6f8fa;
-            --custom-header: #24292e;
-            --custom-text: #24292e;
-            --custom-link: #0366d6;
-            --custom-accent: #2ea44f;
-        }
-
-        body {
-            background-color: var(--custom-bg);
-        }
-
-        .Box {
-            border-color: var(--custom-border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .Box-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--custom-border);
-        }
-
-        .Box-title {
-            color: var(--custom-header);
-            font-weight: 600;
-        }
-
-        .Box-row {
-            background-color: #ffffff;
-            transition: background-color 0.2s ease;
-        }
-
-        .Box-row:hover {
-            background-color: var(--custom-bg);
-        }
-
-        .description-text {
-            max-height: 100px;
-            overflow-y: auto;
-            color: var(--custom-text);
-            padding: 8px;
-            background-color: var(--custom-bg);
-            border-radius: 6px;
-            margin: 8px 0;
-        }
-
-        .Link--primary {
-            color: var(--custom-link);
-            text-decoration: none;
-        }
-
-        .Link--primary:hover {
-            text-decoration: underline;
-        }
-
-        .Label {
-            font-size: 12px;
-            font-weight: 500;
-            border-radius: 12px;
-            padding: 4px 8px;
-        }
-
-        .Label--secondary {
-            background-color: var(--custom-bg);
-            color: var(--custom-text);
-        }
-
-        .Label--accent {
-            background-color: var(--custom-accent);
-            color: white;
-        }
-
-        .Spinner {
-            border: 2px solid var(--custom-border);
-            border-top-color: var(--custom-link);
-        }
-
-        .flash-error {
-            background-color: #ffdce0;
-            border-color: #cb2431;
-            color: #24292e;
-        }
-    </style>
 </head>
-<body>
-    <div class="container-lg px-3 py-4">
-        <div class="Box">
-            <div class="Box-header d-flex flex-items-center">
-                <h3 class="Box-title flex-auto">RSS Feeds</h3>
-                <span class="Counter mr-1" id="feedCount">0</span>
-            </div>
-            <div id="feedsContainer">
-                <div class="Box-body text-center">
-                    <div class="Spinner"></div>
-                    <p>Loading feeds...</p>
-                </div>
+<body class="p-4">
+    <!-- Single Box component for all content -->
+    <div class="Box">
+        <div class="Box-header">
+            <h3>Feeds (<span id="count">0</span>)</h3>
+        </div>
+        <div id="feeds">
+            <div class="Box-body text-center">
+                <div class="Spinner"></div>
             </div>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        async function loadFeeds() {
-            try {
-                const response = await fetch('/api/feeds');
-                const feeds = await response.json();
-                
-                const container = document.getElementById('feedsContainer');
-                document.getElementById('feedCount').textContent = feeds.length;
-                
-                container.innerHTML = feeds.map(feed => `
+        $.get('/api/feeds')
+            .done(feeds => {
+                $('#count').text(feeds.length);
+                $('#feeds').html(feeds.map(feed => `
                     <div class="Box-row">
-                        <div class="d-flex flex-column">
-                            <div class="d-flex flex-justify-between flex-items-start mb-1">
-                                <h4 class="mb-1">
-                                    <span class="Label Label--secondary mr-2">${feed.category || 'Uncategorized'}</span>
-                                    ${feed.ai_title || 'No Title'}
-                                </h4>
-                                <span class="Label Label--secondary">${new Date(feed.pub_date).toLocaleDateString()}</span>
-                            </div>
-                            
-                            <div class="description-text color-fg-muted">
-                                ${feed.summary || 'No summary available'}
-                            </div>
-                        </div>
+                        <h4>${feed.ai_title || 'Untitled'}</h4>
+                        <p>${feed.summary || 'No summary'}</p>
                     </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading feeds:', error);
-                document.getElementById('feedsContainer').innerHTML = `
-                    <div class="Box-body">
-                        <div class="flash flash-error">
-                            Error loading feeds. Please try again later.
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadFeeds);
+                `).join(''));
+            })
+            .fail(() => {
+                $('#feeds').html('<div class="Box-body"><div class="flash flash-error">Error loading feeds</div></div>');
+            });
     </script>
 </body>
 </html>
