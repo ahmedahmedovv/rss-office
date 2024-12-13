@@ -2,45 +2,940 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RSS Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS Articles</title>
+    <!-- Primer CSS -->
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
-    <link href="static/styles.css" rel="stylesheet" />
-</head>
-<body class="p-3">
-    <!-- Simple header -->
-    <div class="d-flex flex-items-center mb-3">
-        <h2 class="f2-light">RSS Reader</h2>
-        <button class="btn ml-auto" id="refresh-btn">Refresh</button>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@primer/octicons/build/build.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <style>
+        body {
+            background-color: #fbeede;
+        }
+        .Box {
+            background-color: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .Box-header {
+            background-color: rgba(251, 238, 222, 0.3);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 8px 16px !important;
+        }
+        .Label--success {
+            background-color: #fbeede;
+            color: #24292f;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .sidebar {
+            width: 400px;
+            margin-right: 40px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        /* Add smooth scrolling for sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #2ea44f;
+            border-radius: 4px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #2c974b;
+        }
+        
+        /* Ensure content area takes remaining space */
+        .content {
+            flex: 1;
+            max-width: 1200px;
+            overflow-y: auto;
+        }
+        .category-filter {
+            cursor: move;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            margin: 6px 0;
+            border-left: 3px solid transparent;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        .category-filter:nth-child(odd) {
+            background-color: #f6f8fa;
+        }
+        .category-filter:nth-child(even) {
+            background-color: white;
+        }
+        .category-filter:hover {
+            background-color: #f0f6fc;
+            transform: translateX(4px);
+        }
+        .category-filter.active {
+            background-color: #2ea44f15;
+            border-left: 4px solid #2ea44f;
+        }
+        .article-box {
+            transition: opacity 0.3s ease;
+            margin-bottom: 12px !important;
+        }
+        .article-box.read {
+            opacity: 0.6;
+        }
+        .article-box.read .Box-header {
+            background-color: #f6f8fa;
+        }
+        .category-count {
+            float: right;
+            background-color: #e1e4e8;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+        .category-filter.active .category-count {
+            background-color: #fff;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
 
-    <!-- New layout with sidebar -->
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #2ea44f;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: #24292f;
+        }
+
+        .container-lg {
+            max-width: 1800px !important;
+        }
+
+        /* Add these styles */
+        .Box-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-box {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Add hover effect for better interaction feedback */
+        .article-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .form-select {
+            padding: 5px 24px 5px 8px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #d1d5da;
+            background-color: #fff;
+            cursor: pointer;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #2ea44f;
+            box-shadow: 0 0 0 3px rgba(46, 164, 79, 0.3);
+        }
+
+        /* Add styles for the icons */
+        .octicon {
+            fill: currentColor;
+            vertical-align: text-bottom;
+        }
+
+        .BtnGroup-item.selected {
+            background-color: #2ea44f !important;
+            color: white;
+            border-color: #2ea44f !important;
+        }
+        .BtnGroup-item:not(.selected):hover {
+            background-color: #f6f8fa;
+            border-color: #2ea44f;
+            color: #2ea44f;
+        }
+        .BtnGroup-item {
+            padding: 4px 16px;
+            font-size: 16px;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+        .BtnGroup-item .octicon {
+            margin: 0 2px;
+        }
+        /* Add tooltip styles */
+        .BtnGroup-item {
+            position: relative;
+        }
+        .BtnGroup-item:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(46, 164, 79, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        /* Update link colors to match theme */
+        .Link--primary:hover {
+            color: #2ea44f !important;
+        }
+
+        /* Update focus states */
+        *:focus {
+            outline-color: #2ea44f;
+        }
+
+        /* Selected article highlight */
+        .border-green {
+            border: 2px solid #2ea44f !important;
+        }
+
+        /* Update article title styles */
+        .Box-title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #24292f;
+        }
+
+        /* Make article links consistent with the new weight */
+        .article-box .Box-title a {
+            font-weight: 400;
+            color: #24292f;
+        }
+
+        /* Optional: Add slight emphasis on hover */
+        .article-box .Box-title a:hover {
+            font-weight: 500;
+            color: #2ea44f;
+            text-decoration: none;
+        }
+
+        /* Add progress indicator */
+        .progress-bar {
+            height: 3px;
+            background: #eee;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .progress-bar .progress {
+            height: 100%;
+            background: #2ea44f;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        /* Add responsive breakpoints */
+        @media (max-width: 768px) {
+            .d-flex {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                position: static;
+            }
+            
+            .content {
+                width: 100%;
+            }
+        }
+
+        /* Improve loading state */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            height: 24px;
+            margin: 8px 0;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .category-filter .star-icon {
+            color: #959da5;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        
+        .category-filter .star-icon.favorite {
+            color: #f1e05a;
+        }
+        
+        .category-filter {
+            display: flex;
+            align-items: center;
+        }
+
+        .category-filter.sortable-ghost {
+            background-color: #f0f6fc;
+            opacity: 0.5;
+        }
+
+        .category-filter.sortable-drag {
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .drag-handle {
+            cursor: move;
+            color: #959da5;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .drag-handle:hover {
+            color: #24292f;
+        }
+
+        .Box-body p {
+            margin-bottom: 0;
+            line-height: 1.4;
+            max-height: 2.8em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .article-box.read .Box-body p {
+            opacity: 0.7;
+        }
+
+        /* Add these additional styles */
+        .Box-body {
+            padding: 8px 16px !important;
+        }
+
+        .Box-title {
+            font-size: 1.1rem !important;
+        }
+    </style>
+</head>
+<body class="container-lg px-3 py-5">
     <div class="d-flex">
         <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="Box">
-                <div class="Box-header">
-                    <h3 class="Box-title">Categories</h3>
+        <div class="sidebar Box">
+            <div class="Box-header d-flex flex-items-center">
+                <h3 class="Box-title flex-auto">Categories</h3>
+                <span class="Counter" id="total-unread-count">0</span>
+            </div>
+            <div class="Box-body">
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="showOnlyUnread" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-label">Show only unread</span>
                 </div>
-                <div id="category-list" class="Box-body">
-                    <div class="category-item active" data-category="all">All Feeds</div>
-                </div>
+            </div>
+            <div class="Box-body" id="categories-list">
+                {% if categories %}
+                    {% for category in categories %}
+                        <div class="category-filter" data-category="{{ category }}">
+                            {{ category }}
+                            <span class="category-count">{{ unread_counts.get(category, 0) }}</span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
 
-        <!-- Main content -->
-        <div class="main-content">
+        <!-- Main Content -->
+        <div class="content">
             <div class="Box">
-                <div class="Box-header">
-                    <h3 class="Box-title">Feeds (<span id="feed-count">0</span>)</h3>
+                <div class="Box-header d-flex flex-items-center">
+                    <h2 class="Box-title flex-auto" id="content-header">RSS Articles</h2>
+                    <div class="d-flex flex-items-center">
+                        <div class="BtnGroup mr-3" role="group" aria-label="Sort articles">
+                            <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
+                                ▼
+                            </button>
+                            <button class="BtnGroup-item btn btn-sm" data-sort="oldest" title="Oldest first">
+                                ▲
+                            </button>
+                        </div>
+                        <label class="d-flex flex-items-center mr-3">
+                            <input type="checkbox" id="markAllRead" class="mr-2">
+                            <span class="text-small">Mark all as read</span>
+                        </label>
+                    </div>
                 </div>
-                <div id="feed-list" class="Box-body">
+                <div id="loading" class="Box-body text-center">
                     <div class="Spinner"></div>
+                    <p>Loading articles...</p>
                 </div>
+                <div id="articles" class="Box-body"></div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="static/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            let allArticles = [];
+            let categories = new Set();
+            let readArticles = new Set(JSON.parse(localStorage.getItem('readArticles') || '[]'));
+            let showOnlyUnread = $('#showOnlyUnread').is(':checked');
+            let favoriteCategories = new Set(JSON.parse(localStorage.getItem('favoriteCategories') || '[]'));
+            let categoryOrder = JSON.parse(localStorage.getItem('categoryOrder') || '[]');
+
+            function isArticleRead(link) {
+                return readArticles.has(link);
+            }
+
+            function markAsRead(link) {
+                readArticles.add(link);
+                localStorage.setItem('readArticles', JSON.stringify(Array.from(readArticles)));
+                updateCategoryFilters();
+            }
+
+            function getUnreadCount(category) {
+                return allArticles.filter(article => 
+                    article.category === category && !isArticleRead(article.link)
+                ).length;
+            }
+
+            function escapeHtml(str) {
+                return str
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function updateTotalUnreadCount() {
+                const totalUnread = allArticles.filter(article => !isArticleRead(article.link)).length;
+                $('#total-unread-count').text(totalUnread);
+            }
+
+            function updateCategoryFilters() {
+                let categoriesHtml = '';
+                let categoriesArray = Array.from(categories);
+                
+                // Sort categories based on stored order and favorites
+                categoriesArray.sort((a, b) => {
+                    // First sort by favorite status
+                    const aFav = favoriteCategories.has(a);
+                    const bFav = favoriteCategories.has(b);
+                    if (aFav !== bFav) return bFav ? 1 : -1;
+                    
+                    // Then sort by custom order if exists
+                    const aIndex = categoryOrder.indexOf(a);
+                    const bIndex = categoryOrder.indexOf(b);
+                    
+                    if (aIndex === -1 && bIndex === -1) return a.localeCompare(b);
+                    if (aIndex === -1) return 1;
+                    if (bIndex === -1) return -1;
+                    return aIndex - bIndex;
+                });
+                
+                categoriesArray.forEach(category => {
+                    const unreadCount = getUnreadCount(category);
+                    if (showOnlyUnread && unreadCount === 0) {
+                        return;
+                    }
+                    const escapedCategory = escapeHtml(category);
+                    const isFavorite = favoriteCategories.has(category);
+                    categoriesHtml += `
+                        <div class="category-filter" data-category="${escapedCategory}">
+                            <div class="d-flex flex-items-center flex-grow">
+                                <span class="drag-handle">⋮⋮</span>
+                                <span class="star-icon ${isFavorite ? 'favorite' : ''}" data-category="${escapedCategory}">
+                                    ${isFavorite ? '★' : '☆'}
+                                </span>
+                                <span class="category-name">${escapedCategory}</span>
+                            </div>
+                            <span class="category-count">${unreadCount}</span>
+                        </div>
+                    `;
+                });
+                
+                $('#categories-list').html(categoriesHtml);
+                updateTotalUnreadCount();
+                
+                // Initialize Sortable after HTML is updated
+                setTimeout(initializeSortable, 0);
+            }
+
+            function initializeSortable() {
+                const categoriesList = document.getElementById('categories-list');
+                if (categoriesList) {
+                    // Destroy existing instance if it exists
+                    const existingInstance = Sortable.get(categoriesList);
+                    if (existingInstance) {
+                        existingInstance.destroy();
+                    }
+
+                    new Sortable(categoriesList, {
+                        animation: 150,
+                        ghostClass: 'sortable-ghost',
+                        dragClass: 'sortable-drag',
+                        handle: '.drag-handle',
+                        forceFallback: false,
+                        onEnd: function(evt) {
+                            // Update stored order
+                            const newOrder = Array.from(evt.to.children).map(
+                                el => decodeHtml(el.dataset.category)
+                            );
+                            categoryOrder = newOrder;
+                            localStorage.setItem('categoryOrder', JSON.stringify(categoryOrder));
+                            
+                            // Optional: Update UI to reflect new order
+                            updateCategoryFilters();
+                        }
+                    });
+                }
+            }
+
+            function filterArticles(category) {
+                $('#markAllRead').prop('checked', false);
+                const decodedCategory = decodeHtml(category);
+                let filteredArticles = allArticles.filter(article => article.category === decodedCategory);
+                
+                if (showOnlyUnread) {
+                    filteredArticles = filteredArticles.filter(article => !isArticleRead(article.link));
+                }
+                
+                // Apply current sort order
+                const currentSort = $('#sortArticles').val();
+                filteredArticles = sortArticles(filteredArticles, currentSort);
+                
+                renderArticles(filteredArticles);
+                updateVisibleArticles();
+            }
+
+            function renderArticles(articles) {
+                let articlesHtml = '';
+                
+                articles.forEach(article => {
+                    let formattedDate = 'Not available';
+                    if (article.pub_date) {
+                        const date = new Date(article.pub_date);
+                        formattedDate = date.toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric'
+                        });
+                    }
+
+                    const isRead = isArticleRead(article.link);
+                    
+                    articlesHtml += `
+                        <div class="Box mb-3 article-box ${isRead ? 'read' : ''}" data-link="${article.link}">
+                            <div class="Box-header d-flex flex-items-center">
+                                <h3 class="Box-title flex-auto">
+                                    <a href="${article.link}" class="Link--primary" target="_blank">
+                                        ${article.ai_title || article.title || 'Not available'}
+                                    </a>
+                                </h3>
+                                <span class="text-small color-fg-muted">
+                                    ${formattedDate}
+                                </span>
+                            </div>
+                            <div class="Box-body">
+                                <p class="text-small color-fg-muted mb-0">
+                                    ${article.summary || article.description || 'No summary available'}
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                $('#articles').html(articlesHtml);
+            }
+
+            // Helper function to decode HTML entities back to characters
+            function decodeHtml(html) {
+                var txt = document.createElement("textarea");
+                txt.innerHTML = html;
+                return txt.value;
+            }
+
+            $.ajax({
+                url: '/api/feeds',
+                method: 'GET',
+                success: function(response) {
+                    $('#loading').hide();
+                    allArticles = response;
+                    
+                    allArticles.forEach(article => {
+                        if (article.category) {
+                            categories.add(article.category);
+                        }
+                    });
+                    
+                    // Initialize category order if empty
+                    if (categoryOrder.length === 0) {
+                        categoryOrder = Array.from(categories);
+                        localStorage.setItem('categoryOrder', JSON.stringify(categoryOrder));
+                    }
+                    
+                    updateCategoryFilters();
+                    $('#articles').html('');
+                },
+                error: function(xhr, status, error) {
+                    $('#loading').hide();
+                    $('#articles').html(`
+                        <div class="flash flash-error">
+                            Error loading articles: ${error}
+                        </div>
+                    `);
+                }
+            });
+
+            // Event delegation for category filters
+            $(document).on('click', '.category-filter', function() {
+                $('.category-filter').removeClass('active');
+                $(this).addClass('active');
+                const category = $(this).data('category');
+                // Update the header text with the selected category
+                $('#content-header').text(decodeHtml(category));
+                filterArticles(category);
+            });
+
+            // Add click handlers for marking as read
+            $(document).on('click', '.article-box', function(e) {
+                const link = $(this).data('link');
+                $(this).addClass('read');
+                markAsRead(link);
+            });
+
+            // Handle link clicks separately to prevent double-triggering
+            $(document).on('click', '.article-box a', function(e) {
+                e.stopPropagation();
+                const link = $(this).attr('href');
+                $(this).closest('.article-box').addClass('read');
+                markAsRead(link);
+            });
+
+            // Add clear read history button to sidebar
+            $('#categories-list').append(`
+                <div class="border-top pt-2 mt-2">
+                    <button class="btn btn-sm btn-danger" id="clearReadHistory">
+                        Clear Read History
+                    </button>
+                </div>
+            `);
+
+            // Clear read history handler
+            $('#clearReadHistory').click(function() {
+                readArticles.clear();
+                localStorage.removeItem('readArticles');
+                $('.article-box').removeClass('read');
+                updateCategoryFilters();
+                resetContentHeader();  // Reset header when clearing history
+            });
+
+            // Update the toggle handler
+            $('#showOnlyUnread').change(function() {
+                showOnlyUnread = $(this).is(':checked');
+                const currentCategory = $('.category-filter.active').data('category');
+                filterArticles(currentCategory);
+                updateCategoryFilters();
+            });
+
+            // Update the mark all checkbox handler
+            $('#markAllRead').change(function() {
+                const isChecked = $(this).is(':checked');
+                const currentCategory = $('.category-filter.active').data('category');
+                
+                if (currentCategory && isChecked) {
+                    markAllAsRead(currentCategory);
+                }
+            });
+
+            // Add some CSS styles
+            const styles = `
+                <style>
+                    #markAllRead {
+                        cursor: pointer;
+                    }
+                    
+                    .mark-all-container {
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        color: #586069;
+                    }
+                </style>
+            `;
+            $('head').append(styles);
+
+            function markAllAsRead(category) {
+                const decodedCategory = decodeHtml(category);
+                
+                // Add loading overlay to main content
+                const $articlesContainer = $('#articles');
+                $articlesContainer.prepend(`
+                    <div id="marking-overlay" class="position-absolute top-0 left-0 width-full height-full d-flex flex-column flex-items-center flex-justify-center" style="background: rgba(255,255,255,0.8); z-index: 100;">
+                        <div class="Spinner"></div>
+                        <p class="mt-2">Marking articles as read...</p>
+                    </div>
+                `);
+                $articlesContainer.css('position', 'relative');
+                
+                // Mark all articles as read in memory
+                const categoryArticles = allArticles.filter(article => 
+                    article.category === decodedCategory
+                );
+                
+                // First update visual state of articles
+                categoryArticles.forEach(article => {
+                    $(`.article-box[data-link="${article.link}"]`).addClass('read');
+                });
+                
+                // Remove loading overlay and update sidebar after delay
+                setTimeout(() => {
+                    // Update read status in storage
+                    categoryArticles.forEach(article => {
+                        markAsRead(article.link);
+                    });
+                    
+                    $('#marking-overlay').fadeOut(300, function() {
+                        $(this).remove();
+                        $articlesContainer.css('position', '');
+                    });
+                    $('#markAllRead').prop('checked', false);
+                    
+                    // Update sidebar counts only after animation
+                    updateCategoryFilters();
+                }, 800);
+            }
+
+            // Add keyboard navigation
+            let currentArticleIndex = -1;
+            let visibleArticles = [];
+
+            function updateVisibleArticles() {
+                visibleArticles = $('.article-box:visible').toArray();
+                currentArticleIndex = -1;
+            }
+
+            function scrollToArticle(article) {
+                if (article) {
+                    $(article)[0].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    // Add visual feedback for current selection
+                    $('.article-box').removeClass('border-green');
+                    $(article).addClass('border-green');
+                    
+                    // Mark article as read
+                    const $article = $(article);
+                    const link = $article.data('link');
+                    $article.addClass('read');
+                    markAsRead(link);
+                }
+            }
+
+            // Add keyboard event listener
+            $(document).keydown(function(e) {
+                // Only handle 'n' and 'k' keys when not in input fields
+                if (!$(e.target).is('input, textarea')) {
+                    if (e.key === 'n') {
+                        e.preventDefault();
+                        if (currentArticleIndex === -1) {
+                            updateVisibleArticles();
+                            currentArticleIndex = 0;
+                        } else {
+                            currentArticleIndex = Math.min(currentArticleIndex + 1, visibleArticles.length - 1);
+                        }
+                        scrollToArticle(visibleArticles[currentArticleIndex]);
+                    } else if (e.key === 'k') {
+                        e.preventDefault();
+                        if (currentArticleIndex === -1) {
+                            updateVisibleArticles();
+                            currentArticleIndex = visibleArticles.length - 1;
+                        } else {
+                            currentArticleIndex = Math.max(currentArticleIndex - 1, 0);
+                        }
+                        scrollToArticle(visibleArticles[currentArticleIndex]);
+                    }
+                }
+            });
+
+            // Add CSS for selected article
+            $('head').append(`
+                <style>
+                    .border-green {
+                        border: 2px solid #2ea44f !important;
+                    }
+                </style>
+            `);
+
+            function sortArticles(articles, sortType) {
+                return [...articles].sort((a, b) => {
+                    const dateA = new Date(a.pub_date || '1970-01-01').getTime();
+                    const dateB = new Date(b.pub_date || '1970-01-01').getTime();
+                    
+                    return sortType === 'oldest' ? dateA - dateB : dateB - dateA;
+                });
+            }
+
+            // Add these styles to the existing styles section
+            const sortingStyles = `
+                <style>
+                    .BtnGroup-item.selected {
+                        background-color: #0366d6;
+                        color: white;
+                        border-color: #0366d6;
+                    }
+                    .BtnGroup-item:not(.selected):hover {
+                        background-color: #f6f8fa;
+                    }
+                    .BtnGroup-item {
+                        padding: 4px 16px;
+                        font-size: 16px;
+                        line-height: 1;
+                    }
+                    .BtnGroup-item .octicon {
+                        margin: 0 2px;
+                    }
+                    /* Add tooltip styles */
+                    .BtnGroup-item {
+                        position: relative;
+                    }
+                    .BtnGroup-item:hover::after {
+                        content: attr(title);
+                        position: absolute;
+                        bottom: -30px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: rgba(0,0,0,0.8);
+                        color: white;
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        white-space: nowrap;
+                        z-index: 1000;
+                    }
+                </style>
+            `;
+            $('head').append(sortingStyles);
+
+            // Replace the sorting event handlers
+            $('.BtnGroup-item').click(function() {
+                const sortType = $(this).data('sort');
+                $('.BtnGroup-item').removeClass('selected');
+                $(this).addClass('selected');
+                
+                const currentCategory = $('.category-filter.active').data('category');
+                let articlesToShow = currentCategory ? 
+                    allArticles.filter(article => article.category === decodeHtml(currentCategory)) : 
+                    [...allArticles];
+                
+                if (showOnlyUnread) {
+                    articlesToShow = articlesToShow.filter(article => !isArticleRead(article.link));
+                }
+                
+                const sortedArticles = sortArticles(articlesToShow, sortType);
+                renderArticles(sortedArticles);
+                updateVisibleArticles();
+            });
+
+            // Reset header text when clearing filters or initializing
+            function resetContentHeader() {
+                $('#content-header').text('RSS Articles');
+            }
+
+            // Add click handler for star icon
+            $(document).on('click', '.star-icon', function(e) {
+                e.stopPropagation();
+                const category = $(this).data('category');
+                
+                if (favoriteCategories.has(category)) {
+                    favoriteCategories.delete(category);
+                } else {
+                    favoriteCategories.add(category);
+                }
+                
+                localStorage.setItem('favoriteCategories', JSON.stringify(Array.from(favoriteCategories)));
+                updateCategoryFilters();
+            });
+        });
+    </script>
 </body>
 </html>
