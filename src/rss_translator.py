@@ -4,6 +4,7 @@ from deep_translator import GoogleTranslator
 from typing import List
 from datetime import datetime
 import pytz
+from langdetect import detect
 
 class RSSTranslator:
     def __init__(self, supabase: Client, logger: logging.Logger):
@@ -11,11 +12,24 @@ class RSSTranslator:
         self.logger = logger
         self.translator = GoogleTranslator(source='auto', target='en')
 
+    def is_english(self, text: str) -> bool:
+        """Check if text is already in English"""
+        try:
+            if not text or len(text.strip()) < 10:  # Skip very short texts
+                return True
+            return detect(text) == 'en'
+        except Exception as e:
+            self.logger.warning(f"Language detection error: {str(e)}")
+            return False
+
     def translate_text(self, text: str) -> str:
-        """Translate text to English"""
+        """Translate text to English if not already in English"""
         try:
             if not text:
                 return ""
+            if self.is_english(text):
+                self.logger.debug("Text already in English, skipping translation")
+                return text
             return self.translator.translate(text)
         except Exception as e:
             self.logger.error(f"Translation error: {str(e)}")
