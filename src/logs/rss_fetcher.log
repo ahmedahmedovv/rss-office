@@ -2008,3 +2008,14 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 15:04:38,303 - ERROR - Error in Mistral API request: API error occurred: Status 429
 {"message":"Requests rate limit exceeded"}
 2024-12-13 15:04:40,482 - INFO - Successfully processed entry 707
+2024-12-13 15:05:44,987 - INFO - Saved 1 entries from https://www.rp.pl/rss/1019
+2024-12-13 15:05:46,676 - INFO - Saved 1 entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 15:05:53,802 - INFO - Translated entry 1290
+2024-12-13 15:05:55,344 - INFO - Translated entry 1291
+2024-12-13 15:05:55,417 - INFO - No more entries to translate
+2024-12-13 15:06:03,785 - INFO - Successfully processed entry 1291
+2024-12-13 15:06:11,112 - INFO - Successfully processed entry 919
+2024-12-13 15:06:18,484 - INFO - Successfully processed entry 716
+2024-12-13 15:06:26,119 - INFO - Successfully processed entry 718
+2024-12-13 15:06:33,428 - INFO - Successfully processed entry 719
+2024-12-13 15:06:41,694 - INFO - Successfully processed entry 721
