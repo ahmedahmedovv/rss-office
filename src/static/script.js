@@ -1,5 +1,6 @@
 let readFeeds = new Set(JSON.parse(localStorage.getItem('readFeeds') || '[]'));
 let currentCategory = 'all';
+let showOnlyUnread = false;
 
 function loadFeeds() {
     $.ajax({
@@ -31,10 +32,15 @@ function loadFeeds() {
             `).join('');
             $('#category-list').html(categoryHtml);
 
-            // Filter feeds by category
-            const filteredFeeds = currentCategory === 'all' 
+            // Filter feeds by category and read status
+            let filteredFeeds = currentCategory === 'all' 
                 ? feeds 
                 : feeds.filter(feed => feed.category === currentCategory);
+
+            // Apply unread filter if enabled
+            if (showOnlyUnread) {
+                filteredFeeds = filteredFeeds.filter(feed => !readFeeds.has(feed.id));
+            }
 
             // Update feed count and list
             $('#feed-count').text(filteredFeeds.length);
@@ -46,6 +52,9 @@ function loadFeeds() {
                 </div>
             `).join('');
             $('#feed-list').html(html);
+
+            // Update toggle button state
+            $('#show-unread-btn').toggleClass('selected', showOnlyUnread);
         },
         error: () => {
             $('#feed-list').html(
@@ -56,17 +65,37 @@ function loadFeeds() {
 }
 
 $(document).ready(() => {
+    // Add toggle button to HTML
+    $('.d-flex.flex-items-center.mb-3').append(`
+        <button class="btn ml-2" id="show-unread-btn">
+            Show Unread Only
+        </button>
+    `);
+
     loadFeeds();
 
-    // Mark as read
+    // Add toggle button handler
+    $(document).on('click', '#show-unread-btn', function() {
+        showOnlyUnread = !showOnlyUnread;
+        $(this).toggleClass('selected');
+        loadFeeds();
+    });
+
+    // Existing event handlers...
     $(document).on('click', '.feed-item', function() {
         const id = $(this).data('id');
         $(this).toggleClass('read');
-        readFeeds.has(id) ? readFeeds.delete(id) : readFeeds.add(id);
+        
+        if (readFeeds.has(id)) {
+            readFeeds.delete(id);
+        } else {
+            readFeeds.add(id);
+        }
+        
         localStorage.setItem('readFeeds', JSON.stringify([...readFeeds]));
+        loadFeeds();
     });
 
-    // Category selection
     $(document).on('click', '.category-item', function() {
         currentCategory = $(this).data('category');
         $('.category-item').removeClass('active');
@@ -74,6 +103,5 @@ $(document).ready(() => {
         loadFeeds();
     });
 
-    // Refresh
     $('#refresh-btn').click(loadFeeds);
 }); 
