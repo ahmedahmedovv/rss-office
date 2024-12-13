@@ -77,7 +77,7 @@ class RSSSummarizer:
 
     def create_summary(self, title: str, description: str) -> Optional[str]:
         """
-        Generate a summary using Mistral AI.
+        Generate a short summary using Mistral AI.
         
         Args:
             title: Article title
@@ -88,11 +88,17 @@ class RSSSummarizer:
         """
         messages = [{
             "role": "user",
-            "content": f"""Please provide a brief, one-paragraph summary IN ENGLISH of the following article:
+            "content": f"""Summarize this article in 2-3 concise sentences IN ENGLISH:
             Title: {title}
             Content: {description}
             
-            Keep the summary concise and focused on the key points. Always respond in English regardless of the input language."""
+            Rules:
+            1. Maximum 50 words
+            2. Focus only on the most important point
+            3. Use simple, clear language
+            4. Always respond in English regardless of input language
+            
+            Respond with just the summary, no additional text."""
         }]
         
         return self._make_mistral_request(messages)

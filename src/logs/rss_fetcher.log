@@ -507,3 +507,132 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 12:45:27,321 - INFO - Successfully processed entry 386
 2024-12-13 12:45:41,358 - INFO - Successfully processed entry 388
 2024-12-13 12:45:41,442 - INFO - No more entries to summarize
+2024-12-13 13:11:29,545 - INFO - Saved 1 entries from https://notesfrompoland.com/feed/
+2024-12-13 13:11:30,653 - INFO - Saved 9 entries from https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 13:11:31,589 - INFO - Saved 5 entries from https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 13:11:32,539 - INFO - Saved 7 entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 13:11:33,530 - INFO - Saved 12 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 13:11:34,641 - INFO - Saved 5 entries from https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 13:11:44,716 - INFO - Saved 6 entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 13:11:46,017 - INFO - Saved 1 entries from https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 13:11:46,967 - INFO - Saved 3 entries from https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 13:11:53,704 - INFO - Saved 1 entries from https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 13:12:02,739 - INFO - Saved 1 entries from https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 13:12:08,507 - INFO - Saved 1 entries from https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 13:12:08,934 - INFO - Saved 16 entries from https://cyberdefence24.pl/_rss
+2024-12-13 13:12:09,695 - INFO - Saved 8 entries from https://defence24.com/_rss
+2024-12-13 13:12:10,175 - INFO - Saved 6 entries from https://infosecurity24.pl/_rss
+2024-12-13 13:12:10,704 - INFO - Translated entry 440
+2024-12-13 13:12:10,809 - INFO - Translated entry 400
+2024-12-13 13:12:11,312 - INFO - Translated entry 401
+2024-12-13 13:12:11,408 - INFO - Translated entry 402
+2024-12-13 13:12:11,503 - INFO - Translated entry 403
+2024-12-13 13:12:11,597 - INFO - Translated entry 404
+2024-12-13 13:12:11,728 - INFO - Translated entry 405
+2024-12-13 13:12:11,836 - INFO - Translated entry 406
+2024-12-13 13:12:11,939 - INFO - Translated entry 407
+2024-12-13 13:12:12,052 - INFO - Translated entry 408
+2024-12-13 13:12:12,266 - INFO - Translated entry 409
+2024-12-13 13:12:12,381 - INFO - Translated entry 410
+2024-12-13 13:12:12,472 - INFO - Translated entry 411
+2024-12-13 13:12:12,569 - INFO - Translated entry 412
+2024-12-13 13:12:12,675 - INFO - Translated entry 413
+2024-12-13 13:12:12,761 - INFO - Translated entry 414
+2024-12-13 13:12:12,855 - INFO - Translated entry 415
+2024-12-13 13:12:12,965 - INFO - Translated entry 416
+2024-12-13 13:12:13,061 - INFO - Translated entry 417
+2024-12-13 13:12:13,162 - INFO - Translated entry 418
+2024-12-13 13:12:13,348 - INFO - Translated entry 419
+2024-12-13 13:12:13,446 - INFO - Translated entry 420
+2024-12-13 13:12:13,554 - INFO - Translated entry 421
+2024-12-13 13:12:13,642 - INFO - Translated entry 422
+2024-12-13 13:12:13,735 - INFO - Translated entry 423
+2024-12-13 13:12:13,827 - INFO - Translated entry 424
+2024-12-13 13:12:13,919 - INFO - Translated entry 425
+2024-12-13 13:12:14,028 - INFO - Translated entry 426
+2024-12-13 13:12:14,624 - INFO - Translated entry 427
+2024-12-13 13:12:14,711 - INFO - Translated entry 428
+2024-12-13 13:12:15,257 - INFO - Translated entry 429
+2024-12-13 13:12:17,705 - INFO - Translated entry 430
+2024-12-13 13:12:18,189 - INFO - Translated entry 431
+2024-12-13 13:12:19,713 - INFO - Translated entry 432
+2024-12-13 13:12:21,635 - INFO - Translated entry 433
+2024-12-13 13:12:22,108 - INFO - Translated entry 434
+2024-12-13 13:12:25,009 - INFO - Translated entry 435
+2024-12-13 13:12:25,140 - INFO - Translated entry 390
+2024-12-13 13:12:25,232 - INFO - Translated entry 391
+2024-12-13 13:12:25,339 - INFO - Translated entry 392
+2024-12-13 13:12:25,503 - INFO - Translated entry 393
+2024-12-13 13:12:26,046 - INFO - Translated entry 394
+2024-12-13 13:12:26,172 - INFO - Translated entry 395
+2024-12-13 13:12:26,268 - INFO - Translated entry 396
+2024-12-13 13:12:26,361 - INFO - Translated entry 397
+2024-12-13 13:12:26,459 - INFO - Translated entry 398
+2024-12-13 13:12:26,549 - INFO - Translated entry 399
+2024-12-13 13:12:28,137 - INFO - Translated entry 436
+2024-12-13 13:12:28,697 - INFO - Translated entry 437
+2024-12-13 13:12:31,476 - INFO - Translated entry 438
+2024-12-13 13:12:31,659 - INFO - Translated entry 439
+2024-12-13 13:12:31,766 - INFO - Translated entry 441
+2024-12-13 13:12:34,349 - INFO - Translated entry 442
+2024-12-13 13:12:37,025 - INFO - Translated entry 443
+2024-12-13 13:12:39,689 - INFO - Translated entry 444
+2024-12-13 13:12:41,240 - INFO - Translated entry 445
+2024-12-13 13:12:43,863 - INFO - Translated entry 446
+2024-12-13 13:12:46,425 - INFO - Translated entry 447
+2024-12-13 13:12:48,196 - INFO - Translated entry 448
+2024-12-13 13:12:50,168 - INFO - Translated entry 449
+2024-12-13 13:12:51,839 - INFO - Translated entry 450
+2024-12-13 13:12:53,753 - INFO - Translated entry 451
+2024-12-13 13:12:55,403 - INFO - Translated entry 452
+2024-12-13 13:12:55,859 - INFO - Translated entry 453
+2024-12-13 13:12:57,486 - INFO - Translated entry 454
+2024-12-13 13:12:59,643 - INFO - Translated entry 455
+2024-12-13 13:13:02,436 - INFO - Translated entry 456
+2024-12-13 13:13:05,300 - INFO - Translated entry 457
+2024-12-13 13:13:05,416 - INFO - Translated entry 458
+2024-12-13 13:13:05,508 - INFO - Translated entry 459
+2024-12-13 13:13:05,681 - INFO - Translated entry 460
+2024-12-13 13:13:05,807 - INFO - Translated entry 461
+2024-12-13 13:13:05,899 - INFO - Translated entry 462
+2024-12-13 13:13:05,982 - INFO - Translated entry 463
+2024-12-13 13:13:06,084 - INFO - Translated entry 464
+2024-12-13 13:13:06,176 - INFO - Translated entry 465
+2024-12-13 13:13:08,155 - INFO - Translated entry 466
+2024-12-13 13:13:10,763 - INFO - Translated entry 467
+2024-12-13 13:13:12,515 - INFO - Translated entry 468
+2024-12-13 13:13:14,295 - INFO - Translated entry 469
+2024-12-13 13:13:15,916 - INFO - Translated entry 470
+2024-12-13 13:13:17,507 - INFO - Translated entry 471
+2024-12-13 13:13:17,592 - INFO - No more entries to translate
+2024-12-13 13:13:24,049 - INFO - Successfully processed entry 456
+2024-12-13 13:13:30,602 - INFO - Successfully processed entry 457
+2024-12-13 13:13:41,067 - INFO - Successfully processed entry 401
+2024-12-13 13:13:47,556 - INFO - Successfully processed entry 402
+2024-12-13 13:13:55,413 - INFO - Successfully processed entry 403
+2024-12-13 13:14:05,684 - INFO - Successfully processed entry 404
+2024-12-13 13:14:19,401 - INFO - Successfully processed entry 405
+2024-12-13 13:14:29,884 - INFO - Successfully processed entry 407
+2024-12-13 13:14:43,916 - INFO - Successfully processed entry 408
+2024-12-13 13:14:51,785 - INFO - Successfully processed entry 411
+2024-12-13 13:15:02,168 - INFO - Successfully processed entry 414
+2024-12-13 13:15:12,159 - INFO - Successfully processed entry 415
+2024-12-13 13:15:19,074 - INFO - Successfully processed entry 417
+2024-12-13 13:15:33,626 - INFO - No more entries to translate
+2024-12-13 13:15:43,491 - WARNING - Invalid category returned: Polish History
+2024-12-13 13:15:43,641 - INFO - Successfully processed entry 418
+2024-12-13 13:15:55,788 - INFO - Successfully processed entry 419
+2024-12-13 13:16:04,627 - INFO - Successfully processed entry 421
+2024-12-13 13:16:18,679 - INFO - Successfully processed entry 422
+2024-12-13 13:16:26,375 - WARNING - Invalid category returned: Travel
+2024-12-13 13:16:26,538 - INFO - Successfully processed entry 424
+2024-12-13 13:16:40,578 - WARNING - Invalid category returned: Crime
+2024-12-13 13:16:40,743 - INFO - Successfully processed entry 425
+2024-12-13 13:16:51,796 - INFO - Successfully processed entry 428
+2024-12-13 13:17:07,038 - INFO - Successfully processed entry 430
+2024-12-13 13:17:14,586 - INFO - Successfully processed entry 431
+2024-12-13 13:17:25,508 - INFO - Successfully processed entry 432
+2024-12-13 13:17:35,280 - INFO - Successfully processed entry 434
+2024-12-13 13:17:44,234 - INFO - Successfully processed entry 435
+2024-12-13 13:17:52,742 - INFO - Successfully processed entry 390
+2024-12-13 13:18:03,966 - INFO - Successfully processed entry 391

@@ -1,2 +1,17 @@
 https://notesfrompoland.com/feed/
+https://politepol.com/fd/b8Ymwy4PRsNS.xml
+https://politepol.com/fd/aN6R8Je2fUr5.xml
+https://politepol.com/fd/1jNMAkmHDN1t.xml
+https://politepol.com/fd/21fLEtcxQnMj.xml
+https://politepol.com/fd/eQQIMEUlFKuU.xml
+https://politepol.com/fd/o3jNxZcrpo6w.xml
+https://politepol.com/fd/3F3XvYFg1X1A.xml
+https://politepol.com/fd/TWSNDgA2UrNC.xml
+https://politepol.com/fd/vyPArJmbermO.xml
+https://politepol.com/fd/M0YpTDNrnk8x.xml
+https://politepol.com/fd/2oeBhN2Jpeze.xml
+https://politepol.com/fd/Fltoq0tmu5kT.xml
+https://cyberdefence24.pl/_rss
 https://defence24.pl/_RSS
+https://defence24.com/_rss
+https://infosecurity24.pl/_rss

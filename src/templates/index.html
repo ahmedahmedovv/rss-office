@@ -4,6 +4,137 @@
     <meta charset="UTF-8">
     <title>RSS Feeds</title>
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+    <style>
+        /* Enhanced base styles */
+        body {
+            background-color: #f4f1ea;
+            color: #2c3e50;
+        }
+
+        /* Improved header */
+        .Box-header {
+            background-color: #fff;
+            border-bottom: 2px solid #e1e4e8;
+            padding: 1rem 1.5rem;
+        }
+
+        .Box-header h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+
+        /* Enhanced feed items */
+        .feed-item {
+            padding: 1.5rem 2rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid #e1e4e8;
+        }
+        
+        .feed-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .feed-title {
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        /* Improved Labels */
+        .Label {
+            padding: 0.3em 0.8em;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .Label--accent {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        /* Enhanced sidebar */
+        .SideNav {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .SideNav-item {
+            padding: 1rem 1.5rem;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .SideNav-item:hover {
+            background-color: #f8f9fa;
+            border-left-color: #6c757d;
+        }
+
+        .SideNav-item.selected {
+            background-color: #f8f9fa;
+            border-left-color: #0366d6;
+            font-weight: 600;
+        }
+
+        /* Counter improvements */
+        .Counter {
+            background-color: #0366d6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        /* Loading state */
+        .Spinner {
+            margin: 2rem auto;
+        }
+
+        /* Read/Unread states */
+        .feed-item.read {
+            opacity: 0.8;
+        }
+
+        .feed-item.unread {
+            border-left: 4px solid #0366d6;
+        }
+
+        /* Animations */
+        .feed-item {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        /* Improved responsiveness */
+        @media (max-width: 768px) {
+            .feed-item {
+                padding: 1rem;
+            }
+            
+            .SideNav-item {
+                padding: 0.75rem 1rem;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
 </head>
 <body>
     <!-- Layout container -->
@@ -37,7 +168,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         let allFeeds = [];
+        let readFeeds = new Set(JSON.parse(localStorage.getItem('readFeeds') || '[]'));
         
+        // Add loading state
+        function showLoading() {
+            $('#feeds').html('<div class="Box-body text-center"><div class="Spinner"></div></div>');
+        }
+
         // Load all feeds and categories
         $.get('/api/feeds')
             .done(feeds => {
@@ -46,19 +183,48 @@
                 updateCategories(feeds);
             })
             .fail(() => {
-                $('#feeds').html('<div class="Box-body"><div class="flash flash-error">Error loading feeds</div></div>');
+                $('#feeds').html(`
+                    <div class="Box-body">
+                        <div class="flash flash-error mx-auto" style="max-width: 500px;">
+                            <svg class="octicon octicon-alert" viewBox="0 0 16 16" width="16" height="16">
+                                <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+                            </svg>
+                            <strong>Error loading feeds.</strong> Please try refreshing the page.
+                        </div>
+                    </div>
+                `);
             });
 
         function updateFeedDisplay(feeds) {
             $('#count').text(feeds.length);
             $('#total-count').text(feeds.length);
-            $('#feeds').html(feeds.map(feed => `
-                <div class="Box-row">
-                    <h4>${feed.ai_title || 'Untitled'}</h4>
+            
+            const feedsHtml = feeds.map(feed => `
+                <div class="Box-row feed-item ${readFeeds.has(feed.id) ? 'read' : 'unread'} animate__animated animate__fadeIn" 
+                     data-feed-id="${feed.id}">
+                    <h4 class="feed-title">
+                        ${feed.ai_title || 'Untitled'}
+                        ${!readFeeds.has(feed.id) ? '<span class="Label Label--accent ml-2">New</span>' : ''}
+                    </h4>
                     <p>${feed.summary || 'No summary'}</p>
                     ${feed.category ? `<span class="Label">${feed.category}</span>` : ''}
+                    <div class="mt-2 text-small text-gray">
+                        Click to mark as ${readFeeds.has(feed.id) ? 'unread' : 'read'}
+                    </div>
                 </div>
-            `).join(''));
+            `).join('');
+
+            $('#feeds').html(feedsHtml);
+
+            // Add click handler with animation
+            $('.feed-item').click(function() {
+                const feedId = $(this).data('feed-id');
+                $(this).addClass('animate__animated animate__pulse');
+                setTimeout(() => {
+                    markAsRead(feedId);
+                    $(this).removeClass('animate__animated animate__pulse');
+                }, 300);
+            });
         }
 
         function updateCategories(feeds) {
@@ -82,6 +248,34 @@
                     : allFeeds.filter(feed => feed.category === category);
                 updateFeedDisplay(filteredFeeds);
             });
+        }
+
+        function markAsRead(feedId) {
+            // Toggle read status
+            if (readFeeds.has(feedId)) {
+                // If it's already read, mark as unread
+                readFeeds.delete(feedId);
+                
+                // Update UI to unread state
+                $(`.feed-item[data-feed-id="${feedId}"]`)
+                    .removeClass('read')
+                    .addClass('unread')
+                    .find('.feed-title')
+                    .append('<span class="Label Label--accent ml-2">New</span>');
+            } else {
+                // If it's unread, mark as read
+                readFeeds.add(feedId);
+                
+                // Update UI to read state
+                $(`.feed-item[data-feed-id="${feedId}"]`)
+                    .addClass('read')
+                    .removeClass('unread')
+                    .find('.Label--accent')
+                    .remove();
+            }
+            
+            // Save updated read status to localStorage
+            localStorage.setItem('readFeeds', JSON.stringify([...readFeeds]));
         }
     </script>
 </body>
