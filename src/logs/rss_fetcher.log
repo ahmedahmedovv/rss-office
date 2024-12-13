@@ -991,3 +991,62 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 14:01:58,011 - INFO - Successfully processed entry 564
 2024-12-13 14:02:06,067 - INFO - Successfully processed entry 566
 2024-12-13 14:02:16,544 - INFO - Successfully processed entry 568
+2024-12-13 14:02:28,995 - INFO - Successfully processed entry 601
+2024-12-13 14:02:38,564 - INFO - Successfully processed entry 572
+2024-12-13 14:02:44,976 - INFO - Successfully processed entry 574
+2024-12-13 14:02:55,043 - INFO - Successfully processed entry 576
+2024-12-13 14:03:00,445 - INFO - Successfully processed entry 577
+2024-12-13 14:03:07,971 - INFO - Successfully processed entry 580
+2024-12-13 14:03:16,367 - INFO - Successfully processed entry 583
+2024-12-13 14:03:27,710 - INFO - Successfully processed entry 585
+2024-12-13 14:03:35,446 - INFO - Successfully processed entry 587
+2024-12-13 14:03:47,102 - INFO - Successfully processed entry 588
+2024-12-13 14:03:54,997 - INFO - Successfully processed entry 590
+2024-12-13 14:04:02,519 - INFO - Successfully processed entry 593
+2024-12-13 14:04:16,663 - INFO - Successfully processed entry 596
+2024-12-13 14:04:27,327 - INFO - Successfully processed entry 598
+2024-12-13 14:04:38,025 - INFO - Successfully processed entry 600
+2024-12-13 14:04:48,184 - INFO - Successfully processed entry 604
+2024-12-13 14:04:59,295 - INFO - Successfully processed entry 606
+2024-12-13 14:05:12,244 - INFO - Successfully processed entry 608
+2024-12-13 14:05:19,308 - INFO - Successfully processed entry 610
+2024-12-13 14:05:27,709 - INFO - Successfully processed entry 612
+2024-12-13 14:05:36,331 - WARNING - Invalid category returned: Polish History
+2024-12-13 14:05:36,504 - INFO - Successfully processed entry 613
+2024-12-13 14:05:45,853 - INFO - Successfully processed entry 617
+2024-12-13 14:05:54,580 - INFO - Successfully processed entry 619
+2024-12-13 14:05:54,672 - INFO - No more entries to summarize
+2024-12-13 14:07:09,710 - INFO - Saved 1 entries from https://notesfrompoland.com/feed/
+2024-12-13 14:07:10,977 - INFO - Saved 1 entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 14:07:11,503 - INFO - Saved 2 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 14:07:12,386 - INFO - Saved 3 entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 14:07:13,278 - INFO - Saved 1 entries from https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 14:07:15,480 - INFO - Saved 1 entries from https://defence24.pl/_RSS
+2024-12-13 14:07:16,666 - INFO - Saved 6 entries from https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 14:07:23,397 - INFO - Saved 1 entries from https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 14:07:26,410 - INFO - Saved 4 entries from https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 14:07:26,820 - INFO - Saved 3 entries from https://www.bankier.pl/rss/wiadomosci.xml
+2024-12-13 14:07:27,925 - INFO - Translated entry 621
+2024-12-13 14:07:28,003 - INFO - Translated entry 622
+2024-12-13 14:07:28,083 - INFO - Translated entry 623
+2024-12-13 14:07:29,746 - INFO - Translated entry 624
+2024-12-13 14:07:30,292 - INFO - Translated entry 625
+2024-12-13 14:07:30,934 - INFO - Translated entry 626
+2024-12-13 14:07:32,638 - INFO - Translated entry 627
+2024-12-13 14:07:34,352 - INFO - Translated entry 628
+2024-12-13 14:07:35,759 - INFO - Translated entry 629
+2024-12-13 14:07:37,349 - INFO - Translated entry 630
+2024-12-13 14:07:38,014 - INFO - Translated entry 631
+2024-12-13 14:07:39,664 - INFO - Translated entry 632
+2024-12-13 14:07:40,248 - INFO - Translated entry 633
+2024-12-13 14:07:40,847 - INFO - Translated entry 634
+2024-12-13 14:07:42,475 - INFO - Translated entry 635
+2024-12-13 14:07:43,072 - INFO - Translated entry 636
+2024-12-13 14:07:43,648 - INFO - Translated entry 637
+2024-12-13 14:07:44,274 - INFO - Translated entry 638
+2024-12-13 14:07:44,872 - INFO - Translated entry 639
+2024-12-13 14:07:46,772 - INFO - Translated entry 640
+2024-12-13 14:07:48,491 - INFO - Translated entry 641
+2024-12-13 14:07:50,424 - INFO - Translated entry 642
+2024-12-13 14:07:50,513 - INFO - Translated entry 620
+2024-12-13 14:07:50,595 - INFO - No more entries to translate
