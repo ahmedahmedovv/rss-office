@@ -308,3 +308,32 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 12:12:29,072 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
 2024-12-13 12:12:31,035 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
 2024-12-13 12:12:31,038 - ERROR - Failed to process entry 265: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:12:51,498 - INFO - No more entries to translate
+2024-12-13 12:13:03,517 - INFO - Successfully processed entry 265
+2024-12-13 12:13:12,513 - INFO - Successfully processed entry 266
+2024-12-13 12:13:25,210 - INFO - Successfully processed entry 268
+2024-12-13 12:13:34,706 - INFO - Successfully processed entry 270
+2024-12-13 12:13:46,387 - INFO - Successfully processed entry 272
+2024-12-13 12:13:52,919 - INFO - Successfully processed entry 273
+2024-12-13 12:14:09,414 - INFO - Successfully processed entry 276
+2024-12-13 12:14:14,592 - INFO - Successfully processed entry 292
+2024-12-13 12:14:22,182 - INFO - Successfully processed entry 279
+2024-12-13 12:14:29,116 - INFO - Successfully processed entry 280
+2024-12-13 12:14:39,831 - INFO - Successfully processed entry 281
+2024-12-13 12:14:50,425 - INFO - Successfully processed entry 282
+2024-12-13 12:15:00,265 - INFO - Successfully processed entry 284
+2024-12-13 12:15:13,076 - INFO - Successfully processed entry 285
+2024-12-13 12:15:28,253 - INFO - Successfully processed entry 287
+2024-12-13 12:15:39,448 - INFO - Successfully processed entry 288
+2024-12-13 12:15:49,404 - INFO - Successfully processed entry 290
+2024-12-13 12:16:00,892 - INFO - Successfully processed entry 291
+2024-12-13 12:16:11,864 - INFO - Successfully processed entry 263
+2024-12-13 12:16:20,424 - INFO - Successfully processed entry 294
+2024-12-13 12:16:30,609 - INFO - Successfully processed entry 296
+2024-12-13 12:16:36,861 - INFO - Successfully processed entry 298
+2024-12-13 12:16:51,654 - INFO - Successfully processed entry 299
+2024-12-13 12:17:07,172 - INFO - Successfully processed entry 300
+2024-12-13 12:17:17,677 - INFO - Successfully processed entry 301
+2024-12-13 12:17:30,394 - INFO - Successfully processed entry 303
+2024-12-13 12:17:37,037 - INFO - Successfully processed entry 264
+2024-12-13 12:17:50,010 - INFO - Successfully processed entry 267

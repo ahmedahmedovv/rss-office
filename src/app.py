@@ -16,18 +16,46 @@ supabase = create_client(
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Fetch categories for sidebar
+    categories_response = supabase.table('rss_feeds')\
+        .select('category')\
+        .not_.is_('category', None)\
+        .execute()
+    
+    # Extract unique categories
+    categories = sorted(set(entry['category'] for entry in categories_response.data if entry['category']))
+    
+    # Since we don't have read_status, we'll just return the categories without unread counts
+    return render_template('index.html', 
+                         categories=categories)
 
 @app.route('/api/entries')
 def get_entries():
-    # Fetch entries from Supabase with correct table name and columns
+    # Fetch only necessary fields
     response = supabase.table('rss_feeds').select(
-        "title",
-        "source_url",  # This is the source
         "category",
-        "pub_date"     # This is the published date
+        "summary"
     ).order('pub_date', desc=True).execute()
+    
     return jsonify(response.data)
+
+@app.route('/get_articles')
+def get_articles():
+    try:
+        # Fetch all articles with complete information
+        response = supabase.table('rss_feeds').select(
+            "*"
+        ).order('optimized_at', desc=True).execute()
+        
+        return jsonify({
+            "status": "success",
+            "data": response.data
+        })
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -4,62 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSS Entries</title>
-    <!-- Primer CSS -->
+    <!-- External Dependencies -->
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@primer/octicons/build/build.css" />
+    <style>
+        body {
+            background-color: #fbeede;
+        }
+        .Box {
+            background-color: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .Box-header {
+            background-color: rgba(251, 238, 222, 0.3);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 8px 16px !important;
+        }
+        .article-box {
+            transition: opacity 0.3s ease;
+            margin-bottom: 12px !important;
+            padding: 1rem;
+        }
+        .article-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        .Box-title {
+            font-size: 1.1rem !important;
+        }
+        .Box-body {
+            padding: 8px 16px !important;
+        }
+    </style>
 </head>
 <body class="container-lg px-3 py-5">
     <div class="Box">
-        <div class="Box-header">
-            <h2 class="Box-title">RSS Entries</h2>
-        </div>
-        <div class="Box-body">
-            <div class="TableObject">
-                <div class="TableObject-item">
-                    <button class="btn btn-primary" onclick="refreshData()">Refresh Data</button>
+        <div class="Box-header d-flex flex-items-center">
+            <h2 class="Box-title flex-auto">RSS Entries</h2>
+            <div class="d-flex flex-items-center">
+                <button class="btn btn-primary mr-2" onclick="refreshData()">
+                    <span class="octicon octicon-sync"></span>
+                    Refresh Data
+                </button>
+                <div class="BtnGroup" role="group">
+                    <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
+                        ▼
+                    </button>
+                    <button class="BtnGroup-item btn btn-sm" data-sort="oldest" title="Oldest first">
+                        ▲
+                    </button>
                 </div>
             </div>
-            <div class="mt-3">
-                <table class="data-table width-full">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Source</th>
-                            <th>Category</th>
-                            <th>Published Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="entries-table-body">
-                        <!-- Data will be populated here -->
-                    </tbody>
-                </table>
-            </div>
         </div>
+        <div id="loading" class="Box-body text-center">
+            <div class="Spinner"></div>
+            <p>Loading entries...</p>
+        </div>
+        <div id="entries" class="Box-body"></div>
     </div>
 
     <script>
-        function refreshData() {
-            fetch('/api/entries')
-                .then(response => response.json())
-                .then(data => {
-                    const tableBody = document.getElementById('entries-table-body');
-                    tableBody.innerHTML = '';
-                    
-                    data.forEach(entry => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td class="p-2">${entry.title || '-'}</td>
-                            <td class="p-2">${entry.source_url || '-'}</td>
-                            <td class="p-2">${entry.category || '-'}</td>
-                            <td class="p-2">${new Date(entry.pub_date).toLocaleDateString() || '-'}</td>
-                        `;
-                        tableBody.appendChild(row);
+        $(document).ready(function() {
+            function refreshData() {
+                $('#loading').show();
+                $('#entries').hide();
+                
+                fetch('/api/entries')
+                    .then(response => response.json())
+                    .then(data => {
+                        renderEntries(data);
+                        $('#loading').hide();
+                        $('#entries').show();
+                    })
+                    .catch(error => {
+                        $('#loading').hide();
+                        $('#entries').html(`
+                            <div class="flash flash-error">
+                                Error loading entries: ${error}
+                            </div>
+                        `).show();
                     });
-                })
-                .catch(error => console.error('Error:', error));
-        }
+            }
 
-        // Load data when page loads
-        document.addEventListener('DOMContentLoaded', refreshData);
+            function renderEntries(entries) {
+                let entriesHtml = '';
+                
+                entries.forEach(entry => {
+                    entriesHtml += `
+                        <div class="Box mb-3 article-box">
+                            <div class="Box-header d-flex flex-items-center">
+                                <span class="Label Label--secondary">${entry.category || 'Uncategorized'}</span>
+                            </div>
+                            <div class="Box-body">
+                                <p class="color-fg-muted">${entry.summary || 'No summary available'}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                $('#entries').html(entriesHtml);
+            }
+
+            // Sort functionality
+            $('.BtnGroup-item').click(function() {
+                $('.BtnGroup-item').removeClass('selected');
+                $(this).addClass('selected');
+                refreshData();
+            });
+
+            // Initial load
+            refreshData();
+        });
     </script>
 </body>
 </html>
