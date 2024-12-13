@@ -19,6 +19,7 @@ class RSSSummarizer:
             result = self.supabase.table("rss_feeds")\
                 .select("id", "title", "description")\
                 .is_("summarized_at", "null")\
+                .is_("ai_title_generated_at", "null")\
                 .not_.is_("translated_at", "null")\
                 .limit(batch_size)\
                 .execute()
@@ -74,6 +75,51 @@ class RSSSummarizer:
             self.logger.error(f"Error generating summary after {self.config['max_retries']} attempts: {str(e)}")
             return ""
 
+    def create_ai_title(self, title: str, description: str, retry_count: int = 0) -> str:
+        """Generate AI title using Mistral AI with retry logic"""
+        try:
+            if not self.mistral:
+                raise ValueError("Mistral client not properly initialized")
+
+            if retry_count == 0:
+                time.sleep(1)
+            else:
+                delay = self.config['retry_delay_seconds'] * (2 ** (retry_count - 1))
+                self.logger.warning(
+                    f"Rate limit hit, waiting {delay} seconds before retry "
+                    f"(attempt {retry_count + 1}/{self.config['max_retries']})"
+                )
+                time.sleep(delay)
+
+            messages = [
+                {
+                    "role": "user",
+                    "content": f"""Create a concise, engaging title (maximum 100 characters) for this article that captures its main point:
+                    Original Title: {title}
+                    Content: {description}
+                    
+                    Respond with only the new title, no additional text."""
+                }
+            ]
+
+            response = self.mistral.chat.complete(
+                model=self.config['model'],
+                messages=messages
+            )
+
+            if response and response.choices:
+                return response.choices[0].message.content.strip()
+            return ""
+            
+        except Exception as e:
+            if "rate limit" in str(e).lower() and retry_count < self.config['max_retries']:
+                return self.create_ai_title(title, description, retry_count + 1)
+            elif retry_count < self.config['max_retries']:
+                self.logger.error(f"Error in AI title generation: {str(e)}")
+                return self.create_ai_title(title, description, retry_count + 1)
+            self.logger.error(f"Error generating AI title after {self.config['max_retries']} attempts: {str(e)}")
+            return ""
+
     def summarize_entries(self, batch_size: int = None) -> None:
         """Summarize and update entries"""
         if batch_size is None:
@@ -89,18 +135,26 @@ class RSSSummarizer:
             for entry in entries:
                 try:
                     summary = self.create_summary(entry["title"], entry["description"])
+                    ai_title = self.create_ai_title(entry["title"], entry["description"])
                     
-                    if summary:
-                        self.supabase.table("rss_feeds")\
-                            .update({
-                                "summary": summary,
-                                "summarized_at": datetime.now(pytz.UTC).isoformat()
-                            })\
-                            .eq("id", entry["id"])\
-                            .execute()
-                        
-                        self.logger.info(f"Summarized entry {entry['id']}")
-                        # Add delay between successful summaries
-                        time.sleep(2)  # 2 seconds delay between entries
+                    current_time = datetime.now(pytz.UTC).isoformat()
+                    update_data = {
+                        "summary": summary,
+                        "summarized_at": current_time,
+                    }
+                    
+                    if ai_title:
+                        update_data.update({
+                            "ai_title": ai_title,
+                            "ai_title_generated_at": current_time
+                        })
+                    
+                    self.supabase.table("rss_feeds")\
+                        .update(update_data)\
+                        .eq("id", entry["id"])\
+                        .execute()
+                    
+                    self.logger.info(f"Processed entry {entry['id']}")
+                    time.sleep(2)
                 except Exception as e:
-                    self.logger.error(f"Error updating summarized entry {entry['id']}: {str(e)}") 
+                    self.logger.error(f"Error updating entry {entry['id']}: {str(e)}")
