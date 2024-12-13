@@ -65,6 +65,21 @@
             background-color: #0366d6;
             color: white;
         }
+        .Box-body p {
+            margin-bottom: 0;
+            line-height: 1.4;
+            max-height: 2.8em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .article-box.read {
+            opacity: 0.6;
+        }
+        .article-box.read .Box-header {
+            background-color: #f6f8fa;
+        }
     </style>
 </head>
 <body>
@@ -75,6 +90,11 @@
             {% for category in categories %}
             <div class="category-item" data-category="{{ category }}">{{ category }}</div>
             {% endfor %}
+            <div class="border-top pt-2 mt-2">
+                <button class="btn btn-sm btn-danger" id="clearReadHistory">
+                    Clear Read History
+                </button>
+            </div>
         </div>
     </div>
 
@@ -87,7 +107,7 @@
                         <span class="octicon octicon-sync"></span>
                         Refresh Data
                     </button>
-                    <div class="BtnGroup" role="group">
+                    <div class="BtnGroup mr-3" role="group" aria-label="Sort articles">
                         <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
                             ▼
                         </button>
@@ -99,7 +119,7 @@
             </div>
             <div id="loading" class="Box-body text-center">
                 <div class="Spinner"></div>
-                <p>Loading entries...</p>
+                <p>Loading articles...</p>
             </div>
             <div id="entries" class="Box-body"></div>
         </div>
@@ -107,6 +127,9 @@
 
     <script>
         let currentCategory = 'all';
+        let readArticles = new Set(JSON.parse(localStorage.getItem('readArticles') || '[]'));
+        let currentArticleIndex = -1;
+        let visibleArticles = [];
 
         $(document).ready(function() {
             // Category selection
@@ -175,6 +198,43 @@
 
             // Initial load
             refreshData();
+
+            $('#clearReadHistory').click(function() {
+                readArticles.clear();
+                localStorage.removeItem('readArticles');
+                $('.article-box').removeClass('read');
+                updateCategoryFilters();
+            });
+        });
+
+        function isArticleRead(link) {
+            return readArticles.has(link);
+        }
+
+        function markAsRead(link) {
+            readArticles.add(link);
+            localStorage.setItem('readArticles', JSON.stringify(Array.from(readArticles)));
+        }
+
+        function updateVisibleArticles() {
+            visibleArticles = $('.article-box:visible').toArray();
+            currentArticleIndex = -1;
+        }
+
+        $(document).keydown(function(e) {
+            if (!$(e.target).is('input, textarea')) {
+                if (e.key === 'n') {
+                    // Next article
+                    e.preventDefault();
+                    currentArticleIndex = Math.min(currentArticleIndex + 1, visibleArticles.length - 1);
+                    scrollToArticle(visibleArticles[currentArticleIndex]);
+                } else if (e.key === 'k') {
+                    // Previous article
+                    e.preventDefault();
+                    currentArticleIndex = Math.max(currentArticleIndex - 1, 0);
+                    scrollToArticle(visibleArticles[currentArticleIndex]);
+                }
+            }
         });
     </script>
 </body>
