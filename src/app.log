@@ -1,0 +1,229 @@
+2024-12-13 18:43:20,374 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-13 18:43:20,376 - httpx - DEBUG - load_verify_locations cafile='/Users/mymac/micromamba/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-12-13 18:43:20,399 - services.redis_service - INFO - Initializing Redis Service
+2024-12-13 18:43:20,400 - services.redis_service - DEBUG - Connecting to Redis at localhost:6379
+2024-12-13 18:43:20,404 - services.redis_service - ERROR - Failed to connect to Redis: Error 61 connecting to localhost:6379. Connection refused.
+2024-12-13 18:44:30,651 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-13 18:44:30,652 - httpx - DEBUG - load_verify_locations cafile='/Users/mymac/micromamba/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-12-13 18:44:30,672 - services.redis_service - INFO - Initializing Redis Service
+2024-12-13 18:44:30,673 - services.redis_service - DEBUG - Connecting to Redis at localhost:6379
+2024-12-13 18:44:30,677 - services.redis_service - INFO - Successfully connected to Redis
+2024-12-13 18:44:30,852 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.165:5000
+2024-12-13 18:44:30,852 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 18:44:34,576 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:34] "GET / HTTP/1.1" 200 -
+2024-12-13 18:44:34,690 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:34] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 18:44:35,364 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-13 18:44:35,374 - httpx - DEBUG - load_verify_locations cafile='/Users/mymac/micromamba/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-12-13 18:44:35,378 - __main__ - INFO - Fetching read articles for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:35,378 - services.redis_service - DEBUG - Fetching all read articles for key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles
+2024-12-13 18:44:35,401 - httpcore.connection - DEBUG - connect_tcp.started host='ouxdxxrvdeyxojahlkoo.supabase.co' port=443 local_address=None timeout=120 socket_options=None
+2024-12-13 18:44:35,410 - services.redis_service - DEBUG - Found 0 read articles
+2024-12-13 18:44:35,410 - __main__ - DEBUG - Found 0 read articles
+2024-12-13 18:44:35,410 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:35] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:35,440 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1106ae7f0>
+2024-12-13 18:44:35,441 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x11066e1c0> server_hostname='ouxdxxrvdeyxojahlkoo.supabase.co' timeout=120
+2024-12-13 18:44:35,461 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x11074b3a0>
+2024-12-13 18:44:35,462 - httpcore.http2 - DEBUG - send_connection_init.started request=<Request [b'GET']>
+2024-12-13 18:44:35,462 - httpcore.http2 - DEBUG - send_connection_init.complete
+2024-12-13 18:44:35,463 - httpcore.http2 - DEBUG - send_request_headers.started request=<Request [b'GET']> stream_id=1
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Adding (b':method', b'GET') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Encoding 2 with 7 bits
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Adding (b':authority', b'ouxdxxrvdeyxojahlkoo.supabase.co') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Encoding 1 with 6 bits
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Encoding 24 with 7 bits
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Adding (b':scheme', b'https') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,463 - hpack.hpack - DEBUG - Encoding 7 with 7 bits
+2024-12-13 18:44:35,464 - hpack.hpack - DEBUG - Adding (b':path', b'/rest/v1/rss_feeds?select=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20link%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pub_date%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20source_url%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20created_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20translated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summary%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summarized_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title_generated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category_generated_at%0A%20%20%20%20%20%20%20%20%20%20%20%20&order=pub_date.desc&limit=2000') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,464 - hpack.hpack - DEBUG - Encoding 4 with 6 bits
+2024-12-13 18:44:35,467 - hpack.hpack - DEBUG - Encoding 758 with 7 bits
+2024-12-13 18:44:35,467 - hpack.hpack - DEBUG - Adding (b'accept', b'*/*') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,469 - hpack.hpack - DEBUG - Encoding 19 with 6 bits
+2024-12-13 18:44:35,469 - hpack.hpack - DEBUG - Encoding 3 with 7 bits
+2024-12-13 18:44:35,470 - hpack.hpack - DEBUG - Adding (b'accept-encoding', b'gzip, deflate, br, zstd') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,470 - hpack.hpack - DEBUG - Encoding 16 with 6 bits
+2024-12-13 18:44:35,470 - hpack.hpack - DEBUG - Encoding 18 with 7 bits
+2024-12-13 18:44:35,470 - hpack.hpack - DEBUG - Adding (b'user-agent', b'python-httpx/0.27.2') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 58 with 6 bits
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 14 with 7 bits
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Adding (b'x-client-info', b'supabase-py/2.10.0') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 10 with 7 bits
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 13 with 7 bits
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Adding (b'apikey', b'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91eGR4eHJ2ZGV5eG9qYWhsa29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQwNzk4MTYsImV4cCI6MjA0OTY1NTgxNn0.DMUa5OIpBXIx4jaGiv-70cBq_NjoFRsDNkC9FL_Y-Y8') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2024-12-13 18:44:35,471 - hpack.hpack - DEBUG - Encoding 167 with 7 bits
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Adding (b'authorization', b'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im91eGR4eHJ2ZGV5eG9qYWhsa29vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQwNzk4MTYsImV4cCI6MjA0OTY1NTgxNn0.DMUa5OIpBXIx4jaGiv-70cBq_NjoFRsDNkC9FL_Y-Y8') to the header table, sensitive:True, huffman:True
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Encoding 23 with 4 bits
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Encoding 172 with 7 bits
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Adding (b'accept-profile', b'public') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Encoding 10 with 7 bits
+2024-12-13 18:44:35,472 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2024-12-13 18:44:35,473 - hpack.hpack - DEBUG - Adding (b'content-profile', b'public') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,473 - hpack.hpack - DEBUG - Encoding 11 with 7 bits
+2024-12-13 18:44:35,473 - hpack.hpack - DEBUG - Encoding 5 with 7 bits
+2024-12-13 18:44:35,473 - hpack.hpack - DEBUG - Adding (b'content-length', b'2') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Encoding 28 with 6 bits
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Encoding 1 with 7 bits
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Adding (b'content-type', b'application/json') to the header table, sensitive:False, huffman:True
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Encoding 31 with 6 bits
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Encoding 11 with 7 bits
+2024-12-13 18:44:35,474 - hpack.hpack - DEBUG - Encoded header block to b'\x82A\x98=\xbed\xf3\xe6\xce\xf2\x17\xd7\x93\xf4\x1c\xf4u9\xd7E\xb5\x8e1\xa0\xab\x90\xff\x87D\xff\xf7\x04b\xc2\xa1,w\x0b\x16!\x11JR\xc8\x8f\xf1\x05\xa0\xa4L\n\x82\x15D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x03H\xa8\xaf*\x08U\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x12d\xd0UEyPB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\x93&\x82\xc4Z\x95\x15\xe5A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x04\x85A,5i1\xeaTW\x95\x04*\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\x12\x15\x04\xb0\xd5\xa4\xc7\xaa"\xd4\xa8\xaf*\x08U\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10(5]U\x15\xe5A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x05v\xc7\x14\x83IU\x15\xe5A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\x0fm\x84,V\xd9B\xa2\xbc\xa8!T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@%\x85\x1aK$CJ\xa2\xbc\xa8!T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@M\x83\xa9\x14\r%\x92!\xa5Q^T\x10\xaa * * * * * * * * * * * * * * * "\xdai\x1d\x9e\x95\x15\xe5A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02-\xa6\x91\xd8oe\x92!\xa5Q^T\x10\xaa * * * * * * * * * * * * * * * \x0c\xd1$\xc9\xa0\xaa\x8a\xf2\xa0\x85Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x00f\x89&M\x05\x8ab\xd4[\x06\x92\xc9\x10\xd2\xa8\xaf*\x08U\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x084\x96c\xd9\xe9Q^T\x10\xaa * * * * * * * * * * * * * * * \x10i,\xc7\xb3\xd4S\x16\xa2\xd84\x96H\x86\x95A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x07\xc1\xec\x90\xb6A]\xb1\xc5 \xd2U\xe4*\t\xf1A\xa92`\x10\x00\x0fS\x83\xf9c\xe7P\x92\x9b\xd9\xab\xfaRB\xcb@\xd2_\xa5#\xb3\xe9OhL\x9fz\x8e\xaf\xd2g=KN\x94\xd7\xe5\x80.\'W\x17@\x8a\xf2\xb1(1jJ\xc6\xaaS\xff\x8dE\xb5\x8e1\xa0\xabW\xe9\x81.\x10.\x0f@\x85\x1df\xea__\xff(/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x95ml\x97\xb29\x93\xad\x7f\x9coe}r\xfa\xcbY\x19\xd0mF\xcb\xeeO\xcb\xb3\xf3\xa7\x0f\xbf\xdd\xd9\x11\x92\xac\xb4~\x9b#\x99)|%\xc5\xb5\xa2\xe3\xca/\xdc\\[.\'\xfbs\xe5:\x06\'\xfb\xe47\x83\x12\x97\xd1\xfb\xbb#\x99)\xc3lbh\xd9\xefe\xaf\x9f\xe6\xc3j\xe9\x81\x9d\x1e\xf6x\xd3\xef\xabZ7\xf3FJx\xb4K\xd9\x1c\xd1\xd2\x10j\xdf\xcc:w\xcd\xe7M@^\xfe\x8e\x03oVJ\xee\xfed\xf2\xd7A\xe27u\x9d\x01.\xf6\x8bOC\xe1\xda\x8b\xfaz\xde\x7f\x0ex\xb9\xad\xcd\xef\x1f\x08\xff-\xbaQ\xd8[\x14/\xac\xb3\xc7\x88\x86\xd4l\xb98{\xc8\x1d&\xc8\x8c\x95ml\x97\xb29\x93\xad\x7f\x9coe}r\xfa\xcbY\x19\xd0mF\xcb\xeeO\xcb\xb3\xf3\xa7\x0f\xbf\xdd\xd9\x11\x92\xac\xb4~\x9b#\x99)|%\xc5\xb5\xa2\xe3\xca/\xdc\\[.\'\xfbs\xe5:\x06\'\xfb\xe47\x83\x12\x97\xd1\xfb\xbb#\x99)\xc3lbh\xd9\xefe\xaf\x9f\xe6\xc3j\xe9\x81\x9d\x1e\xf6x\xd3\xef\xabZ7\xf3FJx\xb4K\xd9\x1c\xd1\xd2\x10j\xdf\xcc:w\xcd\xe7M@^\xfe\x8e\x03oVJ\xee\xfed\xf2\xd7A\xe27u\x9d\x01.\xf6\x8bOC\xe1\xda\x8b\xfaz\xde\x7f\x0ex\xb9\xad\xcd\xef@\x8a\x19\x08Z\xd2\xb5v\x1eSP_\x85\xae\xd8\xe81?@\x8b!\xeaIjJ\xd5\xd8yMA\x7f\x85\xae\xd8\xe81?\\\x81\x17_\x8b\x1du\xd0b\r&=LtA\xea'
+2024-12-13 18:44:35,476 - httpcore.http2 - DEBUG - send_request_headers.complete
+2024-12-13 18:44:35,477 - httpcore.http2 - DEBUG - send_request_body.started request=<Request [b'GET']> stream_id=1
+2024-12-13 18:44:35,478 - httpcore.http2 - DEBUG - send_request_body.complete
+2024-12-13 18:44:35,478 - httpcore.http2 - DEBUG - receive_response_headers.started request=<Request [b'GET']> stream_id=1
+2024-12-13 18:44:35,479 - httpcore.http2 - DEBUG - receive_remote_settings.started
+2024-12-13 18:44:35,483 - httpcore.http2 - DEBUG - receive_remote_settings.complete return_value=<RemoteSettingsChanged changed_settings:{ChangedSetting(setting=SettingCodes.MAX_CONCURRENT_STREAMS, original_value=None, new_value=100), ChangedSetting(setting=SettingCodes.INITIAL_WINDOW_SIZE, original_value=65535, new_value=65536), ChangedSetting(setting=SettingCodes.MAX_FRAME_SIZE, original_value=16384, new_value=16777215)}>
+2024-12-13 18:44:35,795 - hpack.hpack - DEBUG - Decoding b'?\xe1\x1f\x88a\x96\xc3a\xbe\x94\x0b*_)\x14\x10\x04\xd2\x81v\xe3M\\e\xb51h\xdf_\x96\x1du\xd0b\r&=LtA\xea\xfbP\x93\x8e\xc4\x150Z\x99V{^\x86\x02\xcf\xbe\xfb\x1f?@\x85$\xabX?_\x8fzP\xbaF[n7\x9fd\xa4 \x96\xe5\x0f/@\x8a$\xab\x10d\x9c\xab!#M\xa8\x86\xbf\xcfL:2^Z\x83\x9b\xd9\xab]\xff\xf1\x04b\xc4")JY\x11\xfePjL\x98\x04\x00\x03\xe0\xf6H[ \xae\xd8\xe2\x90i*\xf2\x15\x04\xf8Ah)\x13\x02\xa0\x85Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x01Q\x00\xd2*+\xca\x82\x15D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x04\x994\x15Q^T\x10\xaa * * * * * * * * * * * * * * * $\xc9\xa0\xb1\x16\xa5EyPB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x81!PK\rZLz\x95\x15\xe5A\n\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x02\xa2\x04\x85A,5i1\xea\x88\xb5*+\xca\x82\x15D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\n\rWUEyPB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x81]\xb1\xc5 \xd2UEyPB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\x83\xdba\x0b\x15\xb6P\xa8\xaf*\x08U\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\taF\x92\xc9\x10\xd2\xa8\xaf*\x08U\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x15\x10\x13`\xeaE\x03Id\x88iTW\x95\x04*\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\x08\xb6\x9aGg\xa5EyPB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\x8bi\xa4v\x1b\xd9d\x88iTW\x95\x04*\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\x034I2h*\xa2\xbc\xa8!T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@T@\x19\xa2I\x93Ab\x98\xb5\x16\xc1\xa4\xb2D4\xaa+\xca\x82\x15D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x05D\x02\r%\x98\xf6zTW\x95\x04*\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\n\x88\x04\x1aK1\xec\xf5\x14\xc5\xa8\xb6\r%\x92!\xa5PB\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x80\xa8\x81x\x9a\xa4~V\x1c\xc5\x81\x90\xb6\xcb\x80\x00>\xd45D\xa2\xd9\x0b\xba\xd8\xef\x9e\x91\x9a\xa4\x7f{\x8b\x84\x84-i[\x05D<\x86\xaao@\x8b!\xeaIjJ\xd5\xd8yMA\x7f\x85\xae\xd8\xe81?@\x8dDkL4\x97\xc0\xfd-\xdc\xb6 \xc7\xab\x011@\x8aDkWa\xfa\x14\x89Z\xc2\xcb\x90=\xbed\xf3\xe6\xce\xf2\x17\xd7\x93\xf4\x1c\xf4u9\xff@\x90\xf2\xb1\x0fRKRVO\xaa\xca\xb1\xebI\x8fR?\x85\xa8\xe8\xa8\xd2\xcb@\x8f\xf2\xb1j\xee\x7fK\r)-5\xa5b\x1e\xda\x93\x011@\x95\xf2\xb1j\xee\x7fK[Z\x13aGJ\xc8-\x9d\xccB\xac\x93R_\x0233v\x87%\x07\xb6Ih\x1d\x85@\x85\x1d\tY\x1d\xc9\x90\x9d\x98?\x9b\x8d4\xcf\xf3\xf6\xa5#\x81\xe7\x1a\x00?'
+2024-12-13 18:44:35,796 - hpack.hpack - DEBUG - Decoded 4096, consumed 3 bytes
+2024-12-13 18:44:35,796 - hpack.table - DEBUG - Resizing header table to 4096 from 4096
+2024-12-13 18:44:35,796 - hpack.hpack - DEBUG - Decoded 8, consumed 1 bytes
+2024-12-13 18:44:35,796 - hpack.hpack - DEBUG - Decoded (b':status', b'200'), consumed 1
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded 33, consumed 1 bytes
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded 22, consumed 1 bytes
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded (b'date', b'Fri, 13 Dec 2024 17:44:35 GMT'), total consumed 24 bytes, indexed True
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded 31, consumed 1 bytes
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded 22, consumed 1 bytes
+2024-12-13 18:44:35,797 - hpack.hpack - DEBUG - Decoded (b'content-type', b'application/json; charset=utf-8'), total consumed 24 bytes, indexed True
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 30, consumed 1 bytes
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 6, consumed 1 bytes
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded (b'content-range', b'0-999/*'), total consumed 8 bytes, indexed True
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded (b'cf-ray', b'8f17c355b893ecc2-WAW'), total consumed 23 bytes, indexed True
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2024-12-13 18:44:35,798 - hpack.hpack - DEBUG - Decoded 6, consumed 1 bytes
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded (b'cf-cache-status', b'DYNAMIC'), total consumed 19 bytes, indexed True
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded 3, consumed 1 bytes
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded (b'content-encoding', b'gzip'), total consumed 5 bytes, indexed True
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded 29, consumed 1 bytes
+2024-12-13 18:44:35,799 - hpack.hpack - DEBUG - Decoded 752, consumed 3 bytes
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded (b'content-location', b'/rss_feeds?limit=2000&order=pub_date.desc&select=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20link%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pub_date%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20source_url%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20created_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20translated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summary%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summarized_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title_generated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category_generated_at%0A%20%20%20%20%20%20%20%20%20%20%20%20'), total consumed 756 bytes, indexed True
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded 56, consumed 1 bytes
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded 26, consumed 1 bytes
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded (b'strict-transport-security', b'max-age=31536000; includeSubDomains'), total consumed 28 bytes, indexed True
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded 59, consumed 1 bytes
+2024-12-13 18:44:35,800 - hpack.hpack - DEBUG - Decoded 11, consumed 1 bytes
+2024-12-13 18:44:35,801 - hpack.hpack - DEBUG - Decoded (b'vary', b'Accept-Encoding'), total consumed 13 bytes, indexed True
+2024-12-13 18:44:35,801 - hpack.hpack - DEBUG - Decoded 11, consumed 1 bytes
+2024-12-13 18:44:35,801 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2024-12-13 18:44:35,801 - hpack.hpack - DEBUG - Decoded (b'content-profile', b'public'), total consumed 19 bytes, indexed True
+2024-12-13 18:44:35,801 - hpack.hpack - DEBUG - Decoded 13, consumed 1 bytes
+2024-12-13 18:44:35,802 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2024-12-13 18:44:35,802 - hpack.hpack - DEBUG - Decoded (b'sb-gateway-version', <memory at 0x11064dc40>), total consumed 17 bytes, indexed True
+2024-12-13 18:44:35,802 - hpack.hpack - DEBUG - Decoded 10, consumed 1 bytes
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded (b'sb-project-ref', b'ouxdxxrvdeyxojahlkoo'), total consumed 29 bytes, indexed True
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded (b'x-content-type-options', b'nosniff'), total consumed 24 bytes, indexed True
+2024-12-13 18:44:35,803 - hpack.hpack - DEBUG - Decoded 15, consumed 1 bytes
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded 1, consumed 1 bytes
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded (b'x-envoy-attempt-count', <memory at 0x11064db80>), total consumed 19 bytes, indexed True
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded 21, consumed 1 bytes
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded 2, consumed 1 bytes
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded (b'x-envoy-upstream-service-time', <memory at 0x11064dd00>), total consumed 26 bytes, indexed True
+2024-12-13 18:44:35,804 - hpack.hpack - DEBUG - Decoded 54, consumed 1 bytes
+2024-12-13 18:44:35,805 - hpack.hpack - DEBUG - Decoded 7, consumed 1 bytes
+2024-12-13 18:44:35,805 - hpack.hpack - DEBUG - Decoded (b'server', b'cloudflare'), total consumed 9 bytes, indexed True
+2024-12-13 18:44:35,805 - hpack.hpack - DEBUG - Decoded 5, consumed 1 bytes
+2024-12-13 18:44:35,805 - hpack.hpack - DEBUG - Decoded 16, consumed 1 bytes
+2024-12-13 18:44:35,805 - hpack.hpack - DEBUG - Decoded (b'alt-svc', b'h3=":443"; ma=86400'), total consumed 24 bytes, indexed True
+2024-12-13 18:44:35,805 - httpcore.http2 - DEBUG - receive_response_headers.complete return_value=(200, [(b'date', b'Fri, 13 Dec 2024 17:44:35 GMT'), (b'content-type', b'application/json; charset=utf-8'), (b'content-range', b'0-999/*'), (b'cf-ray', b'8f17c355b893ecc2-WAW'), (b'cf-cache-status', b'DYNAMIC'), (b'content-encoding', b'gzip'), (b'content-location', b'/rss_feeds?limit=2000&order=pub_date.desc&select=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20link%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pub_date%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20source_url%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20created_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20translated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summary%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summarized_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title_generated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category_generated_at%0A%20%20%20%20%20%20%20%20%20%20%20%20'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains'), (b'vary', b'Accept-Encoding'), (b'content-profile', b'public'), (b'sb-gateway-version', b'1'), (b'sb-project-ref', b'ouxdxxrvdeyxojahlkoo'), (b'x-content-type-options', b'nosniff'), (b'x-envoy-attempt-count', b'1'), (b'x-envoy-upstream-service-time', b'33'), (b'server', b'cloudflare'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-12-13 18:44:35,806 - httpx - INFO - HTTP Request: GET https://ouxdxxrvdeyxojahlkoo.supabase.co/rest/v1/rss_feeds?select=%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20id%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20title_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20description_en%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20link%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pub_date%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20source_url%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20created_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20translated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summary%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20summarized_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ai_title_generated_at%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20category_generated_at%0A%20%20%20%20%20%20%20%20%20%20%20%20&order=pub_date.desc&limit=2000 "HTTP/2 200 OK"
+2024-12-13 18:44:35,807 - httpcore.http2 - DEBUG - receive_response_body.started request=<Request [b'GET']> stream_id=1
+2024-12-13 18:44:35,984 - httpcore.http2 - DEBUG - receive_response_body.complete
+2024-12-13 18:44:35,984 - httpcore.http2 - DEBUG - response_closed.started stream_id=1
+2024-12-13 18:44:35,985 - httpcore.http2 - DEBUG - response_closed.complete
+2024-12-13 18:44:36,073 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:36] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 18:44:51,859 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:51,862 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:51,863 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:51,863 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:51,870 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:51,870 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:51,871 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:51,872 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:51] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:52,505 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:52,505 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:52,506 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:52,506 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:52,506 - services.redis_service - DEBUG - Current read status: 1
+2024-12-13 18:44:52,506 - services.redis_service - DEBUG - Removing article from read set
+2024-12-13 18:44:52,507 - __main__ - INFO - Toggle successful. New read status: False
+2024-12-13 18:44:52,508 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:52] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:53,177 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:53,177 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,178 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,178 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,178 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:53,178 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:53,178 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:53,179 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:53] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:53,883 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:53,883 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,883 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,883 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:53,884 - services.redis_service - DEBUG - Current read status: 1
+2024-12-13 18:44:53,884 - services.redis_service - DEBUG - Removing article from read set
+2024-12-13 18:44:53,884 - __main__ - INFO - Toggle successful. New read status: False
+2024-12-13 18:44:53,885 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:53] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:54,704 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:54,704 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:54,705 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:54,705 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:54,706 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:54,706 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:54,707 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:54,707 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:54] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:55,232 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:55,232 - __main__ - DEBUG - Article link received: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:55,232 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:55,232 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/biznes/ze-swiata/alkohol-z-kosmosu-zapowiedzieli-japonczycy-cena-sake-bedzie-kosmiczna-st8221589?source=rss
+2024-12-13 18:44:55,233 - services.redis_service - DEBUG - Current read status: 1
+2024-12-13 18:44:55,233 - services.redis_service - DEBUG - Removing article from read set
+2024-12-13 18:44:55,233 - __main__ - INFO - Toggle successful. New read status: False
+2024-12-13 18:44:55,234 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:55] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:56,978 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:56,979 - __main__ - DEBUG - Article link received: https://tvn24.pl/tvnmeteo/prognoza/pogoda-na-weekend-od-opadow-sniegu-po-ulewy-w-pogodzie-bedzie-sie-dzialo-st8221379?source=rss
+2024-12-13 18:44:56,979 - __main__ - INFO - Attempting to toggle read status for article: https://tvn24.pl/tvnmeteo/prognoza/pogoda-na-weekend-od-opadow-sniegu-po-ulewy-w-pogodzie-bedzie-sie-dzialo-st8221379?source=rss
+2024-12-13 18:44:56,979 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://tvn24.pl/tvnmeteo/prognoza/pogoda-na-weekend-od-opadow-sniegu-po-ulewy-w-pogodzie-bedzie-sie-dzialo-st8221379?source=rss
+2024-12-13 18:44:56,982 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:56,982 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:56,983 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:56,984 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:56] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:57,750 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:57,751 - __main__ - DEBUG - Article link received: https://wiadomosci.wp.pl/nadciaga-wir-polarny-wiemy-co-przyniesie-na-sylwestra-7102856149379712a
+2024-12-13 18:44:57,751 - __main__ - INFO - Attempting to toggle read status for article: https://wiadomosci.wp.pl/nadciaga-wir-polarny-wiemy-co-przyniesie-na-sylwestra-7102856149379712a
+2024-12-13 18:44:57,751 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://wiadomosci.wp.pl/nadciaga-wir-polarny-wiemy-co-przyniesie-na-sylwestra-7102856149379712a
+2024-12-13 18:44:57,751 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:57,752 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:57,752 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:57,753 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:57] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:58,836 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:58,836 - __main__ - DEBUG - Article link received: https://pogoda.dziennik.pl/aktualnosci/artykuly/9689314,zima-zaatakuje-w-weekend-na-horyzoncie-sniezyce-i-mroz-imgw-ostrzega.html
+2024-12-13 18:44:58,837 - __main__ - INFO - Attempting to toggle read status for article: https://pogoda.dziennik.pl/aktualnosci/artykuly/9689314,zima-zaatakuje-w-weekend-na-horyzoncie-sniezyce-i-mroz-imgw-ostrzega.html
+2024-12-13 18:44:58,837 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://pogoda.dziennik.pl/aktualnosci/artykuly/9689314,zima-zaatakuje-w-weekend-na-horyzoncie-sniezyce-i-mroz-imgw-ostrzega.html
+2024-12-13 18:44:58,837 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:58,837 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:58,838 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:58,838 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:58] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:44:59,736 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:44:59,737 - __main__ - DEBUG - Article link received: https://www.polskieradio.pl/5/1222/Artykul/3458612,pogoda-na-weekend-przez-polske-bedzie-przemieszczal-sie-niebezpieczny-front
+2024-12-13 18:44:59,737 - __main__ - INFO - Attempting to toggle read status for article: https://www.polskieradio.pl/5/1222/Artykul/3458612,pogoda-na-weekend-przez-polske-bedzie-przemieszczal-sie-niebezpieczny-front
+2024-12-13 18:44:59,737 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://www.polskieradio.pl/5/1222/Artykul/3458612,pogoda-na-weekend-przez-polske-bedzie-przemieszczal-sie-niebezpieczny-front
+2024-12-13 18:44:59,738 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:44:59,738 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:44:59,738 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:44:59,739 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:44:59] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 18:45:01,472 - __main__ - INFO - Toggle read request received for user: 8dd49170-4fe4-4abf-b910-328f4864abdc
+2024-12-13 18:45:01,472 - __main__ - DEBUG - Article link received: https://wiadomosci.dziennik.pl/wydarzenia/artykuly/9689282,pierwszy-dzien-zimy-kiedy-zaczyna-sie-zima-kalendarzowa-a-kiedy-astr.html
+2024-12-13 18:45:01,472 - __main__ - INFO - Attempting to toggle read status for article: https://wiadomosci.dziennik.pl/wydarzenia/artykuly/9689282,pierwszy-dzien-zimy-kiedy-zaczyna-sie-zima-kalendarzowa-a-kiedy-astr.html
+2024-12-13 18:45:01,473 - services.redis_service - DEBUG - Toggling article status. Key: user:8dd49170-4fe4-4abf-b910-328f4864abdc:read_articles, Article: https://wiadomosci.dziennik.pl/wydarzenia/artykuly/9689282,pierwszy-dzien-zimy-kiedy-zaczyna-sie-zima-kalendarzowa-a-kiedy-astr.html
+2024-12-13 18:45:01,475 - services.redis_service - DEBUG - Current read status: 0
+2024-12-13 18:45:01,475 - services.redis_service - DEBUG - Adding article to read set
+2024-12-13 18:45:01,475 - __main__ - INFO - Toggle successful. New read status: True
+2024-12-13 18:45:01,476 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 18:45:01] "POST /api/articles/read HTTP/1.1" 200 -

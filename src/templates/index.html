@@ -73,19 +73,69 @@
         $(document).ready(function() {
             let allArticles = [];
             let categories = new Set();
-            let readArticles = new Set(JSON.parse(localStorage.getItem('readArticles') || '[]'));
+            let readArticles = new Set();
             let showOnlyUnread = $('#showOnlyUnread').is(':checked');
             let favoriteCategories = new Set(JSON.parse(localStorage.getItem('favoriteCategories') || '[]'));
             let categoryOrder = JSON.parse(localStorage.getItem('categoryOrder') || '[]');
+
+            // Load read articles from Redis when page loads
+            function loadReadArticles() {
+                return $.get('/api/articles/read')
+                    .then(response => {
+                        readArticles = new Set(response.read_articles);
+                        updateCategoryFilters();
+                    })
+                    .catch(error => console.error('Error loading read articles:', error));
+            }
 
             function isArticleRead(link) {
                 return readArticles.has(link);
             }
 
             function markAsRead(link) {
-                readArticles.add(link);
-                localStorage.setItem('readArticles', JSON.stringify(Array.from(readArticles)));
-                updateCategoryFilters();
+                const $article = $(`.article-box[data-link="${link}"]`);
+                $article.addClass('loading');
+                
+                console.log('Marking article as read:', link);
+                
+                $.ajax({
+                    url: '/api/articles/read',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ link: link }),
+                    success: function(response) {
+                        console.log('Server response:', response);
+                        if (response.is_read !== undefined) {
+                            if (response.is_read) {
+                                readArticles.add(link);
+                                $article.addClass('read fade-transition');
+                            } else {
+                                readArticles.delete(link);
+                                $article.removeClass('read fade-transition');
+                            }
+                        } else {
+                            console.error('Invalid response format:', response);
+                            showToast('Invalid server response', 'error');
+                        }
+                        $article.removeClass('loading');
+                        updateCategoryFilters();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error details:', {
+                            status: status,
+                            error: error,
+                            response: xhr.responseText
+                        });
+                        $article.removeClass('loading');
+                        const wasRead = readArticles.has(link);
+                        if (wasRead) {
+                            $article.addClass('read');
+                        } else {
+                            $article.removeClass('read');
+                        }
+                        showToast('Failed to update article status', 'error');
+                    }
+                });
             }
 
             function getUnreadCount(category) {
@@ -295,16 +345,22 @@
 
             // Add click handlers for marking as read
             $(document).on('click', '.article-box', function(e) {
-                const link = $(this).data('link');
-                $(this).addClass('read');
+                const $article = $(this);
+                if ($article.hasClass('loading')) {
+                    return; // Prevent clicking while loading
+                }
+                const link = $article.data('link');
                 markAsRead(link);
             });
 
-            // Handle link clicks separately to prevent double-triggering
+            // Handle link clicks separately
             $(document).on('click', '.article-box a', function(e) {
                 e.stopPropagation();
-                const link = $(this).attr('href');
-                $(this).closest('.article-box').addClass('read');
+                const $article = $(this).closest('.article-box');
+                if ($article.hasClass('loading')) {
+                    return; // Prevent clicking while loading
+                }
+                const link = $article.data('link');
                 markAsRead(link);
             });
 
@@ -316,15 +372,6 @@
                     </button>
                 </div>
             `);
-
-            // Clear read history handler
-            $('#clearReadHistory').click(function() {
-                readArticles.clear();
-                localStorage.removeItem('readArticles');
-                $('.article-box').removeClass('read');
-                updateCategoryFilters();
-                resetContentHeader();  // Reset header when clearing history
-            });
 
             // Update the toggle handler
             $('#showOnlyUnread').change(function() {
@@ -361,45 +408,60 @@
             `;
             $('head').append(styles);
 
+            // Add toast notification function
+            function showToast(message, type = 'info') {
+                const toast = $(`<div class="toast ${type}">${message}</div>`);
+                $('body').append(toast);
+                setTimeout(() => toast.remove(), 3000);
+            }
+
+            // Improve read status handling
+            function updateReadStatus(link, isRead) {
+                const $article = $(`.article-box[data-link="${link}"]`);
+                if (isRead) {
+                    readArticles.add(link);
+                    $article.addClass('read fade-transition');
+                } else {
+                    readArticles.delete(link);
+                    $article.removeClass('read fade-transition');
+                }
+                updateCategoryFilters();
+                updateTotalUnreadCount();
+            }
+
+            // Batch update for marking all as read
             function markAllAsRead(category) {
                 const decodedCategory = decodeHtml(category);
-                
-                // Add loading overlay to main content
-                const $articlesContainer = $('#articles');
-                $articlesContainer.prepend(`
-                    <div id="marking-overlay" class="position-absolute top-0 left-0 width-full height-full d-flex flex-column flex-items-center flex-justify-center" style="background: rgba(255,255,255,0.8); z-index: 100;">
-                        <div class="Spinner"></div>
-                        <p class="mt-2">Marking articles as read...</p>
+                const $overlay = $(`
+                    <div id="marking-overlay" class="position-absolute top-0 left-0 width-full height-full">
+                        <div class="d-flex flex-column flex-items-center flex-justify-center h-100">
+                            <div class="Spinner"></div>
+                            <p class="mt-2">Marking articles as read...</p>
+                        </div>
                     </div>
                 `);
-                $articlesContainer.css('position', 'relative');
                 
-                // Mark all articles as read in memory
+                $('#articles').prepend($overlay);
+                
                 const categoryArticles = allArticles.filter(article => 
-                    article.category === decodedCategory
+                    article.category === decodedCategory && !isArticleRead(article.link)
                 );
                 
-                // First update visual state of articles
-                categoryArticles.forEach(article => {
-                    $(`.article-box[data-link="${article.link}"]`).addClass('read');
-                });
+                const promises = categoryArticles.map(article => 
+                    $.post('/api/articles/read', { link: article.link })
+                );
                 
-                // Remove loading overlay and update sidebar after delay
-                setTimeout(() => {
-                    // Update read status in storage
-                    categoryArticles.forEach(article => {
-                        markAsRead(article.link);
+                Promise.all(promises)
+                    .then(() => {
+                        categoryArticles.forEach(article => updateReadStatus(article.link, true));
+                        $overlay.fadeOut(300, function() { $(this).remove(); });
+                        $('#markAllRead').prop('checked', false);
+                    })
+                    .catch(error => {
+                        console.error('Error marking all as read:', error);
+                        showToast('Failed to mark all articles as read', 'error');
+                        $overlay.remove();
                     });
-                    
-                    $('#marking-overlay').fadeOut(300, function() {
-                        $(this).remove();
-                        $articlesContainer.css('position', '');
-                    });
-                    $('#markAllRead').prop('checked', false);
-                    
-                    // Update sidebar counts only after animation
-                    updateCategoryFilters();
-                }, 800);
             }
 
             // Add keyboard navigation
@@ -553,6 +615,26 @@
                 localStorage.setItem('favoriteCategories', JSON.stringify(Array.from(favoriteCategories)));
                 updateCategoryFilters();
             });
+
+            // Update clear read history handler
+            $('#clearReadHistory').click(function() {
+                $.ajax({
+                    url: '/api/articles/read',
+                    method: 'DELETE',
+                    success: function() {
+                        readArticles.clear();
+                        $('.article-box').removeClass('read');
+                        updateCategoryFilters();
+                        resetContentHeader();
+                    },
+                    error: function(error) {
+                        console.error('Error clearing read history:', error);
+                    }
+                });
+            });
+
+            // Load read articles when page loads
+            loadReadArticles();
         });
     </script>
 </body>
