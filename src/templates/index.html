@@ -3,77 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSS Articles</title>
-    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/@primer/octicons/build/build.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <title>RSS Feeds</title>
+    <!-- Primer CSS -->
+    <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+    <style>
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            border-right: 1px solid var(--color-border-default);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border-default);
+            }
+            .layout-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <script>
+        function filterByCategory(category) {
+            const feedItems = document.querySelectorAll('.Box-row');
+            const activeItems = document.querySelectorAll('.menu-item');
+            
+            // Update active state in sidebar
+            activeItems.forEach(item => {
+                item.classList.remove('selected');
+                if(item.getAttribute('data-category') === category) {
+                    item.classList.add('selected');
+                }
+            });
+
+            // Show all if "All" is selected
+            if(category === 'all') {
+                feedItems.forEach(item => item.style.display = 'block');
+                return;
+            }
+
+            // Filter items
+            feedItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                item.style.display = itemCategory === category ? 'block' : 'none';
+            });
+        }
+    </script>
 </head>
-<body class="container-lg px-3 py-5">
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <div class="sidebar Box">
-            <div class="Box-header d-flex flex-items-center">
-                <h3 class="Box-title flex-auto">Categories</h3>
-                <span class="Counter" id="total-unread-count">0</span>
-            </div>
-            <div class="Box-body">
-                <div class="toggle-container">
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="showOnlyUnread" checked>
-                        <span class="toggle-slider"></span>
-                    </label>
-                    <span class="toggle-label">Show only unread</span>
-                </div>
-            </div>
-            <div class="Box-body" id="categories-list">
-                {% if categories %}
-                    {% for category in categories %}
-                        <div class="category-filter" data-category="{{ category }}">
-                            {{ category }}
-                            <span class="category-count">{{ unread_counts.get(category, 0) }}</span>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+<body>
+    <div class="layout-wrapper d-flex">
+        <!-- New Sidebar -->
+        <div class="sidebar p-3">
+            <nav class="menu">
+                <span class="menu-heading">Categories</span>
+                <a class="menu-item selected" href="javascript:void(0)" 
+                   onclick="filterByCategory('all')" data-category="all">
+                    All Feeds
+                    <span class="Counter">{{ feeds|length }}</span>
+                </a>
+                
+                <!-- Show uncategorized first -->
+                <a class="menu-item" href="javascript:void(0)" 
+                   onclick="filterByCategory('uncategorized')" data-category="uncategorized">
+                    Uncategorized
+                    <span class="Counter">{{ category_counts.get('uncategorized', 0) }}</span>
+                </a>
+
+                <!-- Show all other categories alphabetically -->
+                {% for category in categories|sort %}
+                    {% if category and category != 'uncategorized' %}
+                    <a class="menu-item" href="javascript:void(0)" 
+                       onclick="filterByCategory('{{ category }}')" data-category="{{ category }}">
+                        {{ category }}
+                        <span class="Counter">{{ category_counts.get(category, 0) }}</span>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </nav>
         </div>
 
         <!-- Main Content -->
-        <div class="content">
+        <div class="container-lg px-3 py-6">
+            <h1 class="h1 mb-4">RSS Feeds</h1>
+            
             <div class="Box">
-                <div class="Box-header d-flex flex-items-center">
-                    <h2 class="Box-title flex-auto" id="content-header">RSS Articles</h2>
-                    <div class="d-flex flex-items-center gap-3">
-                        <div class="BtnGroup" role="group" aria-label="Sort articles">
-                            <button class="BtnGroup-item btn selected" data-sort="newest" aria-label="Sort by newest first">
-                                ↓
-                            </button>
-                            <button class="BtnGroup-item btn" data-sort="oldest" aria-label="Sort by oldest first">
-                                ↑
-                            </button>
+                {% for feed in feeds %}
+                <div class="Box-row" data-category="{{ feed.get('category', 'uncategorized') }}">
+                    <div class="d-flex flex-column">
+                        <h2 class="h3 mb-1">
+                            <a href="{{ feed.link }}" class="Link--primary">
+                                {{ feed.ai_title }}
+                            </a>
+                        </h2>
+                        {% if feed.summary %}
+                        <p class="color-text-secondary mb-2">{{ feed.summary }}</p>
+                        {% endif %}
+                        <div class="d-flex flex-items-center color-text-tertiary">
+                            <span class="mr-3">
+                                {% if feed.pub_date %}
+                                    {{ feed.pub_date.strftime('%Y-%m-%d %H:%M') if feed.pub_date is not string else feed.pub_date }}
+                                {% endif %}
+                            </span>
+                            {% if feed.category %}
+                            <span class="Label">{{ feed.category }}</span>
+                            {% endif %}
                         </div>
-                        <button class="btn btn-sm" id="markAllRead" aria-label="Mark all as read">
-                            ✓
-                        </button>
                     </div>
                 </div>
-                <div id="loading" class="Box-body text-center">
-                    <div class="Spinner"></div>
-                    <p>Loading articles...</p>
-                </div>
-                <div id="articles" class="Box-body"></div>
+                {% endfor %}
             </div>
         </div>
     </div>
-
-    <!-- External Dependencies -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-    
-    <!-- Application Scripts (order matters) -->
-    <script src="/static/js/readManager.js?v={{ cache_buster }}"></script>
-    <script src="/static/js/articles.js?v={{ cache_buster }}"></script>
-    <script src="/static/js/categories.js?v={{ cache_buster }}"></script>
-    <script src="/static/js/ui.js?v={{ cache_buster }}"></script>
-    <script src="/static/js/main.js?v={{ cache_buster }}"></script>
 </body>
 </html>
