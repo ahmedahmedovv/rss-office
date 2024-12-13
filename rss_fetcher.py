@@ -7,9 +7,50 @@ from typing import List
 from dateutil import parser
 import re
 from html import unescape
+import pytz
+import logging
+from logging.handlers import RotatingFileHandler
 
 # Load environment variables
 load_dotenv()
+
+# Setup logging
+def setup_logger():
+    """Configure logging system"""
+    # Create logs directory if it doesn't exist
+    if not os.path.exists('logs'):
+        os.makedirs('logs')
+    
+    # Create logger
+    logger = logging.getLogger('RSSFetcher')
+    logger.setLevel(logging.INFO)
+    
+    # Create handlers
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    
+    # File handler - keeps 5 files of 5MB each
+    file_handler = RotatingFileHandler(
+        'logs/rss_fetcher.log',
+        maxBytes=5*1024*1024,  # 5MB
+        backupCount=5
+    )
+    file_handler.setLevel(logging.INFO)
+    
+    # Create formatters and add it to handlers
+    log_format = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(log_format)
+    console_handler.setFormatter(log_format)
+    
+    # Add handlers to the logger
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+    
+    return logger
+
+# Initialize logger
+logger = setup_logger()
 
 def clean_html(text: str) -> str:
     """Remove HTML tags and decode HTML entities."""
@@ -19,6 +60,12 @@ def clean_html(text: str) -> str:
     clean = re.sub(r'<[^>]+>', '', text)
     clean = ' '.join(clean.split())
     return clean.strip()
+
+def make_timezone_aware(dt: datetime) -> datetime:
+    """Convert naive datetime to UTC timezone-aware datetime."""
+    if dt.tzinfo is None:
+        return pytz.UTC.localize(dt)
+    return dt.astimezone(pytz.UTC)
 
 def get_latest_entry_date(supabase: Client, source_url: str) -> datetime:
     """Get the latest publication date for a given source URL."""
@@ -31,22 +78,24 @@ def get_latest_entry_date(supabase: Client, source_url: str) -> datetime:
             .execute()
         
         if result.data and result.data[0].get("pub_date"):
-            return parser.parse(result.data[0]["pub_date"])
-        return datetime.now() - timedelta(days=30)  # Default to 30 days ago if no entries
+            return make_timezone_aware(parser.parse(result.data[0]["pub_date"]))
+        logger.info(f"No previous entries found for {source_url}, defaulting to 30 days ago")
+        return make_timezone_aware(datetime.now() - timedelta(days=30))
     except Exception as e:
-        print(f"Error getting latest entry date: {str(e)}")
-        return datetime.now() - timedelta(days=30)
+        logger.error(f"Error getting latest entry date for {source_url}: {str(e)}")
+        return make_timezone_aware(datetime.now() - timedelta(days=30))
 
 def fetch_rss(url: str, since_date: datetime) -> List[dict]:
     """Fetch and parse RSS feed, only returning entries newer than since_date."""
     try:
+        logger.info(f"Fetching RSS from: {url}")
         feed = feedparser.parse(url)
         entries = []
         
         for entry in feed.entries:
             try:
-                pub_date = parser.parse(entry.published)
-                # Only process entries newer than the latest entry in database
+                pub_date = make_timezone_aware(parser.parse(entry.published))
+                
                 if pub_date > since_date:
                     entries.append({
                         "title": clean_html(entry.get("title", "")),
@@ -55,12 +104,14 @@ def fetch_rss(url: str, since_date: datetime) -> List[dict]:
                         "pub_date": pub_date.isoformat(),
                         "source_url": url
                     })
-            except (AttributeError, ValueError):
+            except (AttributeError, ValueError) as e:
+                logger.warning(f"Error processing entry date for {url}: {str(e)}")
                 continue
         
+        logger.info(f"Found {len(entries)} new entries from {url}")
         return entries
     except Exception as e:
-        print(f"Error fetching RSS from {url}: {str(e)}")
+        logger.error(f"Error fetching RSS from {url}: {str(e)}")
         return []
 
 def read_urls(filename: str) -> List[str]:
@@ -70,26 +121,29 @@ def read_urls(filename: str) -> List[str]:
 
 def main():
     try:
+        logger.info("Starting RSS fetcher")
+        
         # Initialize Supabase client
         url: str = os.environ.get("SUPABASE_URL")
         key: str = os.environ.get("SUPABASE_KEY")
         
         if not url or not key:
-            print("Error: Please set SUPABASE_URL and SUPABASE_KEY in your .env file")
+            logger.error("Missing Supabase credentials in .env file")
             return
             
         supabase: Client = create_client(url, key)
         
         # Read URLs from file
         urls = read_urls('url.md')
+        logger.info(f"Found {len(urls)} URLs to process")
         
         # Process each URL
         for url in urls:
-            print(f"Checking RSS from: {url}")
+            logger.info(f"Processing: {url}")
             
             # Get the latest entry date for this source
             latest_date = get_latest_entry_date(supabase, url)
-            print(f"Fetching entries newer than: {latest_date}")
+            logger.info(f"Fetching entries newer than: {latest_date}")
             
             # Only fetch entries newer than the latest one we have
             entries = fetch_rss(url, latest_date)
@@ -100,14 +154,16 @@ def main():
                         entries,
                         on_conflict="link,source_url"
                     ).execute()
-                    print(f"Processed {len(entries)} new entries from {url}")
+                    logger.info(f"Successfully processed {len(entries)} new entries from {url}")
                 except Exception as e:
-                    print(f"Error saving entries from {url}: {str(e)}")
+                    logger.error(f"Error saving entries from {url}: {str(e)}")
             else:
-                print(f"No new entries found for {url}")
+                logger.info(f"No new entries found for {url}")
                 
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        logger.error(f"An error occurred: {str(e)}")
+    
+    logger.info("RSS fetcher completed")
 
 if __name__ == "__main__":
     main() 

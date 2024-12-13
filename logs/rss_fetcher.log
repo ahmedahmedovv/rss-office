@@ -1,0 +1,184 @@
+2024-12-13 10:21:04,718 - INFO - Starting RSS fetcher
+2024-12-13 10:21:04,995 - INFO - Found 61 URLs to process
+2024-12-13 10:21:04,996 - INFO - Processing: https://notesfrompoland.com/feed/
+2024-12-13 10:21:05,470 - INFO - Fetching entries newer than: 2024-12-13 09:13:41+00:00
+2024-12-13 10:21:05,472 - INFO - Fetching RSS from: https://notesfrompoland.com/feed/
+2024-12-13 10:21:05,809 - INFO - Found 0 new entries from https://notesfrompoland.com/feed/
+2024-12-13 10:21:05,810 - INFO - No new entries found for https://notesfrompoland.com/feed/
+2024-12-13 10:21:05,810 - INFO - Processing: https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:21:05,901 - INFO - Fetching entries newer than: 2024-12-12 22:14:22+00:00
+2024-12-13 10:21:05,901 - INFO - Fetching RSS from: https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:21:06,175 - INFO - Found 0 new entries from https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:21:06,175 - INFO - No new entries found for https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:21:06,176 - INFO - Processing: https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:21:06,258 - INFO - Fetching entries newer than: 2024-12-13 09:16:10+00:00
+2024-12-13 10:21:06,259 - INFO - Fetching RSS from: https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:21:06,545 - INFO - Found 0 new entries from https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:21:06,545 - INFO - No new entries found for https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:21:06,545 - INFO - Processing: https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:21:06,627 - INFO - Fetching entries newer than: 2024-12-12 12:13:53+00:00
+2024-12-13 10:21:06,628 - INFO - Fetching RSS from: https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:21:06,951 - INFO - Found 0 new entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:21:06,952 - INFO - No new entries found for https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:21:06,952 - INFO - Processing: https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:21:07,043 - INFO - Fetching entries newer than: 2024-12-13 06:21:55+00:00
+2024-12-13 10:21:07,043 - INFO - Fetching RSS from: https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:21:07,304 - INFO - Found 0 new entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:21:07,304 - INFO - No new entries found for https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:21:07,305 - INFO - Processing: https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:21:07,384 - INFO - Fetching entries newer than: 2024-12-12 18:14:52+00:00
+2024-12-13 10:21:07,385 - INFO - Fetching RSS from: https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:21:07,678 - INFO - Found 0 new entries from https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:21:07,679 - INFO - No new entries found for https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:21:07,679 - INFO - Processing: https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:21:07,765 - INFO - Fetching entries newer than: 2024-12-13 09:02:22+00:00
+2024-12-13 10:21:07,766 - INFO - Fetching RSS from: https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:21:08,041 - INFO - Found 0 new entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:21:08,042 - INFO - No new entries found for https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:21:08,042 - INFO - Processing: https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:21:08,125 - INFO - Fetching entries newer than: 2024-12-11 14:58:31+00:00
+2024-12-13 10:21:08,125 - INFO - Fetching RSS from: https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:21:08,390 - INFO - Found 0 new entries from https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:21:08,390 - INFO - No new entries found for https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:21:08,390 - INFO - Processing: https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:21:08,468 - INFO - Fetching entries newer than: 2024-12-12 12:13:59+00:00
+2024-12-13 10:21:08,468 - INFO - Fetching RSS from: https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:21:08,747 - INFO - Found 0 new entries from https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:21:08,748 - INFO - No new entries found for https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:21:08,748 - INFO - Processing: https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:21:08,827 - INFO - Fetching entries newer than: 2024-12-08 00:00:00+00:00
+2024-12-13 10:21:08,828 - INFO - Fetching RSS from: https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:21:09,840 - INFO - Found 0 new entries from https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:21:09,840 - INFO - No new entries found for https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:21:09,841 - INFO - Processing: https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:21:09,921 - INFO - Fetching entries newer than: 2024-12-12 13:57:52+00:00
+2024-12-13 10:21:09,921 - INFO - Fetching RSS from: https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:21:10,187 - INFO - Found 0 new entries from https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:21:10,188 - INFO - No new entries found for https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:21:10,188 - INFO - Processing: https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:21:10,266 - INFO - Fetching entries newer than: 2024-12-12 13:57:53+00:00
+2024-12-13 10:21:10,267 - INFO - Fetching RSS from: https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:21:10,552 - INFO - Found 0 new entries from https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:21:10,553 - INFO - No new entries found for https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:21:10,553 - INFO - Processing: https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:21:10,630 - INFO - Fetching entries newer than: 2024-12-12 13:39:35+00:00
+2024-12-13 10:21:10,631 - INFO - Fetching RSS from: https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:21:10,923 - INFO - Found 0 new entries from https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:21:10,924 - INFO - No new entries found for https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:21:10,924 - INFO - Processing: https://cyberdefence24.pl/_rss
+2024-12-13 10:21:11,001 - INFO - Fetching entries newer than: 2024-12-13 08:24:32+00:00
+2024-12-13 10:21:11,001 - INFO - Fetching RSS from: https://cyberdefence24.pl/_rss
+2024-12-13 10:21:11,228 - INFO - Found 0 new entries from https://cyberdefence24.pl/_rss
+2024-12-13 10:21:11,228 - INFO - No new entries found for https://cyberdefence24.pl/_rss
+2024-12-13 10:21:11,229 - INFO - Processing: https://defence24.pl/_RSS
+2024-12-13 10:21:11,306 - INFO - Fetching entries newer than: 2024-12-13 08:31:26+00:00
+2024-12-13 10:21:11,306 - INFO - Fetching RSS from: https://defence24.pl/_RSS
+2024-12-13 10:21:11,499 - INFO - Found 1 new entries from https://defence24.pl/_RSS
+2024-12-13 10:21:11,587 - INFO - Successfully processed 1 new entries from https://defence24.pl/_RSS
+2024-12-13 10:21:11,587 - INFO - Processing: https://defence24.com/_rss
+2024-12-13 10:21:11,665 - INFO - Fetching entries newer than: 2024-12-13 08:37:21+00:00
+2024-12-13 10:21:11,665 - INFO - Fetching RSS from: https://defence24.com/_rss
+2024-12-13 10:21:11,867 - INFO - Found 0 new entries from https://defence24.com/_rss
+2024-12-13 10:21:11,868 - INFO - No new entries found for https://defence24.com/_rss
+2024-12-13 10:21:11,868 - INFO - Processing: https://infosecurity24.pl/_rss
+2024-12-13 10:21:11,950 - INFO - Fetching entries newer than: 2024-12-13 08:14:03+00:00
+2024-12-13 10:21:11,950 - INFO - Fetching RSS from: https://infosecurity24.pl/_rss
+2024-12-13 10:21:12,149 - INFO - Found 0 new entries from https://infosecurity24.pl/_rss
+2024-12-13 10:21:12,150 - INFO - No new entries found for https://infosecurity24.pl/_rss
+2024-12-13 10:21:12,150 - INFO - Processing: https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:21:12,225 - INFO - Fetching entries newer than: 2024-12-13 09:16:43+00:00
+2024-12-13 10:21:12,226 - INFO - Fetching RSS from: https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:21:12,514 - INFO - Found 0 new entries from https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:21:12,515 - INFO - No new entries found for https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:21:12,515 - INFO - Processing: https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:21:12,592 - INFO - No previous entries found for https://politepol.com/fd/lcvYRMYRE3w6.xml, defaulting to 30 days ago
+2024-12-13 10:21:12,593 - INFO - Fetching entries newer than: 2024-11-13 10:21:12.593562+00:00
+2024-12-13 10:21:12,593 - INFO - Fetching RSS from: https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:21:12,860 - INFO - Found 0 new entries from https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:21:12,862 - INFO - No new entries found for https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:21:12,862 - INFO - Processing: https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:21:12,942 - INFO - Fetching entries newer than: 2024-12-05 13:42:48+00:00
+2024-12-13 10:21:12,942 - INFO - Fetching RSS from: https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:21:13,220 - INFO - Found 0 new entries from https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:21:13,222 - INFO - No new entries found for https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:21:13,222 - INFO - Processing: https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:21:13,302 - INFO - Fetching entries newer than: 2024-12-12 16:19:42+00:00
+2024-12-13 10:21:13,302 - INFO - Fetching RSS from: https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:21:13,560 - INFO - Found 0 new entries from https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:21:13,560 - INFO - No new entries found for https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:21:13,561 - INFO - Processing: https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:21:13,641 - INFO - Fetching entries newer than: 2024-12-12 14:20:08+00:00
+2024-12-13 10:21:13,641 - INFO - Fetching RSS from: https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:21:13,911 - INFO - Found 0 new entries from https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:21:13,912 - INFO - No new entries found for https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:21:13,912 - INFO - Processing: https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:21:13,993 - INFO - Fetching entries newer than: 2024-12-09 16:05:02+00:00
+2024-12-13 10:21:13,993 - INFO - Fetching RSS from: https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:21:14,276 - INFO - Found 0 new entries from https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:21:14,276 - INFO - No new entries found for https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:21:14,276 - INFO - Processing: https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:21:14,364 - INFO - No previous entries found for https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss, defaulting to 30 days ago
+2024-12-13 10:21:14,365 - INFO - Fetching entries newer than: 2024-11-13 10:21:14.365671+00:00
+2024-12-13 10:21:14,365 - INFO - Fetching RSS from: https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:21:14,617 - INFO - Found 0 new entries from https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:21:14,617 - INFO - No new entries found for https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:21:14,618 - INFO - Processing: https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:21:14,695 - INFO - No previous entries found for https://politepol.com/fd/iv5sCQcuO3FS.xml, defaulting to 30 days ago
+2024-12-13 10:21:14,695 - INFO - Fetching entries newer than: 2024-11-13 10:21:14.695039+00:00
+2024-12-13 10:21:14,695 - INFO - Fetching RSS from: https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:21:14,985 - INFO - Found 0 new entries from https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:21:14,985 - INFO - No new entries found for https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:21:14,986 - INFO - Processing: https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:21:15,066 - INFO - Fetching entries newer than: 2024-12-12 00:00:00+00:00
+2024-12-13 10:21:15,067 - INFO - Fetching RSS from: https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:21:15,344 - INFO - Found 0 new entries from https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:21:15,345 - INFO - No new entries found for https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:21:15,345 - INFO - Processing: https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:21:15,424 - INFO - Fetching entries newer than: 2024-12-10 09:40:22+00:00
+2024-12-13 10:21:15,425 - INFO - Fetching RSS from: https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:21:15,777 - INFO - Found 0 new entries from https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:21:15,778 - INFO - No new entries found for https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:21:15,778 - INFO - Processing: https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:21:15,857 - INFO - Fetching entries newer than: 2024-12-13 09:17:01+00:00
+2024-12-13 10:21:15,857 - INFO - Fetching RSS from: https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:21:16,177 - INFO - Found 0 new entries from https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:21:16,178 - INFO - No new entries found for https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:21:16,178 - INFO - Processing: https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:21:16,256 - INFO - Fetching entries newer than: 2024-12-12 10:18:04+00:00
+2024-12-13 10:21:16,257 - INFO - Fetching RSS from: https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:21:16,570 - INFO - Found 0 new entries from https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:21:16,570 - INFO - No new entries found for https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:21:16,570 - INFO - Processing: https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:21:16,658 - INFO - Fetching entries newer than: 2024-12-11 10:53:39+00:00
+2024-12-13 10:21:16,658 - INFO - Fetching RSS from: https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:21:16,913 - INFO - Found 0 new entries from https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:21:16,913 - INFO - No new entries found for https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:21:16,914 - INFO - Processing: https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:21:16,999 - INFO - Fetching entries newer than: 2024-12-13 09:17:14+00:00
+2024-12-13 10:21:17,000 - INFO - Fetching RSS from: https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:21:17,259 - INFO - Found 0 new entries from https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:21:17,260 - INFO - No new entries found for https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:21:17,260 - INFO - Processing: https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:21:17,359 - INFO - Fetching entries newer than: 2024-12-11 00:00:00+00:00
+2024-12-13 10:21:17,359 - INFO - Fetching RSS from: https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:21:17,804 - INFO - Found 0 new entries from https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:21:17,804 - INFO - No new entries found for https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:21:17,805 - INFO - Processing: https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:21:17,890 - INFO - No previous entries found for https://politepol.com/fd/ZCxuP2YN7S3A.xml, defaulting to 30 days ago
+2024-12-13 10:21:17,891 - INFO - Fetching entries newer than: 2024-11-13 10:21:17.890040+00:00
+2024-12-13 10:21:17,891 - INFO - Fetching RSS from: https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:21:18,149 - INFO - Found 0 new entries from https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:21:18,150 - INFO - No new entries found for https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:21:18,150 - INFO - Processing: https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:21:18,236 - INFO - Fetching entries newer than: 2024-12-13 09:17:15+00:00
+2024-12-13 10:21:18,237 - INFO - Fetching RSS from: https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:21:18,500 - INFO - Found 0 new entries from https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:21:18,500 - INFO - No new entries found for https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:21:18,500 - INFO - Processing: https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:21:18,578 - INFO - Fetching entries newer than: 2024-12-13 06:01:00+00:00
+2024-12-13 10:21:18,578 - INFO - Fetching RSS from: https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:21:18,787 - INFO - Found 0 new entries from https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:21:18,787 - INFO - No new entries found for https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:21:18,788 - INFO - Processing: https://dziennikzbrojny.pl/rss
+2024-12-13 10:21:18,862 - INFO - Fetching entries newer than: 2024-12-12 19:43:21+00:00
+2024-12-13 10:21:18,862 - INFO - Fetching RSS from: https://dziennikzbrojny.pl/rss
