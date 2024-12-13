@@ -673,3 +673,24 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 13:24:03,132 - INFO - Successfully processed entry 409
 2024-12-13 13:24:12,303 - INFO - Successfully processed entry 410
 2024-12-13 13:24:21,692 - INFO - Successfully processed entry 412
+2024-12-13 13:24:31,864 - INFO - Successfully processed entry 413
+2024-12-13 13:24:38,705 - INFO - Successfully processed entry 416
+2024-12-13 13:24:48,731 - INFO - Successfully processed entry 469
+2024-12-13 13:25:00,933 - INFO - Successfully processed entry 471
+2024-12-13 13:25:12,254 - INFO - Successfully processed entry 420
+2024-12-13 13:25:21,801 - INFO - Successfully processed entry 423
+2024-12-13 13:25:28,808 - INFO - Successfully processed entry 426
+2024-12-13 13:25:41,977 - INFO - Successfully processed entry 427
+2024-12-13 13:25:55,253 - INFO - Successfully processed entry 429
+2024-12-13 13:26:06,356 - INFO - Successfully processed entry 433
+2024-12-13 13:26:14,190 - WARNING - Invalid category returned: Transportation
+2024-12-13 13:26:14,336 - INFO - Successfully processed entry 397
+2024-12-13 13:26:25,417 - INFO - Successfully processed entry 441
+2024-12-13 13:26:32,893 - INFO - Successfully processed entry 442
+2024-12-13 13:26:40,198 - INFO - Successfully processed entry 444
+2024-12-13 13:26:46,527 - INFO - Successfully processed entry 448
+2024-12-13 13:26:52,802 - INFO - Successfully processed entry 450
+2024-12-13 13:27:06,309 - INFO - Successfully processed entry 451
+2024-12-13 13:27:13,789 - INFO - Successfully processed entry 468
+2024-12-13 13:27:22,605 - INFO - Successfully processed entry 470
+2024-12-13 13:27:22,697 - INFO - No more entries to summarize

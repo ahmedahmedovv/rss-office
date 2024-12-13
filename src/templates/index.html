@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <title>RSS Reader</title>
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
-    <style>
-        .feed-item {
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border: 1px solid var(--color-border-default);
-        }
-        .feed-item.read {
-            background-color: var(--color-canvas-subtle);
-        }
-    </style>
+    <link href="static/styles.css" rel="stylesheet" />
 </head>
 <body class="p-3">
     <!-- Simple header -->
@@ -22,57 +13,34 @@
         <button class="btn ml-auto" id="refresh-btn">Refresh</button>
     </div>
 
-    <!-- Main content -->
-    <div class="Box">
-        <div class="Box-header">
-            <h3 class="Box-title">Feeds (<span id="feed-count">0</span>)</h3>
+    <!-- New layout with sidebar -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="Box">
+                <div class="Box-header">
+                    <h3 class="Box-title">Categories</h3>
+                </div>
+                <div id="category-list" class="Box-body">
+                    <div class="category-item active" data-category="all">All Feeds</div>
+                </div>
+            </div>
         </div>
-        <div id="feed-list" class="Box-body">
-            <div class="Spinner"></div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="Box">
+                <div class="Box-header">
+                    <h3 class="Box-title">Feeds (<span id="feed-count">0</span>)</h3>
+                </div>
+                <div id="feed-list" class="Box-body">
+                    <div class="Spinner"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        let readFeeds = new Set(JSON.parse(localStorage.getItem('readFeeds') || '[]'));
-
-        function loadFeeds() {
-            $.ajax({
-                url: '/api/feeds',
-                method: 'GET',
-                success: (feeds) => {
-                    $('#feed-count').text(feeds.length);
-                    const html = feeds.map(feed => `
-                        <div class="feed-item ${readFeeds.has(feed.id) ? 'read' : ''}" 
-                             data-id="${feed.id}">
-                            <h4><a href="${feed.link}" target="_blank">${feed.title}</a></h4>
-                            <p class="color-fg-muted">${feed.summary || ''}</p>
-                        </div>
-                    `).join('');
-                    $('#feed-list').html(html);
-                },
-                error: () => {
-                    $('#feed-list').html(
-                        '<div class="flash flash-error">Failed to load feeds</div>'
-                    );
-                }
-            });
-        }
-
-        $(document).ready(() => {
-            loadFeeds();
-
-            // Mark as read
-            $(document).on('click', '.feed-item', function() {
-                const id = $(this).data('id');
-                $(this).toggleClass('read');
-                readFeeds.has(id) ? readFeeds.delete(id) : readFeeds.add(id);
-                localStorage.setItem('readFeeds', JSON.stringify([...readFeeds]));
-            });
-
-            // Refresh
-            $('#refresh-btn').click(loadFeeds);
-        });
-    </script>
+    <script src="static/script.js"></script>
 </body>
 </html>
