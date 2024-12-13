@@ -8,6 +8,7 @@ class ArticleManager {
         try {
             const response = await $.get('/api/articles/read');
             this.readArticles = new Set(response.read_articles);
+            console.log('Loaded read articles:', this.readArticles);
             return this.readArticles;
         } catch (error) {
             console.error('Error loading read articles:', error);
@@ -15,16 +16,19 @@ class ArticleManager {
         }
     }
 
-    isArticleRead(link) {
-        return this.readArticles.has(link);
-    }
-
-    async markAsRead(link) {
+    async markAsRead(link, openInNewTab = false) {
+        console.log('Marking article as read:', link);
         const $article = this.getArticleElement(link);
-        if ($article.hasClass('loading')) return;
+        
+        if ($article.hasClass('loading')) {
+            console.log('Article is already being processed');
+            return;
+        }
         
         try {
             $article.addClass('loading');
+            
+            // Make the API call first
             const response = await $.ajax({
                 url: '/api/articles/read',
                 method: 'POST',
@@ -33,11 +37,24 @@ class ArticleManager {
             });
             
             if (response.is_read !== undefined) {
-                this.updateArticleReadStatus(response.link, response.is_read);
+                // Update the UI
+                this.updateArticleReadStatus(link, response.is_read);
+                
+                // Update category counts
+                if (window.uiManager) {
+                    window.uiManager.updateCategoryCounts();
+                }
+                
+                // Only open in new tab if explicitly requested (when clicking the title)
+                if (openInNewTab && response.is_read) {
+                    window.open(link, '_blank');
+                }
             }
         } catch (error) {
             console.error('Error marking as read:', error);
-            showToast('Failed to update article status', 'error');
+            if (window.uiManager) {
+                window.uiManager.showToast('Failed to update article status', 'error');
+            }
         } finally {
             $article.removeClass('loading');
         }
@@ -48,27 +65,41 @@ class ArticleManager {
     }
 
     updateArticleReadStatus(link, isRead) {
+        console.log('Updating article read status:', { link, isRead });
         const $article = this.getArticleElement(link);
+        
         if (isRead) {
             this.readArticles.add(link);
-            $article.addClass('read fade-transition');
+            $article.addClass('read');
         } else {
             this.readArticles.delete(link);
-            $article.removeClass('read fade-transition');
+            $article.removeClass('read');
         }
+        
+        // Remove immediate hiding of articles
+        // The filtering will happen when changing categories or toggling show/unread
+    }
+
+    isArticleRead(link) {
+        return this.readArticles.has(link);
     }
 
     createArticleHtml(article) {
         const formattedDate = this.formatArticleDate(article.pub_date);
         const isRead = this.isArticleRead(article.link);
+        const escapedLink = article.link.replace(/'/g, '\\\'');
         
         return `
-            <div class="Box mb-3 article-box ${isRead ? 'read' : ''}" data-link="${article.link}">
+            <div class="Box mb-3 article-box ${isRead ? 'read' : ''}" 
+                 data-link="${escapedLink}"
+                 onclick="articleManager.markAsRead('${escapedLink}', false)"
+                 style="cursor: pointer">
                 <div class="Box-header d-flex flex-items-center">
                     <h3 class="Box-title flex-auto">
-                        <a href="${article.link}" class="Link--primary" target="_blank">
+                        <span class="Link--primary" 
+                              onclick="event.stopPropagation(); articleManager.markAsRead('${escapedLink}', true)">
                             ${article.ai_title || article.title || 'Not available'}
-                        </a>
+                        </span>
                     </h3>
                     <span class="text-small color-fg-muted">${formattedDate}</span>
                 </div>
@@ -92,4 +123,4 @@ class ArticleManager {
     }
 }
 
-const articleManager = new ArticleManager(); 
+window.articleManager = new ArticleManager(); 

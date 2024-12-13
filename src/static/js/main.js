@@ -1,37 +1,57 @@
 $(document).ready(function() {
-    // Initialize managers
-    const article = articleManager;
-    const category = categoryManager;
-    const ui = uiManager;
+    // Wait for all managers to be available
+    if (typeof articleManager === 'undefined' || 
+        typeof categoryManager === 'undefined' || 
+        typeof uiManager === 'undefined') {
+        console.error('Required managers not initialized');
+        return;
+    }
 
     // Initial load
     async function initialize() {
         try {
-            await article.loadReadArticles();
+            console.log('Starting initialization...');
             
+            console.log('Loading read articles...');
+            await articleManager.loadReadArticles();
+            console.log('Read articles loaded:', articleManager.readArticles.size);
+            
+            console.log('Fetching feeds from API...');
             const response = await $.get('/api/feeds');
-            $('#loading').hide();
-            article.allArticles = response;
-            
-            response.forEach(article => {
-                if (article.category) {
-                    category.categories.add(article.category);
-                }
+            console.log('Raw API response:', {
+                type: typeof response,
+                length: Array.isArray(response) ? response.length : 'not an array',
+                sample: Array.isArray(response) && response.length > 0 ? response[0] : null
             });
             
-            // Initialize category order if empty
-            if (category.categoryOrder.length === 0) {
-                category.categoryOrder = Array.from(category.categories);
-                localStorage.setItem('categoryOrder', JSON.stringify(category.categoryOrder));
+            if (!response || !Array.isArray(response)) {
+                throw new Error(`Invalid response format: ${JSON.stringify(response)}`);
             }
+
+            $('#loading').hide();
+            articleManager.allArticles = response;
             
-            category.updateCategoryFilters();
-            $('#articles').html('');
+            // Process categories
+            console.log('Processing categories...');
+            response.forEach(article => {
+                if (article.category) {
+                    categoryManager.categories.add(article.category);
+                }
+            });
+            console.log('Categories found:', Array.from(categoryManager.categories));
+            
+            // Update UI
+            categoryManager.updateCategoryFilters();
+            uiManager.filterArticles();
+            
         } catch (error) {
+            console.error('Detailed initialization error:', error);
             $('#loading').hide();
             $('#articles').html(`
                 <div class="flash flash-error">
-                    Error loading articles: ${error}
+                    <h3>Error loading articles</h3>
+                    <p>${error.message}</p>
+                    <pre>${error.stack}</pre>
                 </div>
             `);
         }

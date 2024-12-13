@@ -13,6 +13,23 @@ class UIManager {
         this.initializeMarkAllReadHandler();
     }
 
+    initializeMarkAllReadHandler() {
+        $('#markAllRead').change(async (e) => {
+            const isChecked = $(e.target).is(':checked');
+            const currentCategory = $('.category-filter.active').data('category');
+            
+            if (isChecked) {
+                const visibleArticles = $('.article-box:visible');
+                for (const article of visibleArticles) {
+                    const link = $(article).data('link');
+                    await articleManager.markAsRead(link);
+                }
+            }
+            
+            this.filterArticles(currentCategory);
+        });
+    }
+
     showToast(message, type = 'info') {
         const toast = $(`<div class="toast ${type}">${message}</div>`);
         $('body').append(toast);
@@ -83,6 +100,87 @@ class UIManager {
     handleArticleSorting(sortType) {
         // Sorting logic implementation
     }
+
+    filterArticles(category) {
+        console.log('Starting filterArticles:', {
+            totalArticles: articleManager.allArticles.length,
+            category: category,
+            showOnlyUnread: this.showOnlyUnread,
+            articleManagerState: articleManager
+        });
+
+        if (!Array.isArray(articleManager.allArticles)) {
+            console.error('allArticles is not an array:', articleManager.allArticles);
+            $('#articles').html(`
+                <div class="flash flash-error">
+                    Error: Invalid articles data structure
+                </div>
+            `);
+            return;
+        }
+
+        this.updateCategoryCounts();
+
+        const filteredArticles = articleManager.allArticles.filter(article => {
+            if (category && article.category !== category) return false;
+            if (this.showOnlyUnread && articleManager.isArticleRead(article.link)) {
+                console.log('Filtering out read article:', article.link);
+                return false;
+            }
+            return true;
+        });
+
+        console.log('Filtered articles count:', filteredArticles.length);
+
+        if (filteredArticles.length === 0) {
+            $('#articles').html(`
+                <div class="flash flash-warn">
+                    No articles found${category ? ` in category "${category}"` : ''}
+                    ${this.showOnlyUnread ? ' (showing only unread)' : ''}
+                </div>
+            `);
+        } else {
+            const articlesHtml = filteredArticles.map(article => {
+                try {
+                    return articleManager.createArticleHtml(article);
+                } catch (error) {
+                    console.error('Error creating HTML for article:', article, error);
+                    return '';
+                }
+            }).join('');
+            
+            $('#articles').html(articlesHtml);
+        }
+        
+        this.updateVisibleArticles();
+    }
+
+    updateCategoryCounts() {
+        console.log('Updating category counts...');
+        const categoryCounts = {};
+        
+        articleManager.allArticles.forEach(article => {
+            if (article.category) {
+                if (!categoryCounts[article.category]) {
+                    categoryCounts[article.category] = 0;
+                }
+                if (!this.showOnlyUnread || !articleManager.isArticleRead(article.link)) {
+                    categoryCounts[article.category]++;
+                }
+            }
+        });
+
+        $('.category-filter').each(function() {
+            const category = $(this).data('category');
+            const count = categoryCounts[category] || 0;
+            $(this).find('.category-count').text(count);
+        });
+
+        const totalUnread = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
+        $('#total-unread-count').text(totalUnread);
+        
+        console.log('Category counts updated:', categoryCounts);
+    }
 }
 
-const uiManager = new UIManager(); 
+window.uiManager = new UIManager(); 

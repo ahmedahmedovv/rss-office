@@ -54,29 +54,17 @@ def index():
 def get_feeds():
     try:
         response = supabase.table("rss_feeds")\
-            .select("""
-                id,
-                title,
-                title_en,
-                description,
-                description_en,
-                link,
-                pub_date,
-                source_url,
-                created_at,
-                translated_at,
-                summary,
-                summarized_at,
-                ai_title,
-                ai_title_generated_at,
-                category,
-                category_generated_at
-            """)\
+            .select("*")\
             .order('pub_date', desc=True)\
             .limit(2000)\
             .execute()
+        
+        logger.debug(f"Supabase response: {response}")
+        logger.debug(f"Number of articles: {len(response.data) if response.data else 0}")
+        
         return jsonify(response.data)
     except Exception as e:
+        logger.error(f"Error fetching feeds: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 @app.route('/api/articles/read', methods=['POST'])
