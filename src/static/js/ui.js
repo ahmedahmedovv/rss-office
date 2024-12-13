@@ -85,6 +85,7 @@ class UIManager {
         $('#showOnlyUnread').change(() => {
             this.showOnlyUnread = $('#showOnlyUnread').is(':checked');
             const currentCategory = $('.category-filter.active').data('category');
+            this.updateCategoryCounts();
             this.filterArticles(currentCategory);
         });
     }
@@ -189,6 +190,12 @@ class UIManager {
             const category = $(this).data('category');
             const count = categoryCounts[category] || 0;
             $(this).find('.category-count').text(count);
+            
+            if (uiManager.showOnlyUnread) {
+                $(this).toggle(count > 0);
+            } else {
+                $(this).show();
+            }
         });
 
         const totalUnread = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
