@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSS Entries</title>
-    <!-- External Dependencies -->
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@primer/octicons/build/build.css" />
     <style>
-        body {
-            background-color: #fbeede;
-        }
+        body { background-color: #fbeede; }
         .Box {
             background-color: white;
             border: 1px solid rgba(0,0,0,0.1);
@@ -103,74 +100,109 @@
             <div class="Box-header d-flex flex-items-center">
                 <h2 class="Box-title flex-auto">RSS Entries</h2>
                 <div class="d-flex flex-items-center">
-                    <button class="btn btn-primary mr-2" onclick="refreshData()">
+                    <button class="btn btn-primary mr-2" id="refreshButton">
                         <span class="octicon octicon-sync"></span>
                         Refresh Data
                     </button>
                     <div class="BtnGroup mr-3" role="group" aria-label="Sort articles">
-                        <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
+                        <button class="BtnGroup-item btn btn-sm selected" data-sort="desc" title="Newest first">
                             ▼
                         </button>
-                        <button class="BtnGroup-item btn btn-sm" data-sort="oldest" title="Oldest first">
+                        <button class="BtnGroup-item btn btn-sm" data-sort="asc" title="Oldest first">
                             ▲
                         </button>
                     </div>
                 </div>
             </div>
-            <div id="loading" class="Box-body text-center">
+            <div id="loading" class="Box-body text-center" style="display: none;">
                 <div class="Spinner"></div>
                 <p>Loading articles...</p>
             </div>
+            <div id="error" class="Box-body flash flash-error" style="display: none;"></div>
             <div id="entries" class="Box-body"></div>
+            <div id="pagination" class="Box-footer text-center"></div>
         </div>
     </div>
 
     <script>
-        let currentCategory = 'all';
-        let readArticles = new Set(JSON.parse(localStorage.getItem('readArticles') || '[]'));
-        let currentArticleIndex = -1;
-        let visibleArticles = [];
+        // Enhanced App state
+        const state = {
+            currentCategory: 'all',
+            currentPage: 1,
+            perPage: 20,
+            sortOrder: 'desc',
+            isLoading: false,
+            readArticles: new Set(JSON.parse(localStorage.getItem('readArticles') || '[]')),
+            currentArticleIndex: -1,
+            visibleArticles: [],
+            lastUpdate: new Date().toISOString(),
+            updateInterval: null
+        };
 
-        $(document).ready(function() {
-            // Category selection
-            $('.category-item').click(function() {
-                $('.category-item').removeClass('active');
-                $(this).addClass('active');
-                currentCategory = $(this).data('category');
-                refreshData();
-            });
+        // Enhanced API functions
+        const api = {
+            async fetchEntries() {
+                const params = new URLSearchParams({
+                    page: state.currentPage,
+                    per_page: state.perPage,
+                    sort: state.sortOrder,
+                    category: state.currentCategory
+                });
 
-            function refreshData() {
-                $('#loading').show();
-                $('#entries').hide();
-                
-                fetch('/api/entries')
-                    .then(response => response.json())
-                    .then(data => {
-                        // Filter by category if not "all"
-                        if (currentCategory !== 'all') {
-                            data = data.filter(entry => entry.category === currentCategory);
-                        }
-                        renderEntries(data);
-                        $('#loading').hide();
-                        $('#entries').show();
-                    })
-                    .catch(error => {
-                        $('#loading').hide();
-                        $('#entries').html(`
-                            <div class="flash flash-error">
-                                Error loading entries: ${error}
-                            </div>
-                        `).show();
-                    });
+                try {
+                    const response = await fetch(`/api/entries?${params}`);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return await response.json();
+                } catch (error) {
+                    throw new Error(`Failed to fetch entries: ${error.message}`);
+                }
+            },
+
+            async checkUpdates() {
+                try {
+                    const response = await fetch(`/api/check-updates?last_update=${state.lastUpdate}`);
+                    if (!response.ok) throw new Error('Update check failed');
+                    const data = await response.json();
+                    if (data.new_entries > 0) {
+                        showUpdateNotification(data.new_entries);
+                    }
+                } catch (error) {
+                    console.error('Update check failed:', error);
+                }
             }
+        };
 
-            function renderEntries(entries) {
-                let entriesHtml = '';
-                
-                entries.forEach(entry => {
-                    entriesHtml += `
-                        <div class="Box mb-3 article-box">
+        // Enhanced UI functions
+        const ui = {
+            showLoading(show = true) {
+                state.isLoading = show;
+                $('#loading').fadeToggle(300);
+                $('#refreshButton').prop('disabled', show);
+            },
+
+            showError(message) {
+                $('#error')
+                    .html(message)
+                    .fadeIn(300)
+                    .delay(5000)
+                    .fadeOut(300);
+            },
+
+            showUpdateNotification(count) {
+                const notification = $(`
+                    <div class="flash flash-success mx-3 mt-3" style="display: none;">
+                        ${count} new entries available! 
+                        <button class="btn-link" onclick="refreshData()">Refresh</button>
+                    </div>
+                `).prependTo('.main-content');
+                notification.fadeIn(300);
+            },
+
+            renderEntries(entries) {
+                $('#entries').fadeOut(200, function() {
+                    const entriesHtml = entries.map(entry => `
+                        <div class="Box mb-3 article-box ${state.readArticles.has(entry.link) ? 'read' : ''}"
+                             data-link="${entry.link}">
                             <div class="Box-header d-flex flex-items-center">
                                 <span class="Label Label--secondary mr-2">${entry.category || 'Uncategorized'}</span>
                                 <h3 class="Box-title">
@@ -183,58 +215,98 @@
                                 <p class="color-fg-muted">${entry.summary || 'No summary available'}</p>
                             </div>
                         </div>
-                    `;
+                    `).join('');
+                    
+                    $(this)
+                        .html(entriesHtml || '<p class="text-center">No entries found</p>')
+                        .fadeIn(200);
+                    
+                    updateVisibleArticles();
                 });
-                
-                $('#entries').html(entriesHtml || '<p class="text-center">No entries found</p>');
-            }
+            },
 
-            // Sort functionality
-            $('.BtnGroup-item').click(function() {
-                $('.BtnGroup-item').removeClass('selected');
-                $(this).addClass('selected');
+            updatePagination(total) {
+                const totalPages = Math.ceil(total / state.perPage);
+                const paginationHtml = `
+                    <div class="d-flex flex-justify-center">
+                        <div class="BtnGroup">
+                            ${Array.from({ length: totalPages }, (_, i) => i + 1)
+                                .map(page => `
+                                    <button class="BtnGroup-item btn btn-sm ${page === state.currentPage ? 'selected' : ''}"
+                                            onclick="changePage(${page})">
+                                        ${page}
+                                    </button>
+                                `).join('')}
+                        </div>
+                    </div>
+                `;
+                $('#pagination').html(paginationHtml);
+            }
+        };
+
+        // Enhanced event handlers
+        const refreshData = debounce(async () => {
+            if (state.isLoading) return;
+            
+            ui.showLoading(true);
+            try {
+                const response = await api.fetchEntries();
+                ui.renderEntries(response.data);
+                ui.updatePagination(response.total);
+                state.lastUpdate = new Date().toISOString();
+            } catch (error) {
+                ui.showError(error.message);
+            } finally {
+                ui.showLoading(false);
+            }
+        }, 300);
+
+        function changePage(page) {
+            state.currentPage = page;
+            refreshData();
+        }
+
+        // Initialize
+        $(document).ready(function() {
+            // Category selection with smooth transitions
+            $('.category-item').click(function() {
+                $('.category-item').removeClass('active');
+                $(this).addClass('active');
+                state.currentCategory = $(this).data('category');
+                state.currentPage = 1;
                 refreshData();
             });
 
-            // Initial load
-            refreshData();
-
-            $('#clearReadHistory').click(function() {
-                readArticles.clear();
-                localStorage.removeItem('readArticles');
-                $('.article-box').removeClass('read');
-                updateCategoryFilters();
+            // Sort functionality with animation
+            $('.BtnGroup-item').click(function() {
+                $('.BtnGroup-item').removeClass('selected');
+                $(this).addClass('selected');
+                state.sortOrder = $(this).data('sort');
+                refreshData();
             });
+
+            // Enhanced article click handling
+            $(document).on('click', '.article-box a', function(e) {
+                const $article = $(this).closest('.article-box');
+                const link = $article.data('link');
+                
+                state.readArticles.add(link);
+                localStorage.setItem('readArticles', JSON.stringify(Array.from(state.readArticles)));
+                
+                $article.addClass('read').fadeOut(300).fadeIn(300);
+            });
+
+            // Start update checker
+            state.updateInterval = setInterval(() => api.checkUpdates(), 30000); // Check every 30 seconds
+
+            // Initial load with animation
+            ui.showLoading(true);
+            setTimeout(refreshData, 500); // Small delay for loading animation
         });
 
-        function isArticleRead(link) {
-            return readArticles.has(link);
-        }
-
-        function markAsRead(link) {
-            readArticles.add(link);
-            localStorage.setItem('readArticles', JSON.stringify(Array.from(readArticles)));
-        }
-
-        function updateVisibleArticles() {
-            visibleArticles = $('.article-box:visible').toArray();
-            currentArticleIndex = -1;
-        }
-
-        $(document).keydown(function(e) {
-            if (!$(e.target).is('input, textarea')) {
-                if (e.key === 'n') {
-                    // Next article
-                    e.preventDefault();
-                    currentArticleIndex = Math.min(currentArticleIndex + 1, visibleArticles.length - 1);
-                    scrollToArticle(visibleArticles[currentArticleIndex]);
-                } else if (e.key === 'k') {
-                    // Previous article
-                    e.preventDefault();
-                    currentArticleIndex = Math.max(currentArticleIndex - 1, 0);
-                    scrollToArticle(visibleArticles[currentArticleIndex]);
-                }
-            }
+        // Cleanup
+        $(window).on('unload', function() {
+            clearInterval(state.updateInterval);
         });
     </script>
 </body>
