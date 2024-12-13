@@ -1,4 +1,4 @@
-from mistralai.client import MistralClient
+from mistralai import Mistral
 from supabase import Client
 import logging
 from datetime import datetime
@@ -19,7 +19,7 @@ class RSSSummarizer:
             config: Configuration dictionary
         """
         self.supabase = supabase
-        self.mistral = MistralClient(api_key=mistral_api_key)
+        self.mistral = Mistral(api_key=mistral_api_key)
         self.logger = logger
         self.config = config['summarization']
 
@@ -64,7 +64,7 @@ class RSSSummarizer:
             Generated content or None if failed
         """
         try:
-            response = self.mistral.chat(
+            response = self.mistral.chat.complete(
                 model=self.config['model'],
                 messages=messages,
                 temperature=0.7,

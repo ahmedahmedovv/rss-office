@@ -1544,3 +1544,163 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 14:25:35,322 - INFO - Translated entry 1086
 2024-12-13 14:25:37,132 - INFO - Translated entry 1087
 2024-12-13 14:25:38,787 - INFO - Translated entry 1088
+2024-12-13 14:25:41,478 - INFO - Translated entry 1098
+2024-12-13 14:25:43,130 - INFO - Translated entry 1099
+2024-12-13 14:25:43,752 - INFO - Translated entry 1197
+2024-12-13 14:25:46,686 - INFO - Translated entry 1089
+2024-12-13 14:25:47,333 - INFO - Translated entry 1090
+2024-12-13 14:25:49,285 - INFO - Translated entry 1091
+2024-12-13 14:25:51,118 - INFO - Translated entry 1092
+2024-12-13 14:25:52,751 - INFO - Translated entry 1093
+2024-12-13 14:25:54,513 - INFO - Translated entry 1094
+2024-12-13 14:25:56,161 - INFO - Translated entry 1095
+2024-12-13 14:25:59,132 - INFO - Translated entry 1096
+2024-12-13 14:25:59,757 - INFO - Translated entry 1097
+2024-12-13 14:26:02,711 - INFO - Translated entry 1100
+2024-12-13 14:26:03,314 - INFO - Translated entry 1101
+2024-12-13 14:26:06,082 - INFO - Translated entry 1102
+2024-12-13 14:26:07,865 - INFO - Translated entry 1103
+2024-12-13 14:26:09,529 - INFO - Translated entry 1104
+2024-12-13 14:26:11,311 - INFO - Translated entry 1105
+2024-12-13 14:26:13,006 - INFO - Translated entry 1106
+2024-12-13 14:26:13,668 - INFO - Translated entry 1107
+2024-12-13 14:26:15,372 - INFO - Translated entry 1108
+2024-12-13 14:26:16,010 - INFO - Translated entry 1109
+2024-12-13 14:26:18,833 - INFO - Translated entry 1110
+2024-12-13 14:26:20,513 - INFO - Translated entry 1126
+2024-12-13 14:26:23,234 - INFO - Translated entry 1111
+2024-12-13 14:26:24,942 - INFO - Translated entry 1112
+2024-12-13 14:26:27,854 - INFO - Translated entry 1113
+2024-12-13 14:26:29,571 - INFO - Translated entry 1114
+2024-12-13 14:26:31,300 - INFO - Translated entry 1115
+2024-12-13 14:26:33,124 - INFO - Translated entry 1116
+2024-12-13 14:26:35,887 - INFO - Translated entry 1117
+2024-12-13 14:26:37,560 - INFO - Translated entry 1118
+2024-12-13 14:26:40,257 - INFO - Translated entry 1119
+2024-12-13 14:26:40,913 - INFO - Translated entry 1120
+2024-12-13 14:26:42,657 - INFO - Translated entry 1121
+2024-12-13 14:26:45,663 - INFO - Translated entry 1122
+2024-12-13 14:26:47,393 - INFO - Translated entry 1123
+2024-12-13 14:26:48,838 - INFO - Translated entry 1124
+2024-12-13 14:26:51,347 - INFO - Translated entry 1209
+2024-12-13 14:26:51,970 - INFO - Translated entry 1210
+2024-12-13 14:26:53,654 - INFO - Translated entry 1125
+2024-12-13 14:26:55,472 - INFO - Translated entry 1127
+2024-12-13 14:26:56,901 - INFO - Translated entry 1128
+2024-12-13 14:26:58,555 - INFO - Translated entry 1129
+2024-12-13 14:27:00,255 - INFO - Translated entry 1130
+2024-12-13 14:27:02,037 - INFO - Translated entry 1131
+2024-12-13 14:27:03,782 - INFO - Translated entry 1132
+2024-12-13 14:27:06,473 - INFO - Translated entry 1133
+2024-12-13 14:27:08,352 - INFO - Translated entry 1134
+2024-12-13 14:27:10,036 - INFO - Translated entry 1135
+2024-12-13 14:27:12,845 - INFO - Translated entry 1136
+2024-12-13 14:27:14,503 - INFO - Translated entry 1137
+2024-12-13 14:27:16,301 - INFO - Translated entry 1138
+2024-12-13 14:27:16,895 - INFO - Translated entry 1139
+2024-12-13 14:27:18,806 - INFO - Translated entry 1140
+2024-12-13 14:27:19,437 - INFO - Translated entry 1141
+2024-12-13 14:27:21,104 - INFO - Translated entry 1142
+2024-12-13 14:27:21,730 - INFO - Translated entry 1143
+2024-12-13 14:27:21,920 - INFO - Translated entry 1211
+2024-12-13 14:27:22,536 - INFO - Translated entry 1212
+2024-12-13 14:27:23,160 - INFO - Translated entry 1213
+2024-12-13 14:27:24,967 - INFO - Translated entry 1144
+2024-12-13 14:27:25,604 - INFO - Translated entry 1145
+2024-12-13 14:27:27,261 - INFO - Translated entry 1146
+2024-12-13 14:27:29,131 - INFO - Translated entry 1147
+2024-12-13 14:27:31,922 - INFO - Translated entry 1148
+2024-12-13 14:27:34,721 - INFO - Translated entry 1149
+2024-12-13 14:27:37,889 - INFO - Translated entry 1150
+2024-12-13 14:27:40,662 - INFO - Translated entry 1151
+2024-12-13 14:27:41,333 - INFO - Translated entry 1152
+2024-12-13 14:27:41,939 - INFO - Translated entry 1153
+2024-12-13 14:27:43,421 - INFO - Translated entry 1154
+2024-12-13 14:27:45,037 - INFO - Translated entry 1155
+2024-12-13 14:27:46,708 - INFO - Translated entry 1156
+2024-12-13 14:27:48,383 - INFO - Translated entry 1157
+2024-12-13 14:27:50,047 - INFO - Translated entry 1158
+2024-12-13 14:27:50,685 - INFO - Translated entry 1159
+2024-12-13 14:27:51,318 - INFO - Translated entry 1160
+2024-12-13 14:27:52,005 - INFO - Translated entry 1161
+2024-12-13 14:27:53,804 - INFO - Translated entry 1162
+2024-12-13 14:27:54,496 - INFO - Translated entry 1163
+2024-12-13 14:27:55,191 - INFO - Translated entry 1164
+2024-12-13 14:27:55,790 - INFO - Translated entry 1165
+2024-12-13 14:27:57,422 - INFO - Translated entry 1166
+2024-12-13 14:27:59,245 - INFO - Translated entry 1167
+2024-12-13 14:28:00,942 - INFO - Translated entry 1168
+2024-12-13 14:28:02,671 - INFO - Translated entry 1169
+2024-12-13 14:28:04,562 - INFO - Translated entry 1170
+2024-12-13 14:28:05,238 - INFO - Translated entry 1190
+2024-12-13 14:28:06,933 - INFO - Translated entry 1171
+2024-12-13 14:28:08,652 - INFO - Translated entry 1172
+2024-12-13 14:28:10,530 - INFO - Translated entry 1173
+2024-12-13 14:28:12,300 - INFO - Translated entry 1174
+2024-12-13 14:28:14,174 - INFO - Translated entry 1175
+2024-12-13 14:28:15,974 - INFO - Translated entry 1176
+2024-12-13 14:28:17,678 - INFO - Translated entry 1177
+2024-12-13 14:28:19,328 - INFO - Translated entry 1178
+2024-12-13 14:28:21,016 - INFO - Translated entry 1179
+2024-12-13 14:28:22,763 - INFO - Translated entry 1180
+2024-12-13 14:28:25,534 - INFO - Translated entry 1181
+2024-12-13 14:28:26,179 - INFO - Translated entry 1182
+2024-12-13 14:28:27,080 - INFO - Translated entry 1183
+2024-12-13 14:28:30,033 - INFO - Translated entry 1184
+2024-12-13 14:28:31,765 - INFO - Translated entry 1185
+2024-12-13 14:28:32,818 - INFO - Translated entry 1186
+2024-12-13 14:28:34,524 - INFO - Translated entry 1187
+2024-12-13 14:28:37,335 - INFO - Translated entry 1188
+2024-12-13 14:28:39,022 - INFO - Translated entry 1189
+2024-12-13 14:28:40,915 - INFO - Translated entry 1198
+2024-12-13 14:28:42,256 - INFO - Translated entry 1199
+2024-12-13 14:28:43,971 - INFO - Translated entry 1200
+2024-12-13 14:28:44,663 - INFO - Translated entry 1201
+2024-12-13 14:28:45,273 - INFO - Translated entry 1202
+2024-12-13 14:28:47,258 - INFO - Translated entry 1203
+2024-12-13 14:28:48,994 - INFO - Translated entry 1204
+2024-12-13 14:28:50,775 - INFO - Translated entry 1205
+2024-12-13 14:28:53,712 - INFO - Translated entry 1206
+2024-12-13 14:28:54,285 - INFO - Translated entry 1207
+2024-12-13 14:28:54,999 - INFO - Translated entry 1208
+2024-12-13 14:28:55,088 - INFO - No more entries to translate
+2024-12-13 14:29:03,395 - INFO - Successfully processed entry 692
+2024-12-13 14:29:11,610 - INFO - Successfully processed entry 708
+2024-12-13 14:29:17,798 - INFO - Successfully processed entry 894
+2024-12-13 14:29:24,001 - INFO - Successfully processed entry 709
+2024-12-13 14:29:33,287 - INFO - Successfully processed entry 711
+2024-12-13 14:30:45,615 - INFO - Successfully processed entry 1193
+2024-12-13 14:30:54,041 - INFO - Successfully processed entry 1194
+2024-12-13 14:31:07,382 - INFO - Successfully processed entry 714
+2024-12-13 14:31:18,689 - INFO - Successfully processed entry 715
+2024-12-13 14:31:27,550 - INFO - Successfully processed entry 712
+2024-12-13 14:31:39,996 - INFO - Successfully processed entry 896
+2024-12-13 14:31:49,640 - INFO - Successfully processed entry 643
+2024-12-13 14:32:01,554 - INFO - Successfully processed entry 794
+2024-12-13 14:32:10,633 - INFO - Successfully processed entry 750
+2024-12-13 14:32:15,627 - WARNING - Invalid category returned: Polish History
+2024-12-13 14:32:15,791 - INFO - Successfully processed entry 804
+2024-12-13 14:32:25,384 - INFO - Successfully processed entry 864
+2024-12-13 14:32:34,354 - INFO - Successfully processed entry 717
+2024-12-13 14:32:59,305 - WARNING - Invalid category returned: Polish Politics
+2024-12-13 14:32:59,501 - INFO - Successfully processed entry 720
+2024-12-13 14:33:07,909 - INFO - Successfully processed entry 826
+2024-12-13 14:33:21,408 - INFO - Successfully processed entry 644
+2024-12-13 14:33:36,082 - INFO - Successfully processed entry 713
+2024-12-13 14:33:43,280 - INFO - Successfully processed entry 866
+2024-12-13 14:33:54,769 - INFO - Successfully processed entry 691
+2024-12-13 14:34:05,468 - INFO - Successfully processed entry 690
+2024-12-13 14:34:18,957 - INFO - Successfully processed entry 648
+2024-12-13 14:34:33,093 - INFO - Successfully processed entry 649
+2024-12-13 14:35:44,937 - ERROR - Application error: This client is deprecated. To migrate to the new client, please refer to this guide: https://github.com/mistralai/client-python/blob/main/MIGRATION.md. If you need to use this client anyway, pin your version to 0.4.2.
+2024-12-13 14:35:44,937 - ERROR - Detailed error trace:
+Traceback (most recent call last):
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\src\main.py", line 93, in main
+    summarizer = RSSSummarizer(
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\src\rss_summarizer.py", line 22, in __init__
+    self.mistral = MistralClient(api_key=mistral_api_key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\.venv\Lib\site-packages\mistralai\client.py", line 14, in __init__
+    raise NotImplementedError(MIGRATION_MESSAGE)
+NotImplementedError: This client is deprecated. To migrate to the new client, please refer to this guide: https://github.com/mistralai/client-python/blob/main/MIGRATION.md. If you need to use this client anyway, pin your version to 0.4.2.
