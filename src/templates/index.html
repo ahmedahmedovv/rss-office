@@ -5,34 +5,84 @@
     <title>RSS Feeds</title>
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
 </head>
-<body class="p-4">
-    <!-- Single Box component for all content -->
-    <div class="Box">
-        <div class="Box-header">
-            <h3>Feeds (<span id="count">0</span>)</h3>
+<body>
+    <!-- Layout container -->
+    <div class="d-flex flex-row p-4">
+        <!-- Sidebar -->
+        <div class="col-3 pr-4">
+            <nav class="SideNav">
+                <a class="SideNav-item selected" href="#" data-category="all">
+                    All Categories
+                    <span class="Counter" id="total-count">0</span>
+                </a>
+                <div id="category-list"></div>
+            </nav>
         </div>
-        <div id="feeds">
-            <div class="Box-body text-center">
-                <div class="Spinner"></div>
+
+        <!-- Main content -->
+        <div class="col-9">
+            <div class="Box">
+                <div class="Box-header">
+                    <h3>Feeds (<span id="count">0</span>)</h3>
+                </div>
+                <div id="feeds">
+                    <div class="Box-body text-center">
+                        <div class="Spinner"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        let allFeeds = [];
+        
+        // Load all feeds and categories
         $.get('/api/feeds')
             .done(feeds => {
-                $('#count').text(feeds.length);
-                $('#feeds').html(feeds.map(feed => `
-                    <div class="Box-row">
-                        <h4>${feed.ai_title || 'Untitled'}</h4>
-                        <p>${feed.summary || 'No summary'}</p>
-                    </div>
-                `).join(''));
+                allFeeds = feeds;
+                updateFeedDisplay(feeds);
+                updateCategories(feeds);
             })
             .fail(() => {
                 $('#feeds').html('<div class="Box-body"><div class="flash flash-error">Error loading feeds</div></div>');
             });
+
+        function updateFeedDisplay(feeds) {
+            $('#count').text(feeds.length);
+            $('#total-count').text(feeds.length);
+            $('#feeds').html(feeds.map(feed => `
+                <div class="Box-row">
+                    <h4>${feed.ai_title || 'Untitled'}</h4>
+                    <p>${feed.summary || 'No summary'}</p>
+                    ${feed.category ? `<span class="Label">${feed.category}</span>` : ''}
+                </div>
+            `).join(''));
+        }
+
+        function updateCategories(feeds) {
+            const categories = [...new Set(feeds.map(feed => feed.category).filter(Boolean))];
+            $('#category-list').html(categories.map(category => `
+                <a class="SideNav-item" href="#" data-category="${category}">
+                    ${category}
+                    <span class="Counter">${feeds.filter(f => f.category === category).length}</span>
+                </a>
+            `).join(''));
+
+            // Add click handlers for category filtering
+            $('.SideNav-item').click(function(e) {
+                e.preventDefault();
+                $('.SideNav-item').removeClass('selected');
+                $(this).addClass('selected');
+                
+                const category = $(this).data('category');
+                const filteredFeeds = category === 'all' 
+                    ? allFeeds 
+                    : allFeeds.filter(feed => feed.category === category);
+                updateFeedDisplay(filteredFeeds);
+            });
+        }
     </script>
 </body>
 </html>
