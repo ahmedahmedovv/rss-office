@@ -10,33 +10,37 @@ from html import unescape
 import pytz
 import logging
 from logging.handlers import RotatingFileHandler
+import yaml
 
 # Load environment variables
 load_dotenv()
 
-# Setup logging
-def setup_logger():
+def load_config():
+    """Load configuration from YAML file"""
+    with open('config.yaml', 'r') as file:
+        return yaml.safe_load(file)
+
+def setup_logger(config):
     """Configure logging system"""
-    # Create logs directory if it doesn't exist
-    if not os.path.exists('logs'):
-        os.makedirs('logs')
+    log_config = config['logging']
     
-    # Create logger
+    if not os.path.exists(log_config['directory']):
+        os.makedirs(log_config['directory'])
+    
     logger = logging.getLogger('RSSFetcher')
-    logger.setLevel(logging.INFO)
+    logger.setLevel(getattr(logging, log_config['level']))
     
-    # Create handlers
     # Console handler
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(getattr(logging, log_config['level']))
     
-    # File handler - keeps 5 files of 5MB each
+    # File handler
     file_handler = RotatingFileHandler(
-        'logs/rss_fetcher.log',
-        maxBytes=5*1024*1024,  # 5MB
-        backupCount=5
+        os.path.join(log_config['directory'], log_config['filename']),
+        maxBytes=log_config['max_size_mb']*1024*1024,
+        backupCount=log_config['backup_count']
     )
-    file_handler.setLevel(logging.INFO)
+    file_handler.setLevel(getattr(logging, log_config['level']))
     
     # Create formatters and add it to handlers
     log_format = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -48,9 +52,6 @@ def setup_logger():
     logger.addHandler(console_handler)
     
     return logger
-
-# Initialize logger
-logger = setup_logger()
 
 def clean_html(text: str) -> str:
     """Remove HTML tags and decode HTML entities."""
@@ -67,7 +68,7 @@ def make_timezone_aware(dt: datetime) -> datetime:
         return pytz.UTC.localize(dt)
     return dt.astimezone(pytz.UTC)
 
-def get_latest_entry_date(supabase: Client, source_url: str) -> datetime:
+def get_latest_entry_date(supabase: Client, source_url: str, config: dict) -> datetime:
     """Get the latest publication date for a given source URL."""
     try:
         result = supabase.table("rss_feeds")\
@@ -79,11 +80,11 @@ def get_latest_entry_date(supabase: Client, source_url: str) -> datetime:
         
         if result.data and result.data[0].get("pub_date"):
             return make_timezone_aware(parser.parse(result.data[0]["pub_date"]))
-        logger.info(f"No previous entries found for {source_url}, defaulting to 30 days ago")
-        return make_timezone_aware(datetime.now() - timedelta(days=30))
+        logger.info(f"No previous entries found for {source_url}, defaulting to {config['rss']['default_history_days']} days ago")
+        return make_timezone_aware(datetime.now() - timedelta(days=config['rss']['default_history_days']))
     except Exception as e:
         logger.error(f"Error getting latest entry date for {source_url}: {str(e)}")
-        return make_timezone_aware(datetime.now() - timedelta(days=30))
+        return make_timezone_aware(datetime.now() - timedelta(days=config['rss']['default_history_days']))
 
 def fetch_rss(url: str, since_date: datetime) -> List[dict]:
     """Fetch and parse RSS feed, only returning entries newer than since_date."""
@@ -121,6 +122,13 @@ def read_urls(filename: str) -> List[str]:
 
 def main():
     try:
+        # Load configuration
+        config = load_config()
+        
+        # Initialize logger with config
+        global logger
+        logger = setup_logger(config)
+        
         logger.info("Starting RSS fetcher")
         
         # Initialize Supabase client
@@ -133,8 +141,8 @@ def main():
             
         supabase: Client = create_client(url, key)
         
-        # Read URLs from file
-        urls = read_urls('url.md')
+        # Read URLs from configured file
+        urls = read_urls(config['rss']['urls_file'])
         logger.info(f"Found {len(urls)} URLs to process")
         
         # Process each URL
@@ -142,7 +150,7 @@ def main():
             logger.info(f"Processing: {url}")
             
             # Get the latest entry date for this source
-            latest_date = get_latest_entry_date(supabase, url)
+            latest_date = get_latest_entry_date(supabase, url, config)
             logger.info(f"Fetching entries newer than: {latest_date}")
             
             # Only fetch entries newer than the latest one we have

@@ -1,0 +1,11 @@
+rss:
+  urls_file: "url.md"
+  default_history_days: 30
+  max_entries_per_fetch: 100
+
+logging:
+  directory: "logs"
+  filename: "rss_fetcher.log"
+  max_size_mb: 5
+  backup_count: 5
+  level: "INFO" 

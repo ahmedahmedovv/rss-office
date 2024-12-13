@@ -1,0 +1,363 @@
+2024-12-13 10:30:28,459 - INFO - Starting RSS fetcher
+2024-12-13 10:30:28,722 - INFO - Found 60 URLs to process
+2024-12-13 10:30:28,722 - INFO - Processing: https://notesfrompoland.com/feed/
+2024-12-13 10:30:29,129 - INFO - No previous entries found for https://notesfrompoland.com/feed/, defaulting to 30 days ago
+2024-12-13 10:30:29,130 - INFO - Fetching entries newer than: 2024-11-13 10:30:29.130822+00:00
+2024-12-13 10:30:29,130 - INFO - Fetching RSS from: https://notesfrompoland.com/feed/
+2024-12-13 10:30:29,407 - INFO - Found 12 new entries from https://notesfrompoland.com/feed/
+2024-12-13 10:30:29,506 - INFO - Successfully processed 12 new entries from https://notesfrompoland.com/feed/
+2024-12-13 10:30:29,509 - INFO - Processing: https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:30:29,587 - INFO - No previous entries found for https://politepol.com/fd/b8Ymwy4PRsNS.xml, defaulting to 30 days ago
+2024-12-13 10:30:29,588 - INFO - Fetching entries newer than: 2024-11-13 10:30:29.588118+00:00
+2024-12-13 10:30:29,588 - INFO - Fetching RSS from: https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:30:29,866 - INFO - Found 12 new entries from https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:30:29,970 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 10:30:29,971 - INFO - Processing: https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:30:30,052 - INFO - No previous entries found for https://politepol.com/fd/aN6R8Je2fUr5.xml, defaulting to 30 days ago
+2024-12-13 10:30:30,053 - INFO - Fetching entries newer than: 2024-11-13 10:30:30.053722+00:00
+2024-12-13 10:30:30,054 - INFO - Fetching RSS from: https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:30:30,344 - INFO - Found 12 new entries from https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:30:30,446 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/aN6R8Je2fUr5.xml
+2024-12-13 10:30:30,447 - INFO - Processing: https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:30:30,546 - INFO - No previous entries found for https://politepol.com/fd/1jNMAkmHDN1t.xml, defaulting to 30 days ago
+2024-12-13 10:30:30,547 - INFO - Fetching entries newer than: 2024-11-13 10:30:30.547338+00:00
+2024-12-13 10:30:30,547 - INFO - Fetching RSS from: https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:30:30,825 - INFO - Found 12 new entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:30:30,924 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 10:30:30,925 - INFO - Processing: https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:30:31,009 - INFO - No previous entries found for https://politepol.com/fd/21fLEtcxQnMj.xml, defaulting to 30 days ago
+2024-12-13 10:30:31,009 - INFO - Fetching entries newer than: 2024-11-13 10:30:31.009611+00:00
+2024-12-13 10:30:31,009 - INFO - Fetching RSS from: https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:30:31,268 - INFO - Found 12 new entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:30:31,364 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 10:30:31,365 - INFO - Processing: https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:30:31,448 - INFO - No previous entries found for https://politepol.com/fd/eQQIMEUlFKuU.xml, defaulting to 30 days ago
+2024-12-13 10:30:31,448 - INFO - Fetching entries newer than: 2024-11-13 10:30:31.448747+00:00
+2024-12-13 10:30:31,449 - INFO - Fetching RSS from: https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:30:31,745 - INFO - Found 12 new entries from https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:30:31,856 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/eQQIMEUlFKuU.xml
+2024-12-13 10:30:31,877 - INFO - Processing: https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:30:31,986 - INFO - No previous entries found for https://politepol.com/fd/o3jNxZcrpo6w.xml, defaulting to 30 days ago
+2024-12-13 10:30:31,987 - INFO - Fetching entries newer than: 2024-11-13 10:30:31.987972+00:00
+2024-12-13 10:30:31,987 - INFO - Fetching RSS from: https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:30:32,270 - INFO - Found 6 new entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:30:32,357 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 10:30:32,358 - INFO - Processing: https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:30:32,437 - INFO - No previous entries found for https://politepol.com/fd/3F3XvYFg1X1A.xml, defaulting to 30 days ago
+2024-12-13 10:30:32,437 - INFO - Fetching entries newer than: 2024-11-13 10:30:32.437623+00:00
+2024-12-13 10:30:32,438 - INFO - Fetching RSS from: https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:30:32,723 - INFO - Found 12 new entries from https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:30:32,828 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/3F3XvYFg1X1A.xml
+2024-12-13 10:30:32,828 - INFO - Processing: https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:30:32,908 - INFO - No previous entries found for https://politepol.com/fd/TWSNDgA2UrNC.xml, defaulting to 30 days ago
+2024-12-13 10:30:32,908 - INFO - Fetching entries newer than: 2024-11-13 10:30:32.908979+00:00
+2024-12-13 10:30:32,908 - INFO - Fetching RSS from: https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:30:33,180 - INFO - Found 12 new entries from https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:30:33,278 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/TWSNDgA2UrNC.xml
+2024-12-13 10:30:33,278 - INFO - Processing: https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:30:33,404 - INFO - No previous entries found for https://politepol.com/fd/vyPArJmbermO.xml, defaulting to 30 days ago
+2024-12-13 10:30:33,404 - INFO - Fetching entries newer than: 2024-11-13 10:30:33.404951+00:00
+2024-12-13 10:30:33,405 - INFO - Fetching RSS from: https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:30:33,667 - INFO - Found 4 new entries from https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:30:33,755 - INFO - Successfully processed 4 new entries from https://politepol.com/fd/vyPArJmbermO.xml
+2024-12-13 10:30:33,755 - INFO - Processing: https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:30:33,841 - INFO - No previous entries found for https://politepol.com/fd/M0YpTDNrnk8x.xml, defaulting to 30 days ago
+2024-12-13 10:30:33,842 - INFO - Fetching entries newer than: 2024-11-13 10:30:33.842692+00:00
+2024-12-13 10:30:33,842 - INFO - Fetching RSS from: https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:30:34,102 - INFO - Found 1 new entries from https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:30:34,201 - INFO - Successfully processed 1 new entries from https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 10:30:34,202 - INFO - Processing: https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:30:34,290 - INFO - No previous entries found for https://politepol.com/fd/2oeBhN2Jpeze.xml, defaulting to 30 days ago
+2024-12-13 10:30:34,291 - INFO - Fetching entries newer than: 2024-11-13 10:30:34.291743+00:00
+2024-12-13 10:30:34,291 - INFO - Fetching RSS from: https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:30:34,560 - INFO - Found 2 new entries from https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:30:34,646 - INFO - Successfully processed 2 new entries from https://politepol.com/fd/2oeBhN2Jpeze.xml
+2024-12-13 10:30:34,647 - INFO - Processing: https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:30:34,731 - INFO - No previous entries found for https://politepol.com/fd/Fltoq0tmu5kT.xml, defaulting to 30 days ago
+2024-12-13 10:30:34,731 - INFO - Fetching entries newer than: 2024-11-13 10:30:34.731376+00:00
+2024-12-13 10:30:34,732 - INFO - Fetching RSS from: https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:30:35,007 - INFO - Found 1 new entries from https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:30:35,143 - INFO - Successfully processed 1 new entries from https://politepol.com/fd/Fltoq0tmu5kT.xml
+2024-12-13 10:30:35,144 - INFO - Processing: https://cyberdefence24.pl/_rss
+2024-12-13 10:30:35,249 - INFO - No previous entries found for https://cyberdefence24.pl/_rss, defaulting to 30 days ago
+2024-12-13 10:30:35,249 - INFO - Fetching entries newer than: 2024-11-13 10:30:35.249163+00:00
+2024-12-13 10:30:35,249 - INFO - Fetching RSS from: https://cyberdefence24.pl/_rss
+2024-12-13 10:30:35,462 - INFO - Found 50 new entries from https://cyberdefence24.pl/_rss
+2024-12-13 10:30:35,657 - INFO - Successfully processed 50 new entries from https://cyberdefence24.pl/_rss
+2024-12-13 10:30:35,657 - INFO - Processing: https://defence24.pl/_RSS
+2024-12-13 10:30:35,748 - INFO - No previous entries found for https://defence24.pl/_RSS, defaulting to 30 days ago
+2024-12-13 10:30:35,750 - INFO - Fetching entries newer than: 2024-11-13 10:30:35.750487+00:00
+2024-12-13 10:30:35,750 - INFO - Fetching RSS from: https://defence24.pl/_RSS
+2024-12-13 10:30:36,022 - INFO - Found 50 new entries from https://defence24.pl/_RSS
+2024-12-13 10:30:36,213 - INFO - Successfully processed 50 new entries from https://defence24.pl/_RSS
+2024-12-13 10:30:36,213 - INFO - Processing: https://defence24.com/_rss
+2024-12-13 10:30:36,323 - INFO - No previous entries found for https://defence24.com/_rss, defaulting to 30 days ago
+2024-12-13 10:30:36,324 - INFO - Fetching entries newer than: 2024-11-13 10:30:36.324645+00:00
+2024-12-13 10:30:36,324 - INFO - Fetching RSS from: https://defence24.com/_rss
+2024-12-13 10:30:36,528 - INFO - Found 44 new entries from https://defence24.com/_rss
+2024-12-13 10:30:36,704 - INFO - Successfully processed 44 new entries from https://defence24.com/_rss
+2024-12-13 10:30:36,704 - INFO - Processing: https://infosecurity24.pl/_rss
+2024-12-13 10:30:36,816 - INFO - No previous entries found for https://infosecurity24.pl/_rss, defaulting to 30 days ago
+2024-12-13 10:30:36,817 - INFO - Fetching entries newer than: 2024-11-13 10:30:36.817534+00:00
+2024-12-13 10:30:36,817 - INFO - Fetching RSS from: https://infosecurity24.pl/_rss
+2024-12-13 10:30:37,003 - INFO - Found 50 new entries from https://infosecurity24.pl/_rss
+2024-12-13 10:30:37,238 - INFO - Successfully processed 50 new entries from https://infosecurity24.pl/_rss
+2024-12-13 10:30:37,239 - INFO - Processing: https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:30:37,329 - INFO - No previous entries found for https://politepol.com/fd/yMSQPMdW0A9d.xml, defaulting to 30 days ago
+2024-12-13 10:30:37,330 - INFO - Fetching entries newer than: 2024-11-13 10:30:37.330916+00:00
+2024-12-13 10:30:37,330 - INFO - Fetching RSS from: https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:30:37,623 - INFO - Found 6 new entries from https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:30:37,724 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 10:30:37,725 - INFO - Processing: https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:30:37,804 - INFO - No previous entries found for https://politepol.com/fd/lcvYRMYRE3w6.xml, defaulting to 30 days ago
+2024-12-13 10:30:37,804 - INFO - Fetching entries newer than: 2024-11-13 10:30:37.804031+00:00
+2024-12-13 10:30:37,804 - INFO - Fetching RSS from: https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:30:38,059 - INFO - Found 6 new entries from https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:30:38,144 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/lcvYRMYRE3w6.xml
+2024-12-13 10:30:38,144 - INFO - Processing: https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:30:38,227 - INFO - No previous entries found for https://politepol.com/fd/AaRUDelNy6uI, defaulting to 30 days ago
+2024-12-13 10:30:38,227 - INFO - Fetching entries newer than: 2024-11-13 10:30:38.227935+00:00
+2024-12-13 10:30:38,227 - INFO - Fetching RSS from: https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:30:46,446 - INFO - Found 6 new entries from https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:30:46,610 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/AaRUDelNy6uI
+2024-12-13 10:30:46,611 - INFO - Processing: https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:30:46,693 - INFO - No previous entries found for https://politepol.com/fd/RlZWWeOugzID, defaulting to 30 days ago
+2024-12-13 10:30:46,694 - INFO - Fetching entries newer than: 2024-11-13 10:30:46.694057+00:00
+2024-12-13 10:30:46,694 - INFO - Fetching RSS from: https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:30:47,230 - INFO - Found 10 new entries from https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:30:47,337 - INFO - Successfully processed 10 new entries from https://politepol.com/fd/RlZWWeOugzID
+2024-12-13 10:30:47,337 - INFO - Processing: https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:30:47,418 - INFO - No previous entries found for https://politepol.com/fd/QQ8y0MnyJ0Ps, defaulting to 30 days ago
+2024-12-13 10:30:47,419 - INFO - Fetching entries newer than: 2024-11-13 10:30:47.419300+00:00
+2024-12-13 10:30:47,419 - INFO - Fetching RSS from: https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:30:48,126 - INFO - Found 3 new entries from https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:30:48,218 - INFO - Successfully processed 3 new entries from https://politepol.com/fd/QQ8y0MnyJ0Ps
+2024-12-13 10:30:48,219 - INFO - Processing: https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:30:48,300 - INFO - No previous entries found for https://politepol.com/fd/iYfzPnaF5k65, defaulting to 30 days ago
+2024-12-13 10:30:48,300 - INFO - Fetching entries newer than: 2024-11-13 10:30:48.300991+00:00
+2024-12-13 10:30:48,300 - INFO - Fetching RSS from: https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:30:54,198 - INFO - Found 6 new entries from https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:30:54,364 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/iYfzPnaF5k65
+2024-12-13 10:30:54,364 - INFO - Processing: https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:30:54,445 - INFO - No previous entries found for https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss, defaulting to 30 days ago
+2024-12-13 10:30:54,446 - INFO - Fetching entries newer than: 2024-11-13 10:30:54.446524+00:00
+2024-12-13 10:30:54,446 - INFO - Fetching RSS from: https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:30:54,693 - INFO - Found 0 new entries from https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:30:54,694 - INFO - No new entries found for https://en.bbn.gov.pl/dokumenty/rss/3-rss-1.rss
+2024-12-13 10:30:54,694 - INFO - Processing: https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:30:54,767 - INFO - No previous entries found for https://politepol.com/fd/iv5sCQcuO3FS.xml, defaulting to 30 days ago
+2024-12-13 10:30:54,767 - INFO - Fetching entries newer than: 2024-11-13 10:30:54.767574+00:00
+2024-12-13 10:30:54,768 - INFO - Fetching RSS from: https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:30:55,546 - INFO - Found 0 new entries from https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:30:55,546 - INFO - No new entries found for https://politepol.com/fd/iv5sCQcuO3FS.xml
+2024-12-13 10:30:55,547 - INFO - Processing: https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:30:55,615 - INFO - No previous entries found for https://politepol.com/fd/MwtfzNppMdxB.xml, defaulting to 30 days ago
+2024-12-13 10:30:55,616 - INFO - Fetching entries newer than: 2024-11-13 10:30:55.616876+00:00
+2024-12-13 10:30:55,617 - INFO - Fetching RSS from: https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:30:56,610 - INFO - Found 10 new entries from https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:30:56,712 - INFO - Successfully processed 10 new entries from https://politepol.com/fd/MwtfzNppMdxB.xml
+2024-12-13 10:30:56,712 - INFO - Processing: https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:30:56,786 - INFO - No previous entries found for https://politepol.com/fd/CXRVrjJo0Hke.xml, defaulting to 30 days ago
+2024-12-13 10:30:56,787 - INFO - Fetching entries newer than: 2024-11-13 10:30:56.787652+00:00
+2024-12-13 10:30:56,787 - INFO - Fetching RSS from: https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:30:57,904 - INFO - Found 8 new entries from https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:30:57,997 - INFO - Successfully processed 8 new entries from https://politepol.com/fd/CXRVrjJo0Hke.xml
+2024-12-13 10:30:57,997 - INFO - Processing: https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:30:58,075 - INFO - No previous entries found for https://politepol.com/fd/KLAJSBnC3xN9, defaulting to 30 days ago
+2024-12-13 10:30:58,076 - INFO - Fetching entries newer than: 2024-11-13 10:30:58.076708+00:00
+2024-12-13 10:30:58,076 - INFO - Fetching RSS from: https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:31:03,493 - INFO - Found 6 new entries from https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:31:03,630 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/KLAJSBnC3xN9
+2024-12-13 10:31:03,631 - INFO - Processing: https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:31:03,703 - INFO - No previous entries found for https://politepol.com/fd/hNhzL30PEO6F, defaulting to 30 days ago
+2024-12-13 10:31:03,704 - INFO - Fetching entries newer than: 2024-11-13 10:31:03.704552+00:00
+2024-12-13 10:31:03,704 - INFO - Fetching RSS from: https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:31:04,483 - INFO - Found 14 new entries from https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:31:04,605 - INFO - Successfully processed 14 new entries from https://politepol.com/fd/hNhzL30PEO6F
+2024-12-13 10:31:04,606 - INFO - Processing: https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:31:04,686 - INFO - No previous entries found for https://politepol.com/fd/TrPmJjWZRYMt, defaulting to 30 days ago
+2024-12-13 10:31:04,687 - INFO - Fetching entries newer than: 2024-11-13 10:31:04.687925+00:00
+2024-12-13 10:31:04,687 - INFO - Fetching RSS from: https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:31:11,495 - INFO - Found 6 new entries from https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:31:11,669 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/TrPmJjWZRYMt
+2024-12-13 10:31:11,669 - INFO - Processing: https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:31:11,764 - INFO - No previous entries found for https://politepol.com/fd/IsSOz2U7LAph.xml, defaulting to 30 days ago
+2024-12-13 10:31:11,765 - INFO - Fetching entries newer than: 2024-11-13 10:31:11.764717+00:00
+2024-12-13 10:31:11,765 - INFO - Fetching RSS from: https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:31:23,949 - INFO - Found 6 new entries from https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:31:24,102 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/IsSOz2U7LAph.xml
+2024-12-13 10:31:24,103 - INFO - Processing: https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:31:24,176 - INFO - No previous entries found for https://politepol.com/fd/9thDHqAHZGjx.xml, defaulting to 30 days ago
+2024-12-13 10:31:24,176 - INFO - Fetching entries newer than: 2024-11-13 10:31:24.176931+00:00
+2024-12-13 10:31:24,177 - INFO - Fetching RSS from: https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:31:24,955 - INFO - Found 21 new entries from https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:31:25,080 - INFO - Successfully processed 21 new entries from https://politepol.com/fd/9thDHqAHZGjx.xml
+2024-12-13 10:31:25,081 - INFO - Processing: https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:31:25,160 - INFO - No previous entries found for https://politepol.com/fd/ZCxuP2YN7S3A.xml, defaulting to 30 days ago
+2024-12-13 10:31:25,160 - INFO - Fetching entries newer than: 2024-11-13 10:31:25.160704+00:00
+2024-12-13 10:31:25,161 - INFO - Fetching RSS from: https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:31:39,196 - INFO - Found 40 new entries from https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:31:39,389 - INFO - Successfully processed 40 new entries from https://politepol.com/fd/ZCxuP2YN7S3A.xml
+2024-12-13 10:31:39,390 - INFO - Processing: https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:31:39,464 - INFO - No previous entries found for https://politepol.com/fd/vz8QmzNtATRF, defaulting to 30 days ago
+2024-12-13 10:31:39,465 - INFO - Fetching entries newer than: 2024-11-13 10:31:39.465809+00:00
+2024-12-13 10:31:39,465 - INFO - Fetching RSS from: https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:31:39,982 - INFO - Found 12 new entries from https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:31:40,070 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/vz8QmzNtATRF
+2024-12-13 10:31:40,071 - INFO - Processing: https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:31:40,143 - INFO - No previous entries found for https://www.wnp.pl/rss/serwis_rss_13.xml, defaulting to 30 days ago
+2024-12-13 10:31:40,144 - INFO - Fetching entries newer than: 2024-11-13 10:31:40.144609+00:00
+2024-12-13 10:31:40,144 - INFO - Fetching RSS from: https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:31:40,368 - INFO - Found 10 new entries from https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:31:40,476 - INFO - Successfully processed 10 new entries from https://www.wnp.pl/rss/serwis_rss_13.xml
+2024-12-13 10:31:40,477 - INFO - Processing: https://dziennikzbrojny.pl/rss
+2024-12-13 10:31:40,568 - INFO - No previous entries found for https://dziennikzbrojny.pl/rss, defaulting to 30 days ago
+2024-12-13 10:31:40,569 - INFO - Fetching entries newer than: 2024-11-13 10:31:40.568294+00:00
+2024-12-13 10:31:40,569 - INFO - Fetching RSS from: https://dziennikzbrojny.pl/rss
+2024-12-13 10:31:41,475 - INFO - Found 10 new entries from https://dziennikzbrojny.pl/rss
+2024-12-13 10:31:41,592 - INFO - Successfully processed 10 new entries from https://dziennikzbrojny.pl/rss
+2024-12-13 10:31:41,592 - INFO - Processing: https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 10:31:41,665 - INFO - No previous entries found for https://politepol.com/fd/W3LsgnhkgSuX.xml, defaulting to 30 days ago
+2024-12-13 10:31:41,666 - INFO - Fetching entries newer than: 2024-11-13 10:31:41.666423+00:00
+2024-12-13 10:31:41,666 - INFO - Fetching RSS from: https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 10:32:11,054 - INFO - Found 10 new entries from https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 10:32:11,214 - INFO - Successfully processed 10 new entries from https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 10:32:11,214 - INFO - Processing: https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss
+2024-12-13 10:32:11,298 - INFO - No previous entries found for https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss, defaulting to 30 days ago
+2024-12-13 10:32:11,299 - INFO - Fetching entries newer than: 2024-11-13 10:32:11.299423+00:00
+2024-12-13 10:32:11,299 - INFO - Fetching RSS from: https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss
+2024-12-13 10:32:11,546 - INFO - Found 10 new entries from https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss
+2024-12-13 10:32:11,658 - INFO - Successfully processed 10 new entries from https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss
+2024-12-13 10:32:11,659 - INFO - Processing: https://www.hsw.pl/feed/
+2024-12-13 10:32:11,804 - INFO - No previous entries found for https://www.hsw.pl/feed/, defaulting to 30 days ago
+2024-12-13 10:32:11,805 - INFO - Fetching entries newer than: 2024-11-13 10:32:11.805994+00:00
+2024-12-13 10:32:11,806 - INFO - Fetching RSS from: https://www.hsw.pl/feed/
+2024-12-13 10:32:12,448 - INFO - Found 4 new entries from https://www.hsw.pl/feed/
+2024-12-13 10:32:12,548 - INFO - Successfully processed 4 new entries from https://www.hsw.pl/feed/
+2024-12-13 10:32:12,550 - INFO - Processing: https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 10:32:12,651 - INFO - No previous entries found for https://politepol.com/fd/CGvZ0xwzWc9F.xml, defaulting to 30 days ago
+2024-12-13 10:32:12,652 - INFO - Fetching entries newer than: 2024-11-13 10:32:12.652294+00:00
+2024-12-13 10:32:12,652 - INFO - Fetching RSS from: https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 10:32:17,395 - INFO - Found 6 new entries from https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 10:32:17,494 - INFO - Successfully processed 6 new entries from https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 10:32:17,494 - INFO - Processing: https://www.bankier.pl/rss/wiadomosci.xml
+2024-12-13 10:32:17,582 - INFO - No previous entries found for https://www.bankier.pl/rss/wiadomosci.xml, defaulting to 30 days ago
+2024-12-13 10:32:17,582 - INFO - Fetching entries newer than: 2024-11-13 10:32:17.582657+00:00
+2024-12-13 10:32:17,583 - INFO - Fetching RSS from: https://www.bankier.pl/rss/wiadomosci.xml
+2024-12-13 10:32:17,802 - INFO - Found 26 new entries from https://www.bankier.pl/rss/wiadomosci.xml
+2024-12-13 10:32:17,941 - INFO - Successfully processed 26 new entries from https://www.bankier.pl/rss/wiadomosci.xml
+2024-12-13 10:32:17,942 - INFO - Processing: http://rss.dziennik.pl/Dziennik-PL/
+2024-12-13 10:32:18,018 - INFO - No previous entries found for http://rss.dziennik.pl/Dziennik-PL/, defaulting to 30 days ago
+2024-12-13 10:32:18,019 - INFO - Fetching entries newer than: 2024-11-13 10:32:18.019530+00:00
+2024-12-13 10:32:18,019 - INFO - Fetching RSS from: http://rss.dziennik.pl/Dziennik-PL/
+2024-12-13 10:32:18,597 - INFO - Found 50 new entries from http://rss.dziennik.pl/Dziennik-PL/
+2024-12-13 10:32:18,823 - INFO - Successfully processed 50 new entries from http://rss.dziennik.pl/Dziennik-PL/
+2024-12-13 10:32:18,824 - INFO - Processing: https://forsal.pl/.feed
+2024-12-13 10:32:18,914 - INFO - No previous entries found for https://forsal.pl/.feed, defaulting to 30 days ago
+2024-12-13 10:32:18,915 - INFO - Fetching entries newer than: 2024-11-13 10:32:18.915723+00:00
+2024-12-13 10:32:18,915 - INFO - Fetching RSS from: https://forsal.pl/.feed
+2024-12-13 10:32:19,227 - INFO - Found 48 new entries from https://forsal.pl/.feed
+2024-12-13 10:32:19,407 - INFO - Successfully processed 48 new entries from https://forsal.pl/.feed
+2024-12-13 10:32:19,408 - INFO - Processing: http://rss.gazetaprawna.pl/GazetaPrawna
+2024-12-13 10:32:19,492 - INFO - No previous entries found for http://rss.gazetaprawna.pl/GazetaPrawna, defaulting to 30 days ago
+2024-12-13 10:32:19,493 - INFO - Fetching entries newer than: 2024-11-13 10:32:19.493509+00:00
+2024-12-13 10:32:19,494 - INFO - Fetching RSS from: http://rss.gazetaprawna.pl/GazetaPrawna
+2024-12-13 10:32:19,908 - INFO - Found 19 new entries from http://rss.gazetaprawna.pl/GazetaPrawna
+2024-12-13 10:32:20,023 - INFO - Successfully processed 19 new entries from http://rss.gazetaprawna.pl/GazetaPrawna
+2024-12-13 10:32:20,023 - INFO - Processing: https://www.rp.pl/rss/1019
+2024-12-13 10:32:20,104 - INFO - No previous entries found for https://www.rp.pl/rss/1019, defaulting to 30 days ago
+2024-12-13 10:32:20,105 - INFO - Fetching entries newer than: 2024-11-13 10:32:20.105813+00:00
+2024-12-13 10:32:20,105 - INFO - Fetching RSS from: https://www.rp.pl/rss/1019
+2024-12-13 10:32:20,429 - INFO - Found 20 new entries from https://www.rp.pl/rss/1019
+2024-12-13 10:32:20,580 - INFO - Successfully processed 20 new entries from https://www.rp.pl/rss/1019
+2024-12-13 10:32:20,581 - INFO - Processing: https://www.rp.pl/rss/11-kraj
+2024-12-13 10:32:20,666 - INFO - No previous entries found for https://www.rp.pl/rss/11-kraj, defaulting to 30 days ago
+2024-12-13 10:32:20,667 - INFO - Fetching entries newer than: 2024-11-13 10:32:20.667814+00:00
+2024-12-13 10:32:20,668 - INFO - Fetching RSS from: https://www.rp.pl/rss/11-kraj
+2024-12-13 10:32:21,038 - INFO - Found 100 new entries from https://www.rp.pl/rss/11-kraj
+2024-12-13 10:32:21,346 - INFO - Successfully processed 100 new entries from https://www.rp.pl/rss/11-kraj
+2024-12-13 10:32:21,347 - INFO - Processing: https://feeds.feedburner.com/wPolitycepl
+2024-12-13 10:32:21,428 - INFO - No previous entries found for https://feeds.feedburner.com/wPolitycepl, defaulting to 30 days ago
+2024-12-13 10:32:21,430 - INFO - Fetching entries newer than: 2024-11-13 10:32:21.430181+00:00
+2024-12-13 10:32:21,430 - INFO - Fetching RSS from: https://feeds.feedburner.com/wPolitycepl
+2024-12-13 10:32:22,248 - INFO - Found 300 new entries from https://feeds.feedburner.com/wPolitycepl
+2024-12-13 10:32:22,823 - INFO - Successfully processed 300 new entries from https://feeds.feedburner.com/wPolitycepl
+2024-12-13 10:32:22,823 - INFO - Processing: https://tvn24.pl/najnowsze.xml
+2024-12-13 10:32:22,911 - INFO - No previous entries found for https://tvn24.pl/najnowsze.xml, defaulting to 30 days ago
+2024-12-13 10:32:22,911 - INFO - Fetching entries newer than: 2024-11-13 10:32:22.911347+00:00
+2024-12-13 10:32:22,912 - INFO - Fetching RSS from: https://tvn24.pl/najnowsze.xml
+2024-12-13 10:32:23,213 - INFO - Found 25 new entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 10:32:23,353 - INFO - Successfully processed 25 new entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 10:32:23,353 - INFO - Processing: https://www.newsweek.pl/rss.xml
+2024-12-13 10:32:23,443 - INFO - No previous entries found for https://www.newsweek.pl/rss.xml, defaulting to 30 days ago
+2024-12-13 10:32:23,444 - INFO - Fetching entries newer than: 2024-11-13 10:32:23.444606+00:00
+2024-12-13 10:32:23,444 - INFO - Fetching RSS from: https://www.newsweek.pl/rss.xml
+2024-12-13 10:32:23,715 - INFO - Found 10 new entries from https://www.newsweek.pl/rss.xml
+2024-12-13 10:32:23,813 - INFO - Successfully processed 10 new entries from https://www.newsweek.pl/rss.xml
+2024-12-13 10:32:23,814 - INFO - Processing: https://www.polsatnews.pl/rss/wszystkie.xml
+2024-12-13 10:32:23,893 - INFO - No previous entries found for https://www.polsatnews.pl/rss/wszystkie.xml, defaulting to 30 days ago
+2024-12-13 10:32:23,895 - INFO - Fetching entries newer than: 2024-11-13 10:32:23.895064+00:00
+2024-12-13 10:32:23,895 - INFO - Fetching RSS from: https://www.polsatnews.pl/rss/wszystkie.xml
+2024-12-13 10:32:24,148 - INFO - Found 50 new entries from https://www.polsatnews.pl/rss/wszystkie.xml
+2024-12-13 10:32:24,350 - INFO - Successfully processed 50 new entries from https://www.polsatnews.pl/rss/wszystkie.xml
+2024-12-13 10:32:24,351 - INFO - Processing: https://www.polsatnews.pl/rss/kraj.xml
+2024-12-13 10:32:24,431 - INFO - No previous entries found for https://www.polsatnews.pl/rss/kraj.xml, defaulting to 30 days ago
+2024-12-13 10:32:24,431 - INFO - Fetching entries newer than: 2024-11-13 10:32:24.431092+00:00
+2024-12-13 10:32:24,431 - INFO - Fetching RSS from: https://www.polsatnews.pl/rss/kraj.xml
+2024-12-13 10:32:24,684 - INFO - Found 50 new entries from https://www.polsatnews.pl/rss/kraj.xml
+2024-12-13 10:32:24,872 - INFO - Successfully processed 50 new entries from https://www.polsatnews.pl/rss/kraj.xml
+2024-12-13 10:32:24,873 - INFO - Processing: https://www.rmf24.pl/feed
+2024-12-13 10:32:24,965 - INFO - No previous entries found for https://www.rmf24.pl/feed, defaulting to 30 days ago
+2024-12-13 10:32:24,965 - INFO - Fetching entries newer than: 2024-11-13 10:32:24.965892+00:00
+2024-12-13 10:32:24,965 - INFO - Fetching RSS from: https://www.rmf24.pl/feed
+2024-12-13 10:32:25,200 - INFO - Found 18 new entries from https://www.rmf24.pl/feed
+2024-12-13 10:32:25,322 - INFO - Successfully processed 18 new entries from https://www.rmf24.pl/feed
+2024-12-13 10:32:25,322 - INFO - Processing: https://politepol.com/fd/rXWWVpuDzKxX.xml
+2024-12-13 10:32:25,404 - INFO - No previous entries found for https://politepol.com/fd/rXWWVpuDzKxX.xml, defaulting to 30 days ago
+2024-12-13 10:32:25,404 - INFO - Fetching entries newer than: 2024-11-13 10:32:25.404186+00:00
+2024-12-13 10:32:25,405 - INFO - Fetching RSS from: https://politepol.com/fd/rXWWVpuDzKxX.xml
+2024-12-13 10:32:26,044 - INFO - Found 12 new entries from https://politepol.com/fd/rXWWVpuDzKxX.xml
+2024-12-13 10:32:26,138 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/rXWWVpuDzKxX.xml
+2024-12-13 10:32:26,138 - INFO - Processing: https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 10:32:26,231 - INFO - No previous entries found for https://politepol.com/fd/1HxW1FCnF1sA.xml, defaulting to 30 days ago
+2024-12-13 10:32:26,231 - INFO - Fetching entries newer than: 2024-11-13 10:32:26.231910+00:00
+2024-12-13 10:32:26,232 - INFO - Fetching RSS from: https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 10:32:27,795 - INFO - Found 12 new entries from https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 10:32:27,887 - INFO - Successfully processed 12 new entries from https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 10:32:27,888 - INFO - Processing: https://wiadomosci.wp.pl/rss.xml
+2024-12-13 10:32:27,966 - INFO - No previous entries found for https://wiadomosci.wp.pl/rss.xml, defaulting to 30 days ago
+2024-12-13 10:32:27,966 - INFO - Fetching entries newer than: 2024-11-13 10:32:27.966639+00:00
+2024-12-13 10:32:27,967 - INFO - Fetching RSS from: https://wiadomosci.wp.pl/rss.xml
+2024-12-13 10:32:28,143 - INFO - Found 15 new entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 10:32:28,265 - INFO - Successfully processed 15 new entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 10:32:28,266 - INFO - Processing: https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+2024-12-13 10:32:28,343 - INFO - No previous entries found for https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml, defaulting to 30 days ago
+2024-12-13 10:32:28,344 - INFO - Fetching entries newer than: 2024-11-13 10:32:28.344460+00:00
+2024-12-13 10:32:28,344 - INFO - Fetching RSS from: https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+2024-12-13 10:32:28,708 - INFO - Found 50 new entries from https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+2024-12-13 10:32:28,880 - INFO - Successfully processed 50 new entries from https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+2024-12-13 10:32:28,881 - INFO - Processing: https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 10:32:28,980 - INFO - No previous entries found for https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml, defaulting to 30 days ago
+2024-12-13 10:32:28,980 - INFO - Fetching entries newer than: 2024-11-13 10:32:28.980577+00:00
+2024-12-13 10:32:28,981 - INFO - Fetching RSS from: https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 10:32:29,157 - INFO - Found 15 new entries from https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 10:32:29,314 - INFO - Successfully processed 15 new entries from https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 10:32:29,315 - INFO - Processing: https://politepol.com/fd/EgW0phrfwRFg
+2024-12-13 10:32:29,398 - INFO - No previous entries found for https://politepol.com/fd/EgW0phrfwRFg, defaulting to 30 days ago
+2024-12-13 10:32:29,400 - INFO - Fetching entries newer than: 2024-11-13 10:32:29.398515+00:00
+2024-12-13 10:32:29,400 - INFO - Fetching RSS from: https://politepol.com/fd/EgW0phrfwRFg
+2024-12-13 10:32:31,519 - INFO - Found 10 new entries from https://politepol.com/fd/EgW0phrfwRFg
+2024-12-13 10:32:31,614 - INFO - Successfully processed 10 new entries from https://politepol.com/fd/EgW0phrfwRFg
+2024-12-13 10:32:31,625 - INFO - Processing: https://warsawnow.pl/feed/
+2024-12-13 10:32:31,706 - INFO - No previous entries found for https://warsawnow.pl/feed/, defaulting to 30 days ago
+2024-12-13 10:32:31,706 - INFO - Fetching entries newer than: 2024-11-13 10:32:31.706133+00:00
+2024-12-13 10:32:31,707 - INFO - Fetching RSS from: https://warsawnow.pl/feed/
+2024-12-13 10:32:31,905 - INFO - Found 10 new entries from https://warsawnow.pl/feed/
+2024-12-13 10:32:32,005 - INFO - Successfully processed 10 new entries from https://warsawnow.pl/feed/
+2024-12-13 10:32:32,006 - INFO - Processing: http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-13 10:32:32,100 - INFO - No previous entries found for http://www.tvp.info/tvp.info/rss+xml.php, defaulting to 30 days ago
+2024-12-13 10:32:32,100 - INFO - Fetching entries newer than: 2024-11-13 10:32:32.100427+00:00
+2024-12-13 10:32:32,100 - INFO - Fetching RSS from: http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-13 10:32:32,464 - INFO - Found 30 new entries from http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-13 10:32:32,583 - INFO - Successfully processed 30 new entries from http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-13 10:32:32,583 - INFO - RSS fetcher completed
