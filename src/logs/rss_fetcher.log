@@ -353,3 +353,116 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 12:20:04,983 - INFO - Successfully processed entry 304
 2024-12-13 12:20:12,426 - INFO - Successfully processed entry 305
 2024-12-13 12:20:12,538 - INFO - No more entries to summarize
+2024-12-13 12:32:21,356 - INFO - Saved 6 entries from https://notesfrompoland.com/feed/
+2024-12-13 12:32:21,854 - INFO - Saved 36 entries from https://defence24.pl/_RSS
+2024-12-13 12:32:22,896 - INFO - Translated entry 317
+2024-12-13 12:32:22,987 - INFO - Translated entry 306
+2024-12-13 12:32:23,075 - INFO - Translated entry 307
+2024-12-13 12:32:23,169 - INFO - Translated entry 308
+2024-12-13 12:32:23,255 - INFO - Translated entry 309
+2024-12-13 12:32:23,334 - INFO - Translated entry 310
+2024-12-13 12:32:23,421 - INFO - Translated entry 311
+2024-12-13 12:32:26,305 - INFO - Translated entry 312
+2024-12-13 12:32:27,574 - INFO - Translated entry 313
+2024-12-13 12:32:28,139 - INFO - Translated entry 314
+2024-12-13 12:32:28,810 - INFO - Translated entry 315
+2024-12-13 12:32:29,443 - INFO - Translated entry 316
+2024-12-13 12:32:30,022 - INFO - Translated entry 331
+2024-12-13 12:32:30,652 - INFO - Translated entry 332
+2024-12-13 12:32:31,228 - INFO - Translated entry 333
+2024-12-13 12:32:31,803 - INFO - Translated entry 334
+2024-12-13 12:32:32,392 - INFO - Translated entry 335
+2024-12-13 12:32:33,033 - INFO - Translated entry 336
+2024-12-13 12:32:33,621 - INFO - Translated entry 337
+2024-12-13 12:32:34,210 - INFO - Translated entry 338
+2024-12-13 12:32:34,868 - INFO - Translated entry 339
+2024-12-13 12:32:35,444 - INFO - Translated entry 340
+2024-12-13 12:32:36,042 - INFO - Translated entry 341
+2024-12-13 12:32:36,615 - INFO - Translated entry 342
+2024-12-13 12:32:37,173 - INFO - Translated entry 343
+2024-12-13 12:32:37,787 - INFO - Translated entry 344
+2024-12-13 12:32:38,385 - INFO - Translated entry 345
+2024-12-13 12:32:38,971 - INFO - Translated entry 318
+2024-12-13 12:32:40,682 - INFO - Translated entry 319
+2024-12-13 12:32:41,297 - INFO - Translated entry 320
+2024-12-13 12:32:41,999 - INFO - Translated entry 321
+2024-12-13 12:32:42,588 - INFO - Translated entry 322
+2024-12-13 12:32:44,485 - INFO - Translated entry 323
+2024-12-13 12:32:45,072 - INFO - Translated entry 324
+2024-12-13 12:32:45,667 - INFO - Translated entry 325
+2024-12-13 12:32:47,293 - INFO - Translated entry 326
+2024-12-13 12:32:48,900 - INFO - Translated entry 327
+2024-12-13 12:32:49,542 - INFO - Translated entry 328
+2024-12-13 12:32:50,119 - INFO - Translated entry 329
+2024-12-13 12:32:50,740 - INFO - Translated entry 330
+2024-12-13 12:32:51,427 - INFO - Translated entry 346
+2024-12-13 12:32:52,010 - INFO - Translated entry 347
+2024-12-13 12:32:52,104 - INFO - No more entries to translate
+2024-12-13 12:33:05,096 - INFO - Successfully processed entry 317
+2024-12-13 12:33:17,290 - INFO - Successfully processed entry 306
+2024-12-13 12:33:29,030 - INFO - Successfully processed entry 307
+2024-12-13 12:33:38,437 - INFO - Successfully processed entry 308
+2024-12-13 12:33:49,883 - INFO - Successfully processed entry 309
+2024-12-13 12:33:58,211 - INFO - Successfully processed entry 310
+2024-12-13 12:34:08,086 - INFO - Successfully processed entry 311
+2024-12-13 12:34:16,292 - INFO - Successfully processed entry 312
+2024-12-13 12:34:23,007 - INFO - Successfully processed entry 313
+2024-12-13 12:34:31,023 - INFO - Successfully processed entry 314
+2024-12-13 12:34:42,982 - INFO - Successfully processed entry 315
+2024-12-13 12:34:52,852 - INFO - Successfully processed entry 316
+2024-12-13 12:35:06,420 - INFO - Successfully processed entry 333
+2024-12-13 12:35:18,567 - INFO - Successfully processed entry 334
+2024-12-13 12:35:29,080 - INFO - Successfully processed entry 335
+2024-12-13 12:35:36,279 - INFO - Successfully processed entry 337
+2024-12-13 12:35:56,714 - INFO - Successfully processed entry 338
+2024-12-13 12:36:06,820 - INFO - Successfully processed entry 341
+2024-12-13 12:36:19,019 - INFO - Successfully processed entry 342
+2024-12-13 12:36:30,823 - INFO - Successfully processed entry 343
+2024-12-13 12:36:41,901 - INFO - Successfully processed entry 344
+2024-12-13 12:37:08,942 - INFO - Saved 6 entries from https://notesfrompoland.com/feed/
+2024-12-13 12:37:09,457 - INFO - Saved 36 entries from https://defence24.pl/_RSS
+2024-12-13 12:37:09,919 - INFO - Translated entry 348
+2024-12-13 12:37:10,009 - INFO - Translated entry 349
+2024-12-13 12:37:10,097 - INFO - Translated entry 350
+2024-12-13 12:37:10,189 - INFO - Translated entry 351
+2024-12-13 12:37:10,269 - INFO - Translated entry 352
+2024-12-13 12:37:10,356 - INFO - Translated entry 353
+2024-12-13 12:37:11,275 - INFO - Translated entry 354
+2024-12-13 12:37:11,732 - INFO - Translated entry 355
+2024-12-13 12:37:12,244 - INFO - Translated entry 356
+2024-12-13 12:37:12,684 - INFO - Translated entry 357
+2024-12-13 12:37:13,249 - INFO - Translated entry 358
+2024-12-13 12:37:13,723 - INFO - Translated entry 359
+2024-12-13 12:37:14,195 - INFO - Translated entry 360
+2024-12-13 12:37:15,819 - INFO - Translated entry 361
+2024-12-13 12:37:16,288 - INFO - Translated entry 362
+2024-12-13 12:37:16,740 - INFO - Translated entry 363
+2024-12-13 12:37:18,381 - INFO - Translated entry 364
+2024-12-13 12:37:18,872 - INFO - Translated entry 365
+2024-12-13 12:37:19,328 - INFO - Translated entry 366
+2024-12-13 12:37:19,805 - INFO - Translated entry 367
+2024-12-13 12:37:20,338 - INFO - Translated entry 368
+2024-12-13 12:37:20,805 - INFO - Translated entry 369
+2024-12-13 12:37:21,245 - INFO - Translated entry 370
+2024-12-13 12:37:21,673 - INFO - Translated entry 371
+2024-12-13 12:37:22,158 - INFO - Translated entry 372
+2024-12-13 12:37:22,614 - INFO - Translated entry 373
+2024-12-13 12:37:23,061 - INFO - Translated entry 374
+2024-12-13 12:37:23,542 - INFO - Translated entry 375
+2024-12-13 12:37:24,020 - INFO - Translated entry 376
+2024-12-13 12:37:24,508 - INFO - Translated entry 377
+2024-12-13 12:37:25,091 - INFO - Translated entry 378
+2024-12-13 12:37:25,574 - INFO - Translated entry 379
+2024-12-13 12:37:26,027 - INFO - Translated entry 380
+2024-12-13 12:37:26,615 - INFO - Translated entry 381
+2024-12-13 12:37:27,133 - INFO - Translated entry 382
+2024-12-13 12:37:27,672 - INFO - Translated entry 383
+2024-12-13 12:37:28,139 - INFO - Translated entry 384
+2024-12-13 12:37:28,590 - INFO - Translated entry 385
+2024-12-13 12:37:29,097 - INFO - Translated entry 386
+2024-12-13 12:37:30,629 - INFO - Translated entry 387
+2024-12-13 12:37:31,181 - INFO - Translated entry 388
+2024-12-13 12:37:31,630 - INFO - Translated entry 389
+2024-12-13 12:37:31,713 - INFO - No more entries to translate
+2024-12-13 12:37:43,547 - INFO - Successfully processed entry 349
+2024-12-13 12:37:53,469 - INFO - Successfully processed entry 350

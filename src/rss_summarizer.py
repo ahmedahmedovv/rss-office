@@ -88,11 +88,11 @@ class RSSSummarizer:
         """
         messages = [{
             "role": "user",
-            "content": f"""Please provide a brief, one-paragraph summary of the following article:
+            "content": f"""Please provide a brief, one-paragraph summary IN ENGLISH of the following article:
             Title: {title}
             Content: {description}
             
-            Keep the summary concise and focused on the key points."""
+            Keep the summary concise and focused on the key points. Always respond in English regardless of the input language."""
         }]
         
         return self._make_mistral_request(messages)
@@ -110,11 +110,11 @@ class RSSSummarizer:
         """
         messages = [{
             "role": "user",
-            "content": f"""Create a concise, engaging title (maximum 100 characters) for this article that captures its main point:
+            "content": f"""Create a concise, engaging title IN ENGLISH (maximum 100 characters) for this article that captures its main point:
             Original Title: {title}
             Content: {description}
             
-            Respond with only the new title, no additional text."""
+            Respond with only the new title in English, no additional text, regardless of the input language."""
         }]
         
         return self._make_mistral_request(messages)
@@ -130,18 +130,32 @@ class RSSSummarizer:
         Returns:
             Generated category or None if failed
         """
+        available_categories = ", ".join(self.config['categories'])
+        
         messages = [{
             "role": "user",
-            "content": f"""Categorize this article into exactly one of these categories: 
-            Politics, Economy, Technology, Society, Culture, Sports, Environment, Health, Education, International
+            "content": f"""Analyze this article and select the most appropriate category from the following list:
+            {available_categories}
 
-            Title: {title}
-            Content: {description}
+            Article Title: {title}
+            Article Content: {description}
             
-            Respond with only the category name, no additional text."""
+            Rules:
+            1. Choose exactly ONE category from the provided list
+            2. Return ONLY the category name, exactly as written above
+            3. If content spans multiple categories, choose the most dominant one
+            
+            Response format: Return only the category name, no additional text or explanation."""
         }]
         
-        return self._make_mistral_request(messages)
+        category = self._make_mistral_request(messages)
+        
+        # Validate the returned category
+        if category and category in self.config['categories']:
+            return category
+        
+        self.logger.warning(f"Invalid category returned: {category}")
+        return None
 
     def update_entry(self, entry_id: str, update_data: Dict[str, Any]) -> None:
         """
