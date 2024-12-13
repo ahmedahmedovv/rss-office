@@ -349,3 +349,66 @@ input:checked + .toggle-slider:before {
     from { transform: translateX(100%); }
     to { transform: translateX(0); }
 } 
+
+/* Styles for mark all checkbox */
+#markAllRead {
+    cursor: pointer;
+}
+
+.mark-all-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #586069;
+}
+
+/* Button group and tooltip styles */
+.BtnGroup-item.selected {
+    background-color: #0366d6;
+    color: white;
+    border-color: #0366d6;
+}
+
+.BtnGroup-item:not(.selected):hover {
+    background-color: #f6f8fa;
+}
+
+.BtnGroup-item {
+    padding: 4px 16px;
+    font-size: 16px;
+    line-height: 1;
+    position: relative;
+}
+
+.BtnGroup-item .octicon {
+    margin: 0 2px;
+}
+
+/* Tooltip styles */
+.BtnGroup-item:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+/* Marking overlay styles */
+#marking-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#marking-overlay .d-flex {
+    height: 100%;
+} 
