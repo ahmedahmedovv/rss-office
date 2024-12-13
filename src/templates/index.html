@@ -38,36 +38,85 @@
         .Box-body {
             padding: 8px 16px !important;
         }
+        .sidebar {
+            width: 250px;
+            padding: 1rem;
+            background-color: white;
+            border-right: 1px solid rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+        .main-content {
+            margin-left: 270px;
+        }
+        .category-item {
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+        .category-item:hover {
+            background-color: #f6f8fa;
+        }
+        .category-item.active {
+            background-color: #0366d6;
+            color: white;
+        }
     </style>
 </head>
-<body class="container-lg px-3 py-5">
-    <div class="Box">
-        <div class="Box-header d-flex flex-items-center">
-            <h2 class="Box-title flex-auto">RSS Entries</h2>
-            <div class="d-flex flex-items-center">
-                <button class="btn btn-primary mr-2" onclick="refreshData()">
-                    <span class="octicon octicon-sync"></span>
-                    Refresh Data
-                </button>
-                <div class="BtnGroup" role="group">
-                    <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
-                        ▼
+<body>
+    <div class="sidebar">
+        <h3 class="h3 mb-3">Categories</h3>
+        <div id="categories-list">
+            <div class="category-item active" data-category="all">All Categories</div>
+            {% for category in categories %}
+            <div class="category-item" data-category="{{ category }}">{{ category }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="Box">
+            <div class="Box-header d-flex flex-items-center">
+                <h2 class="Box-title flex-auto">RSS Entries</h2>
+                <div class="d-flex flex-items-center">
+                    <button class="btn btn-primary mr-2" onclick="refreshData()">
+                        <span class="octicon octicon-sync"></span>
+                        Refresh Data
                     </button>
-                    <button class="BtnGroup-item btn btn-sm" data-sort="oldest" title="Oldest first">
-                        ▲
-                    </button>
+                    <div class="BtnGroup" role="group">
+                        <button class="BtnGroup-item btn btn-sm selected" data-sort="newest" title="Newest first">
+                            ▼
+                        </button>
+                        <button class="BtnGroup-item btn btn-sm" data-sort="oldest" title="Oldest first">
+                            ▲
+                        </button>
+                    </div>
                 </div>
             </div>
+            <div id="loading" class="Box-body text-center">
+                <div class="Spinner"></div>
+                <p>Loading entries...</p>
+            </div>
+            <div id="entries" class="Box-body"></div>
         </div>
-        <div id="loading" class="Box-body text-center">
-            <div class="Spinner"></div>
-            <p>Loading entries...</p>
-        </div>
-        <div id="entries" class="Box-body"></div>
     </div>
 
     <script>
+        let currentCategory = 'all';
+
         $(document).ready(function() {
+            // Category selection
+            $('.category-item').click(function() {
+                $('.category-item').removeClass('active');
+                $(this).addClass('active');
+                currentCategory = $(this).data('category');
+                refreshData();
+            });
+
             function refreshData() {
                 $('#loading').show();
                 $('#entries').hide();
@@ -75,6 +124,10 @@
                 fetch('/api/entries')
                     .then(response => response.json())
                     .then(data => {
+                        // Filter by category if not "all"
+                        if (currentCategory !== 'all') {
+                            data = data.filter(entry => entry.category === currentCategory);
+                        }
                         renderEntries(data);
                         $('#loading').hide();
                         $('#entries').show();
@@ -105,7 +158,7 @@
                     `;
                 });
                 
-                $('#entries').html(entriesHtml);
+                $('#entries').html(entriesHtml || '<p class="text-center">No entries found</p>');
             }
 
             // Sort functionality

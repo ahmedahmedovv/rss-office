@@ -337,3 +337,19 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 12:17:30,394 - INFO - Successfully processed entry 303
 2024-12-13 12:17:37,037 - INFO - Successfully processed entry 264
 2024-12-13 12:17:50,010 - INFO - Successfully processed entry 267
+2024-12-13 12:18:00,623 - INFO - Successfully processed entry 269
+2024-12-13 12:18:09,076 - INFO - Successfully processed entry 271
+2024-12-13 12:18:25,126 - INFO - Successfully processed entry 274
+2024-12-13 12:18:37,820 - INFO - Successfully processed entry 275
+2024-12-13 12:18:46,814 - INFO - Successfully processed entry 277
+2024-12-13 12:18:55,964 - INFO - Successfully processed entry 278
+2024-12-13 12:19:06,071 - INFO - Successfully processed entry 283
+2024-12-13 12:19:14,438 - INFO - Successfully processed entry 286
+2024-12-13 12:19:26,132 - INFO - Successfully processed entry 289
+2024-12-13 12:19:33,027 - INFO - Successfully processed entry 293
+2024-12-13 12:19:38,094 - INFO - Successfully processed entry 295
+2024-12-13 12:19:47,742 - INFO - Successfully processed entry 297
+2024-12-13 12:19:53,278 - INFO - Successfully processed entry 302
+2024-12-13 12:20:04,983 - INFO - Successfully processed entry 304
+2024-12-13 12:20:12,426 - INFO - Successfully processed entry 305
+2024-12-13 12:20:12,538 - INFO - No more entries to summarize
