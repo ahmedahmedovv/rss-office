@@ -1,0 +1,23 @@
+rss:
+  urls_file: "url.md"
+  default_history_days: 2
+  max_entries_per_fetch: 100
+
+translation:
+  batch_size: 10
+  target_language: "en"
+  source_language: "auto"
+  retry_delay_seconds: 60
+  max_retries: 3
+
+logging:
+  directory: "logs"
+  filename: "rss_fetcher.log"
+  max_size_mb: 5
+  backup_count: 5
+  level: "INFO"
+
+database:
+  retry_attempts: 3
+  retry_delay_seconds: 5
+  batch_size: 50
