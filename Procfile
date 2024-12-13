@@ -1,2 +1,1 @@
-web: gunicorn src.app:app
-worker: python src/main.py 
+web: python src/runner.py 
