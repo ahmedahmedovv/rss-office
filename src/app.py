@@ -41,7 +41,7 @@ def get_feeds():
                 category_generated_at
             """)\
             .order('pub_date', desc=True)\
-            .limit(1000)\
+            .limit(2000)\
             .execute()
         return jsonify(response.data)
     except Exception as e:
