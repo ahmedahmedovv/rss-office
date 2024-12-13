@@ -134,6 +134,21 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        .feed-link {
+            color: #0366d6;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .feed-link:hover {
+            color: #035fc7;
+            text-decoration: underline;
+        }
+
+        .read .feed-link {
+            color: #586069;
+        }
     </style>
 </head>
 <body>
@@ -203,27 +218,32 @@
                 <div class="Box-row feed-item ${readFeeds.has(feed.id) ? 'read' : 'unread'} animate__animated animate__fadeIn" 
                      data-feed-id="${feed.id}">
                     <h4 class="feed-title">
-                        ${feed.ai_title || 'Untitled'}
+                        <a href="${feed.link}" target="_blank" rel="noopener noreferrer" class="feed-link">
+                            ${feed.ai_title || 'Untitled'}
+                        </a>
                         ${!readFeeds.has(feed.id) ? '<span class="Label Label--accent ml-2">New</span>' : ''}
                     </h4>
                     <p>${feed.summary || 'No summary'}</p>
                     ${feed.category ? `<span class="Label">${feed.category}</span>` : ''}
                     <div class="mt-2 text-small text-gray">
-                        Click to mark as ${readFeeds.has(feed.id) ? 'unread' : 'read'}
+                        Click outside title to mark as ${readFeeds.has(feed.id) ? 'unread' : 'read'}
                     </div>
                 </div>
             `).join('');
 
             $('#feeds').html(feedsHtml);
 
-            // Add click handler with animation
-            $('.feed-item').click(function() {
-                const feedId = $(this).data('feed-id');
-                $(this).addClass('animate__animated animate__pulse');
-                setTimeout(() => {
-                    markAsRead(feedId);
-                    $(this).removeClass('animate__animated animate__pulse');
-                }, 300);
+            // Modify click handler to not trigger when clicking the title link
+            $('.feed-item').click(function(e) {
+                // Don't trigger if clicking the title link
+                if (!$(e.target).closest('.feed-link').length) {
+                    const feedId = $(this).data('feed-id');
+                    $(this).addClass('animate__animated animate__pulse');
+                    setTimeout(() => {
+                        markAsRead(feedId);
+                        $(this).removeClass('animate__animated animate__pulse');
+                    }, 300);
+                }
             });
         }
 
