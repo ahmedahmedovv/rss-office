@@ -533,3 +533,17 @@ input:checked + .toggle-slider:before {
 .article-box.read .Link--primary {
     color: #76b38a;
 }
+
+.BtnGroup-item {
+    padding: 8px !important;  /* Smaller padding for icon-only buttons */
+    width: 36px;             /* Fixed width for square buttons */
+    height: 36px;            /* Fixed height for square buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BtnGroup-item .octicon {
+    margin: 0;              /* Remove any existing margin */
+    font-size: 16px;        /* Adjust icon size as needed */
+}

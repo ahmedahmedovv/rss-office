@@ -497,3 +497,75 @@
 2024-12-13 22:08:50,784 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:08:50] "POST /api/articles/read HTTP/1.1" 200 -
 2024-12-13 22:08:58,753 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:08:58] "POST /api/articles/read HTTP/1.1" 200 -
 2024-12-13 22:08:59,537 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:08:59] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:28:27,481 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.165:5000
+2024-12-13 22:28:27,481 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:28:29,902 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "GET / HTTP/1.1" 200 -
+2024-12-13 22:28:29,978 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:29,978 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:29,978 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "GET /static/css/styles.css HTTP/1.1" 200 -
+2024-12-13 22:28:29,980 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:29,982 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:29] "GET /static/js/ui.js HTTP/1.1" 200 -
+2024-12-13 22:28:30,016 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:30] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:28:30,637 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:30] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:28:31,901 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "GET / HTTP/1.1" 200 -
+2024-12-13 22:28:31,953 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:28:31,960 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:31,971 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:31,984 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:31,985 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:31] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:32,013 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:32] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:28:32,032 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:32] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:28:40,014 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "GET / HTTP/1.1" 200 -
+2024-12-13 22:28:40,147 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:40,148 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:40,153 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:28:40,155 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:40,158 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:28:40,255 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:28:40,277 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:28:40] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:30:20,943 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:20] "GET / HTTP/1.1" 200 -
+2024-12-13 22:30:21,033 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:30:21,050 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:30:21,094 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:30:21,118 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:30:21,123 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:30:21,211 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:30:21,308 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:21] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:30:24,931 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:24] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:30:26,353 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:26] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:30:37,766 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:30:37] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:32:38,455 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "GET / HTTP/1.1" 200 -
+2024-12-13 22:32:38,561 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "GET /static/css/styles.css HTTP/1.1" 200 -
+2024-12-13 22:32:38,575 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:38,584 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:38,596 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:38,621 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:38,760 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:32:38,782 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:38] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:32:50,590 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.165:5000
+2024-12-13 22:32:50,590 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 22:32:50,592 - werkzeug - INFO -  * Restarting with stat
+2024-12-13 22:32:51,119 - werkzeug - WARNING -  * Debugger is active!
+2024-12-13 22:32:51,141 - werkzeug - INFO -  * Debugger PIN: 111-959-088
+2024-12-13 22:32:53,073 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "GET / HTTP/1.1" 200 -
+2024-12-13 22:32:53,142 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:32:53,155 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:53,157 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:53,161 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:53,171 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:32:53,190 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:32:53,808 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:32:53] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 22:33:30,483 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "GET / HTTP/1.1" 200 -
+2024-12-13 22:33:30,549 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 22:33:30,622 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 22:33:30,643 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 22:33:30,658 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 22:33:30,658 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 22:33:30,677 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 22:33:30,724 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 22:33:30] "GET /api/feeds HTTP/1.1" 200 -
