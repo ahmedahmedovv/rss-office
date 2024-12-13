@@ -82,8 +82,8 @@ class UIManager {
     }
 
     initializeToggleHandlers() {
-        $('#showOnlyUnread').change(() => {
-            this.showOnlyUnread = $('#showOnlyUnread').is(':checked');
+        $('#showOnlyUnread').change((e) => {
+            this.showOnlyUnread = $(e.target).is(':checked');
             const currentCategory = $('.category-filter.active').data('category');
             this.updateCategoryCounts();
             this.filterArticles(currentCategory);
@@ -130,11 +130,7 @@ class UIManager {
             const dateA = new Date(a.pub_date || 0);
             const dateB = new Date(b.pub_date || 0);
             
-            if (this.currentSortDirection === 'newest') {
-                return dateB - dateA;
-            } else {
-                return dateA - dateB;
-            }
+            return this.currentSortDirection === 'newest' ? dateB - dateA : dateA - dateB;
         });
 
         const headerText = category ? `${category} Articles` : 'All Articles';
