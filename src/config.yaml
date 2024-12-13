@@ -10,6 +10,12 @@ translation:
   retry_delay_seconds: 60
   max_retries: 3
 
+summarization:
+  batch_size: 5
+  max_retries: 3
+  retry_delay_seconds: 30
+  model: "mistral-small-latest"
+
 logging:
   directory: "logs"
   filename: "rss_fetcher.log"

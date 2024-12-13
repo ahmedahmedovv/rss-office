@@ -6,6 +6,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from rss_fetcher import RSSFetcher
 from rss_translator import RSSTranslator
+from rss_summarizer import RSSSummarizer
 
 def load_config():
     """Load configuration from YAML file"""
@@ -65,18 +66,36 @@ def main():
     # Load environment variables and configuration
     load_dotenv()
     config = load_config()
-    logger = setup_basic_logger("RSSApp")
+    logger = setup_basic_logger(
+        "RSSApp",
+        config['logging']['filename'],
+        config['logging']['level'],
+        config['logging']['directory']
+    )
     
     try:
         # Initialize Supabase client
-        supabase = create_client(
-            os.environ.get("SUPABASE_URL"),
-            os.environ.get("SUPABASE_KEY")
-        )
+        supabase_url = os.environ.get("SUPABASE_URL")
+        supabase_key = os.environ.get("SUPABASE_KEY")
+        mistral_api_key = os.environ.get("MISTRAL_API_KEY")
+
+        # Validate environment variables
+        if not supabase_url or not supabase_key:
+            raise ValueError("SUPABASE_URL or SUPABASE_KEY not found in environment variables")
+        if not mistral_api_key:
+            raise ValueError("MISTRAL_API_KEY not found in environment variables")
+
+        supabase = create_client(supabase_url, supabase_key)
         
-        # Initialize components
+        # Initialize components with validated credentials
         fetcher = RSSFetcher(supabase, logger)
         translator = RSSTranslator(supabase, logger)
+        summarizer = RSSSummarizer(
+            supabase=supabase,
+            mistral_api_key=mistral_api_key,
+            logger=logger,
+            config=config
+        )
         
         # Fetch new RSS entries
         urls = read_urls(config['rss']['urls_file'])
@@ -86,8 +105,14 @@ def main():
         # Translate pending entries
         translator.translate_entries(config['translation']['batch_size'])
         
+        # Summarize translated entries
+        summarizer.summarize_entries(config['summarization']['batch_size'])
+        
+    except ValueError as e:
+        logger.error(f"Configuration error: {str(e)}")
     except Exception as e:
         logger.error(f"Application error: {str(e)}")
+        logger.exception("Detailed error trace:")
 
 if __name__ == "__main__":
     main() 

@@ -140,3 +140,4 @@
 2024-12-13 11:08:49,441 - INFO - Translated entry 175
 2024-12-13 11:08:49,900 - INFO - Translated entry 176
 2024-12-13 11:08:49,989 - INFO - No more entries to translate
+2024-12-13 11:18:55,882 - ERROR - Application error: RSSSummarizer.__init__() missing 1 required positional argument: 'config'
