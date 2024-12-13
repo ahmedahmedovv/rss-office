@@ -116,6 +116,9 @@ class UIManager {
     }
 
     filterArticles(category = null) {
+        console.log('Filtering articles...');
+        console.log('Total articles:', articleManager.allArticles.length);
+        
         if (!category) {
             $('#articles').html(`
                 <div class="blankslate">

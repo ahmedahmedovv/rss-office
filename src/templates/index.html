@@ -70,10 +70,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
     
     <!-- Application Scripts (order matters) -->
-    <script src="{{ url_for('static', filename='js/readManager.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/articles.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/categories.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="/static/js/readManager.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/articles.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/categories.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/ui.js?v={{ cache_buster }}"></script>
+    <script src="/static/js/main.js?v={{ cache_buster }}"></script>
 </body>
 </html>

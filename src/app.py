@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, session
+from flask import Flask, render_template, jsonify, request, session, send_from_directory
 from supabase import create_client
 from dotenv import load_dotenv
 import os
@@ -46,7 +46,9 @@ def get_current_user_id():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Add timestamp to force fresh JavaScript files
+    timestamp = int(time.time())
+    return render_template('index.html', cache_buster=timestamp)
 
 @app.route('/api/articles/read', methods=['POST'])
 def toggle_read():
@@ -89,28 +91,123 @@ def clear_read_history():
         logger.exception(f"Error in clear_read_history: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
-# Cache feeds response
-_feeds_cache = {'data': None, 'timestamp': 0}
-CACHE_DURATION = 300  # 5 minutes
-
 @app.route('/api/feeds')
 def get_feeds():
     try:
-        current_time = time.time()
+        # Direct database query without caching
+        response = supabase.table("rss_feeds") \
+                          .select("*") \
+                          .order('pub_date', desc=True) \
+                          .limit(3000) \
+                          .execute()
         
-        # Return cached data if it's still fresh
-        if _feeds_cache['data'] and (current_time - _feeds_cache['timestamp'] < CACHE_DURATION):
-            return jsonify(_feeds_cache['data'])
+        logger.info(f"Fresh API call returned {len(response.data)} records")
         
-        response = supabase.table("rss_feeds").select("*").order('pub_date', desc=True).limit(2000).execute()
-        
-        # Update cache
-        _feeds_cache['data'] = response.data
-        _feeds_cache['timestamp'] = current_time
-        
-        return jsonify(response.data)
+        return jsonify({
+            'data': response.data,
+            'count': len(response.data)
+        })
     except Exception as e:
         logger.exception(f"Error in get_feeds: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+# Add a simple test endpoint that returns a single article
+@app.route('/api/test-article')
+def test_article():
+    return jsonify({
+        'data': [{
+            'id': 1,
+            'title': 'Test Article',
+            'description': 'This is a test article',
+            'link': 'https://example.com',
+            'pub_date': '2024-12-13T22:08:00+00:00'
+        }],
+        'count': 1
+    })
+
+@app.route('/api/debug/article-counts')
+def debug_article_counts():
+    try:
+        # Get total count from database
+        db_count = supabase.table("rss_feeds").select("count", count='exact').execute()
+        
+        # Test different limit values
+        limit_1000 = supabase.table("rss_feeds").select("*").order('pub_date', desc=True).limit(1000).execute()
+        limit_2000 = supabase.table("rss_feeds").select("*").order('pub_date', desc=True).limit(2000).execute()
+        
+        return jsonify({
+            'database_total_count': db_count.count,
+            'response_count_limit_1000': len(limit_1000.data),
+            'response_count_limit_2000': len(limit_2000.data),
+            'cache_age_seconds': time.time() - _feeds_cache['timestamp'] if _feeds_cache['timestamp'] else None,
+            'cache_status': 'fresh' if _feeds_cache['data'] and (time.time() - _feeds_cache['timestamp'] < CACHE_DURATION) else 'stale',
+            'note': 'If limit_2000 shows 1000, there might be a server-side limit'
+        })
+    except Exception as e:
+        logger.exception(f"Error in debug_article_counts: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/debug/detailed-counts')
+def debug_detailed_counts():
+    try:
+        # Get database count
+        db_count = supabase.table("rss_feeds").select("count", count='exact').execute()
+        
+        # Get current cache state
+        cache_data = _feeds_cache['data']
+        cache_count = len(cache_data) if cache_data else 0
+        
+        # Get fresh data with different limits
+        limit_2000 = supabase.table("rss_feeds").select("*").order('pub_date', desc=True).limit(2000).execute()
+        
+        # Get data exactly as the main endpoint does
+        main_endpoint_data = supabase.table("rss_feeds").select("*").order('pub_date', desc=True).limit(3000).execute()
+        
+        return jsonify({
+            'database_total_count': db_count.count,
+            'cache_details': {
+                'count': cache_count,
+                'age_seconds': time.time() - _feeds_cache['timestamp'] if _feeds_cache['timestamp'] else None,
+                'status': 'fresh' if _feeds_cache['data'] and (time.time() - _feeds_cache['timestamp'] < CACHE_DURATION) else 'stale'
+            },
+            'api_responses': {
+                'limit_2000_count': len(limit_2000.data),
+                'main_endpoint_count': len(main_endpoint_data.data)
+            },
+            'first_few_ids': {
+                'cache': [item['id'] for item in cache_data[:5]] if cache_data else None,
+                'fresh_data': [item['id'] for item in main_endpoint_data.data[:5]] if main_endpoint_data.data else None
+            },
+            'timestamp_range': {
+                'newest': main_endpoint_data.data[0]['pub_date'] if main_endpoint_data.data else None,
+                'oldest': main_endpoint_data.data[-1]['pub_date'] if main_endpoint_data.data else None
+            }
+        })
+    except Exception as e:
+        logger.exception(f"Error in debug_detailed_counts: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/debug/sample-data')
+def debug_sample_data():
+    try:
+        if not _feeds_cache['data']:
+            return jsonify({
+                'status': 'error',
+                'message': 'No data in cache'
+            })
+            
+        # Return first 5 items and data structure info
+        sample_data = _feeds_cache['data'][:5]
+        return jsonify({
+            'total_records': len(_feeds_cache['data']),
+            'sample_records': sample_data,
+            'data_structure': {
+                'keys_available': list(sample_data[0].keys()) if sample_data else [],
+                'first_item_preview': sample_data[0] if sample_data else None
+            }
+        })
+    except Exception as e:
+        logger.exception(f"Error in debug_sample_data: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':

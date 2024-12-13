@@ -22,15 +22,19 @@ $(document).ready(function() {
                 $.get('/api/feeds')
             ]);
             
-            if (!feedsResponse || !Array.isArray(feedsResponse)) {
+            // Check for the data property in the response
+            if (!feedsResponse || !feedsResponse.data || !Array.isArray(feedsResponse.data)) {
                 throw new Error(`Invalid response format: ${JSON.stringify(feedsResponse)}`);
             }
 
-            articleManager.allArticles = feedsResponse;
+            console.log('Received articles:', feedsResponse.data.length); // Debug log
+            
+            // Use feedsResponse.data instead of feedsResponse directly
+            articleManager.allArticles = feedsResponse.data;
             
             // Process categories and update counts
             setTimeout(() => {
-                feedsResponse.forEach(article => {
+                feedsResponse.data.forEach(article => {
                     if (article.category) {
                         categoryManager.categories.add(article.category);
                     }
@@ -39,7 +43,7 @@ $(document).ready(function() {
                 uiManager.updateCategoryCounts();
             }, 0);
             
-            // Show blank state instead of articles
+            // Show articles
             $('#loading').hide();
             $('#articles').show();
             uiManager.filterArticles();
