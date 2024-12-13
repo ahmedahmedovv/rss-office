@@ -12,36 +12,35 @@ $(document).ready(function() {
         try {
             console.log('Starting initialization...');
             
-            console.log('Loading read articles...');
-            await articleManager.loadReadArticles();
-            console.log('Read articles loaded:', articleManager.readArticles.size);
+            // Show loading state
+            $('#loading').show();
+            $('#articles').hide();
             
-            console.log('Fetching feeds from API...');
-            const response = await $.get('/api/feeds');
-            console.log('Raw API response:', {
-                type: typeof response,
-                length: Array.isArray(response) ? response.length : 'not an array',
-                sample: Array.isArray(response) && response.length > 0 ? response[0] : null
-            });
+            // Load read articles and feeds in parallel
+            const [readArticlesResponse, feedsResponse] = await Promise.all([
+                articleManager.loadReadArticles(),
+                $.get('/api/feeds')
+            ]);
             
-            if (!response || !Array.isArray(response)) {
-                throw new Error(`Invalid response format: ${JSON.stringify(response)}`);
+            if (!feedsResponse || !Array.isArray(feedsResponse)) {
+                throw new Error(`Invalid response format: ${JSON.stringify(feedsResponse)}`);
             }
 
+            articleManager.allArticles = feedsResponse;
+            
+            // Process categories in background
+            setTimeout(() => {
+                feedsResponse.forEach(article => {
+                    if (article.category) {
+                        categoryManager.categories.add(article.category);
+                    }
+                });
+                categoryManager.updateCategoryFilters();
+            }, 0);
+            
+            // Show articles immediately
             $('#loading').hide();
-            articleManager.allArticles = response;
-            
-            // Process categories
-            console.log('Processing categories...');
-            response.forEach(article => {
-                if (article.category) {
-                    categoryManager.categories.add(article.category);
-                }
-            });
-            console.log('Categories found:', Array.from(categoryManager.categories));
-            
-            // Update UI
-            categoryManager.updateCategoryFilters();
+            $('#articles').show();
             uiManager.filterArticles();
             
         } catch (error) {

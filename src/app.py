@@ -7,6 +7,8 @@ import uuid
 import logging
 import sys
 import os.path
+from functools import lru_cache
+import time
 
 # Configure logging
 log_directory = 'log'
@@ -37,6 +39,12 @@ supabase = create_client(
 
 redis_service = RedisService()
 
+# Add cache duration constant
+CACHE_DURATION = 300  # 5 minutes
+
+# Add cache for feeds
+_feeds_cache = {'data': None, 'timestamp': 0}
+
 def get_current_user_id():
     """
     Get current user ID from session or create a new one.
@@ -53,14 +61,21 @@ def index():
 @app.route('/api/feeds')
 def get_feeds():
     try:
+        current_time = time.time()
+        
+        # Return cached data if it's still fresh
+        if _feeds_cache['data'] and (current_time - _feeds_cache['timestamp'] < CACHE_DURATION):
+            return jsonify(_feeds_cache['data'])
+        
         response = supabase.table("rss_feeds")\
             .select("*")\
             .order('pub_date', desc=True)\
             .limit(2000)\
             .execute()
         
-        logger.debug(f"Supabase response: {response}")
-        logger.debug(f"Number of articles: {len(response.data) if response.data else 0}")
+        # Update cache
+        _feeds_cache['data'] = response.data
+        _feeds_cache['timestamp'] = current_time
         
         return jsonify(response.data)
     except Exception as e:

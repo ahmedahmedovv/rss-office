@@ -102,12 +102,7 @@ class UIManager {
     }
 
     filterArticles(category) {
-        console.log('Starting filterArticles:', {
-            totalArticles: articleManager.allArticles.length,
-            category: category,
-            showOnlyUnread: this.showOnlyUnread,
-            articleManagerState: articleManager
-        });
+        console.log('Starting filterArticles');
 
         if (!Array.isArray(articleManager.allArticles)) {
             console.error('allArticles is not an array:', articleManager.allArticles);
@@ -119,18 +114,14 @@ class UIManager {
             return;
         }
 
-        this.updateCategoryCounts();
+        // Update counts in the background
+        setTimeout(() => this.updateCategoryCounts(), 0);
 
         const filteredArticles = articleManager.allArticles.filter(article => {
             if (category && article.category !== category) return false;
-            if (this.showOnlyUnread && articleManager.isArticleRead(article.link)) {
-                console.log('Filtering out read article:', article.link);
-                return false;
-            }
+            if (this.showOnlyUnread && articleManager.isArticleRead(article.link)) return false;
             return true;
         });
-
-        console.log('Filtered articles count:', filteredArticles.length);
 
         if (filteredArticles.length === 0) {
             $('#articles').html(`
@@ -139,20 +130,39 @@ class UIManager {
                     ${this.showOnlyUnread ? ' (showing only unread)' : ''}
                 </div>
             `);
-        } else {
-            const articlesHtml = filteredArticles.map(article => {
-                try {
-                    return articleManager.createArticleHtml(article);
-                } catch (error) {
-                    console.error('Error creating HTML for article:', article, error);
-                    return '';
-                }
-            }).join('');
-            
-            $('#articles').html(articlesHtml);
+            return;
         }
+
+        // Batch render articles for better performance
+        const BATCH_SIZE = 50;
+        const batches = Math.ceil(filteredArticles.length / BATCH_SIZE);
         
-        this.updateVisibleArticles();
+        let currentBatch = 0;
+        $('#articles').empty();
+
+        const renderNextBatch = () => {
+            if (currentBatch >= batches) {
+                this.updateVisibleArticles();
+                return;
+            }
+
+            const start = currentBatch * BATCH_SIZE;
+            const end = Math.min(start + BATCH_SIZE, filteredArticles.length);
+            const fragment = document.createDocumentFragment();
+
+            for (let i = start; i < end; i++) {
+                const articleHtml = articleManager.createArticleHtml(filteredArticles[i]);
+                const div = document.createElement('div');
+                div.innerHTML = articleHtml;
+                fragment.appendChild(div.firstElementChild);
+            }
+
+            $('#articles').append(fragment);
+            currentBatch++;
+            requestAnimationFrame(renderNextBatch);
+        };
+
+        requestAnimationFrame(renderNextBatch);
     }
 
     updateCategoryCounts() {

@@ -192,3 +192,51 @@
 2024-12-13 19:32:57,774 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:32:57] "POST /api/articles/read HTTP/1.1" 200 -
 2024-12-13 19:32:58,276 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:32:58] "POST /api/articles/read HTTP/1.1" 200 -
 2024-12-13 19:32:58,946 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:32:58] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:33:19,623 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "GET / HTTP/1.1" 200 -
+2024-12-13 19:33:19,682 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 19:33:19,686 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 19:33:19,686 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 19:33:19,692 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 19:33:19,692 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 19:33:19,747 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:19] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:33:20,424 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:20] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 19:33:22,980 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:33:22] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:34:06,286 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "GET / HTTP/1.1" 200 -
+2024-12-13 19:34:06,345 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 19:34:06,399 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 19:34:06,436 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 19:34:06,438 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 19:34:06,441 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 19:34:07,863 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:07] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:34:08,439 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:34:08] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 19:35:35,872 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.165:5000
+2024-12-13 19:35:35,872 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-13 19:35:38,419 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "GET / HTTP/1.1" 200 -
+2024-12-13 19:35:38,590 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "GET /static/js/main.js HTTP/1.1" 200 -
+2024-12-13 19:35:38,600 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 19:35:38,600 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:38,605 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "GET /static/js/ui.js HTTP/1.1" 200 -
+2024-12-13 19:35:38,610 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:38] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:39,066 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:39] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:35:39,309 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:39] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 19:35:41,777 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "GET / HTTP/1.1" 200 -
+2024-12-13 19:35:41,823 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 19:35:41,831 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:41,837 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:41,840 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:41,844 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:41,929 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:35:41,947 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:41] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 19:35:43,206 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "GET / HTTP/1.1" 200 -
+2024-12-13 19:35:43,405 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+2024-12-13 19:35:43,407 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "[36mGET /static/js/articles.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:43,408 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "[36mGET /static/js/categories.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:43,410 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "[36mGET /static/js/ui.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:43,412 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2024-12-13 19:35:43,484 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "GET /api/feeds HTTP/1.1" 200 -
+2024-12-13 19:35:43,485 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:43] "GET /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:35:50,208 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:50] "POST /api/articles/read HTTP/1.1" 200 -
+2024-12-13 19:35:50,866 - werkzeug - INFO - 127.0.0.1 - - [13/Dec/2024 19:35:50] "POST /api/articles/read HTTP/1.1" 200 -
