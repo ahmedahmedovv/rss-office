@@ -1074,3 +1074,190 @@ NotImplementedError: This client is deprecated. To migrate to the new client, pl
 2024-12-13 14:11:36,040 - INFO - Successfully processed entry 642
 2024-12-13 14:11:46,641 - INFO - Successfully processed entry 620
 2024-12-13 14:11:46,719 - INFO - No more entries to summarize
+2024-12-13 14:12:51,720 - INFO - Saved 48 entries from https://forsal.pl/.feed
+2024-12-13 14:12:52,391 - INFO - Saved 18 entries from http://rss.gazetaprawna.pl/GazetaPrawna
+2024-12-13 14:12:52,957 - INFO - Saved 20 entries from https://www.rp.pl/rss/1019
+2024-12-13 14:12:53,564 - INFO - Saved 45 entries from https://www.rp.pl/rss/11-kraj
+2024-12-13 14:12:54,816 - INFO - Saved 148 entries from https://feeds.feedburner.com/wPolitycepl
+2024-12-13 14:12:55,338 - INFO - Saved 21 entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 14:12:55,815 - INFO - Saved 10 entries from https://www.newsweek.pl/rss.xml
+2024-12-13 14:12:56,446 - INFO - Saved 50 entries from https://www.polsatnews.pl/rss/wszystkie.xml
+2024-12-13 14:12:57,041 - INFO - Saved 50 entries from https://www.polsatnews.pl/rss/kraj.xml
+2024-12-13 14:12:57,499 - INFO - Saved 17 entries from https://www.rmf24.pl/feed
+2024-12-13 14:12:57,978 - INFO - Saved 4 entries from https://politepol.com/fd/rXWWVpuDzKxX.xml
+2024-12-13 14:12:58,415 - INFO - Saved 12 entries from https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 14:12:58,824 - INFO - Saved 15 entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 14:12:59,487 - INFO - Saved 50 entries from https://www.wirtualnemedia.pl/rss/wirtualnemedia_rss.xml
+2024-12-13 14:12:59,833 - INFO - Saved 15 entries from https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 14:13:00,308 - INFO - Saved 3 entries from https://politepol.com/fd/EgW0phrfwRFg
+2024-12-13 14:13:00,700 - INFO - Saved 10 entries from https://warsawnow.pl/feed/
+2024-12-13 14:13:01,416 - INFO - Saved 30 entries from http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-13 14:13:03,445 - INFO - Translated entry 1191
+2024-12-13 14:13:04,050 - INFO - Translated entry 746
+2024-12-13 14:13:04,696 - INFO - Translated entry 747
+2024-12-13 14:13:05,333 - INFO - Translated entry 1192
+2024-12-13 14:13:07,001 - INFO - Translated entry 1193
+2024-12-13 14:13:08,062 - INFO - Translated entry 1194
+2024-12-13 14:13:10,803 - INFO - Translated entry 748
+2024-12-13 14:13:11,426 - INFO - Translated entry 749
+2024-12-13 14:13:12,049 - INFO - Translated entry 750
+2024-12-13 14:13:13,744 - INFO - Translated entry 802
+2024-12-13 14:13:15,453 - INFO - Translated entry 803
+2024-12-13 14:13:17,419 - INFO - Translated entry 804
+2024-12-13 14:13:19,143 - INFO - Translated entry 674
+2024-12-13 14:13:20,829 - INFO - Translated entry 675
+2024-12-13 14:13:22,488 - INFO - Translated entry 824
+2024-12-13 14:13:24,145 - INFO - Translated entry 825
+2024-12-13 14:13:26,810 - INFO - Translated entry 826
+2024-12-13 14:13:29,593 - INFO - Translated entry 846
+2024-12-13 14:13:31,068 - INFO - Translated entry 690
+2024-12-13 14:13:32,740 - INFO - Translated entry 691
+2024-12-13 14:13:34,493 - INFO - Translated entry 692
+2024-12-13 14:13:37,267 - INFO - Translated entry 708
+2024-12-13 14:13:40,090 - INFO - Translated entry 709
+2024-12-13 14:13:42,773 - INFO - Translated entry 710
+2024-12-13 14:13:43,425 - INFO - Translated entry 711
+2024-12-13 14:13:46,388 - INFO - Translated entry 712
+2024-12-13 14:13:48,046 - INFO - Translated entry 643
+2024-12-13 14:13:49,711 - INFO - Translated entry 644
+2024-12-13 14:13:51,413 - INFO - Translated entry 645
+2024-12-13 14:13:53,136 - INFO - Translated entry 646
+2024-12-13 14:13:55,197 - INFO - Translated entry 647
+2024-12-13 14:13:58,048 - INFO - Translated entry 713
+2024-12-13 14:13:59,819 - INFO - Translated entry 648
+2024-12-13 14:14:02,201 - INFO - Translated entry 649
+2024-12-13 14:14:04,026 - INFO - Translated entry 650
+2024-12-13 14:14:05,788 - INFO - Translated entry 651
+2024-12-13 14:14:06,403 - INFO - Translated entry 652
+2024-12-13 14:14:08,503 - INFO - Translated entry 653
+2024-12-13 14:14:11,321 - INFO - Translated entry 654
+2024-12-13 14:14:12,450 - INFO - Translated entry 655
+2024-12-13 14:14:14,960 - INFO - Translated entry 656
+2024-12-13 14:14:16,769 - INFO - Translated entry 657
+2024-12-13 14:14:18,396 - INFO - Translated entry 658
+2024-12-13 14:14:20,191 - INFO - Translated entry 659
+2024-12-13 14:14:21,955 - INFO - Translated entry 660
+2024-12-13 14:14:23,740 - INFO - Translated entry 661
+2024-12-13 14:14:24,372 - INFO - Translated entry 745
+2024-12-13 14:14:26,099 - INFO - Translated entry 662
+2024-12-13 14:14:27,796 - INFO - Translated entry 663
+2024-12-13 14:14:28,433 - INFO - Translated entry 664
+2024-12-13 14:14:30,411 - INFO - Translated entry 665
+2024-12-13 14:14:33,234 - INFO - Translated entry 666
+2024-12-13 14:14:35,065 - INFO - Translated entry 667
+2024-12-13 14:14:36,820 - INFO - Translated entry 668
+2024-12-13 14:14:38,638 - INFO - Translated entry 669
+2024-12-13 14:14:40,526 - INFO - Translated entry 670
+2024-12-13 14:14:42,001 - INFO - Translated entry 671
+2024-12-13 14:14:43,747 - INFO - Translated entry 672
+2024-12-13 14:14:46,720 - INFO - Translated entry 673
+2024-12-13 14:14:47,354 - INFO - Translated entry 676
+2024-12-13 14:14:49,469 - INFO - Translated entry 677
+2024-12-13 14:14:51,172 - INFO - Translated entry 678
+2024-12-13 14:14:52,896 - INFO - Translated entry 679
+2024-12-13 14:14:53,513 - INFO - Translated entry 680
+2024-12-13 14:14:55,193 - INFO - Translated entry 681
+2024-12-13 14:14:56,888 - INFO - Translated entry 682
+2024-12-13 14:14:58,642 - INFO - Translated entry 683
+2024-12-13 14:14:59,305 - INFO - Translated entry 684
+2024-12-13 14:14:59,970 - INFO - Translated entry 685
+2024-12-13 14:15:01,724 - INFO - Translated entry 686
+2024-12-13 14:15:02,469 - INFO - Translated entry 687
+2024-12-13 14:15:04,163 - INFO - Translated entry 688
+2024-12-13 14:15:04,825 - INFO - Translated entry 689
+2024-12-13 14:15:05,453 - INFO - Translated entry 693
+2024-12-13 14:15:07,285 - INFO - Translated entry 694
+2024-12-13 14:15:10,216 - INFO - Translated entry 695
+2024-12-13 14:15:10,697 - INFO - Translated entry 696
+2024-12-13 14:15:12,283 - INFO - Translated entry 697
+2024-12-13 14:15:13,852 - INFO - Translated entry 698
+2024-12-13 14:15:14,323 - INFO - Translated entry 699
+2024-12-13 14:15:14,947 - INFO - Translated entry 700
+2024-12-13 14:15:15,389 - INFO - Translated entry 701
+2024-12-13 14:15:16,964 - INFO - Translated entry 702
+2024-12-13 14:15:18,472 - INFO - Translated entry 703
+2024-12-13 14:15:21,064 - INFO - Translated entry 704
+2024-12-13 14:15:22,620 - INFO - Translated entry 705
+2024-12-13 14:15:24,154 - INFO - Translated entry 706
+2024-12-13 14:15:25,932 - INFO - Translated entry 707
+2024-12-13 14:15:28,730 - INFO - Translated entry 714
+2024-12-13 14:15:31,230 - INFO - Translated entry 715
+2024-12-13 14:15:34,094 - INFO - Translated entry 716
+2024-12-13 14:15:36,969 - INFO - Translated entry 717
+2024-12-13 14:15:39,524 - INFO - Translated entry 718
+2024-12-13 14:15:42,113 - INFO - Translated entry 719
+2024-12-13 14:15:44,713 - INFO - Translated entry 720
+2024-12-13 14:15:46,265 - INFO - Translated entry 721
+2024-12-13 14:15:48,888 - INFO - Translated entry 722
+2024-12-13 14:15:51,494 - INFO - Translated entry 723
+2024-12-13 14:15:53,171 - INFO - Translated entry 724
+2024-12-13 14:15:53,660 - INFO - Translated entry 725
+2024-12-13 14:15:55,398 - INFO - Translated entry 726
+2024-12-13 14:15:56,942 - INFO - Translated entry 727
+2024-12-13 14:15:58,530 - INFO - Translated entry 728
+2024-12-13 14:15:59,991 - INFO - Translated entry 729
+2024-12-13 14:16:00,412 - INFO - Translated entry 730
+2024-12-13 14:16:00,837 - INFO - Translated entry 731
+2024-12-13 14:16:01,285 - INFO - Translated entry 732
+2024-12-13 14:16:02,744 - INFO - Translated entry 733
+2024-12-13 14:16:03,201 - INFO - Translated entry 734
+2024-12-13 14:16:03,662 - INFO - Translated entry 735
+2024-12-13 14:16:06,094 - INFO - Translated entry 736
+2024-12-13 14:16:08,582 - INFO - Translated entry 737
+2024-12-13 14:16:10,200 - INFO - Translated entry 738
+2024-12-13 14:16:11,907 - INFO - Translated entry 739
+2024-12-13 14:16:12,372 - INFO - Translated entry 740
+2024-12-13 14:16:13,868 - INFO - Translated entry 741
+2024-12-13 14:16:14,442 - INFO - Translated entry 742
+2024-12-13 14:16:14,937 - INFO - Translated entry 743
+2024-12-13 14:16:16,429 - INFO - Translated entry 744
+2024-12-13 14:16:18,378 - INFO - Translated entry 751
+2024-12-13 14:16:21,177 - INFO - Translated entry 752
+2024-12-13 14:16:22,674 - INFO - Translated entry 753
+2024-12-13 14:16:23,208 - INFO - Translated entry 754
+2024-12-13 14:16:25,841 - INFO - Translated entry 755
+2024-12-13 14:16:27,345 - INFO - Translated entry 756
+2024-12-13 14:16:29,269 - INFO - Translated entry 757
+2024-12-13 14:16:29,736 - INFO - Translated entry 758
+2024-12-13 14:16:32,286 - INFO - Translated entry 759
+2024-12-13 14:16:34,887 - INFO - Translated entry 760
+2024-12-13 14:16:36,452 - INFO - Translated entry 761
+2024-12-13 14:16:39,148 - INFO - Translated entry 762
+2024-12-13 14:16:39,759 - INFO - Translated entry 763
+2024-12-13 14:16:40,269 - INFO - Translated entry 764
+2024-12-13 14:16:41,944 - INFO - Translated entry 765
+2024-12-13 14:16:43,614 - INFO - Translated entry 766
+2024-12-13 14:16:46,785 - INFO - Translated entry 767
+2024-12-13 14:16:48,287 - INFO - Translated entry 768
+2024-12-13 14:16:50,807 - INFO - Translated entry 769
+2024-12-13 14:16:53,232 - INFO - Translated entry 770
+2024-12-13 14:16:53,701 - INFO - Translated entry 771
+2024-12-13 14:16:56,816 - INFO - Translated entry 772
+2024-12-13 14:16:59,514 - INFO - Translated entry 773
+2024-12-13 14:17:01,244 - INFO - Translated entry 774
+2024-12-13 14:17:02,780 - INFO - Translated entry 775
+2024-12-13 14:17:05,499 - INFO - Translated entry 776
+2024-12-13 14:17:07,857 - INFO - Translated entry 777
+2024-12-13 14:17:10,647 - INFO - Translated entry 778
+2024-12-13 14:17:12,335 - INFO - Translated entry 779
+2024-12-13 14:17:13,992 - INFO - Translated entry 780
+2024-12-13 14:17:15,813 - INFO - Translated entry 781
+2024-12-13 14:17:18,565 - INFO - Translated entry 782
+2024-12-13 14:17:20,248 - INFO - Translated entry 783
+2024-12-13 14:17:23,123 - INFO - Translated entry 784
+2024-12-13 14:17:25,867 - INFO - Translated entry 785
+2024-12-13 14:17:27,574 - INFO - Translated entry 786
+2024-12-13 14:17:28,335 - INFO - Translated entry 787
+2024-12-13 14:17:31,044 - INFO - Translated entry 788
+2024-12-13 14:17:32,420 - INFO - Translated entry 789
+2024-12-13 14:17:34,139 - INFO - Translated entry 790
+2024-12-13 14:17:36,944 - INFO - Translated entry 791
+2024-12-13 14:17:39,081 - INFO - Translated entry 792
+2024-12-13 14:17:40,786 - INFO - Translated entry 793
+2024-12-13 14:17:43,398 - INFO - Translated entry 794
+2024-12-13 14:17:44,675 - INFO - Translated entry 795
+2024-12-13 14:17:46,596 - INFO - Translated entry 796
+2024-12-13 14:17:49,425 - INFO - Translated entry 797
+2024-12-13 14:17:52,102 - INFO - Translated entry 798
+2024-12-13 14:17:53,723 - INFO - Translated entry 799
+2024-12-13 14:17:56,461 - INFO - Translated entry 800
