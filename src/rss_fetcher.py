@@ -14,11 +14,15 @@ class RSSFetcher:
         self.logger = logger
 
     def clean_html(self, text: str) -> str:
-        """Remove HTML tags and normalize text"""
+        """Remove HTML tags, special characters, and normalize text"""
         if not text:
             return ""
         text = unescape(text)
+        # Remove HTML tags
         clean = re.sub(r'<[^>]+>', '', text)
+        # Remove special characters like **, „, ", etc.
+        clean = re.sub(r'[„""**]', '', clean)
+        # Normalize whitespace
         clean = ' '.join(clean.split())
         return clean.strip()
 
