@@ -1,0 +1,11 @@
+2024-12-14 00:36:40,583 - INFO - Saved 1 entries from https://notesfrompoland.com/feed/
+2024-12-14 00:36:43,725 - INFO - Saved 1 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-14 00:36:43,788 - INFO - Saved 1 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-14 00:38:26,448 - INFO - Translated entry 1738
+2024-12-14 00:38:26,525 - INFO - Translated entry 1737
+2024-12-14 00:38:26,588 - INFO - No more entries to translate
+2024-12-14 00:38:34,073 - INFO - Successfully processed entry 1738
+2024-12-14 00:38:41,888 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 00:38:42,985 - INFO - Successfully processed entry 1737
+2024-12-14 00:38:43,046 - INFO - No more entries to summarize
