@@ -1704,3 +1704,307 @@ Traceback (most recent call last):
   File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\.venv\Lib\site-packages\mistralai\client.py", line 14, in __init__
     raise NotImplementedError(MIGRATION_MESSAGE)
 NotImplementedError: This client is deprecated. To migrate to the new client, please refer to this guide: https://github.com/mistralai/client-python/blob/main/MIGRATION.md. If you need to use this client anyway, pin your version to 0.4.2.
+2024-12-13 14:37:12,284 - INFO - Saved 1 entries from https://politepol.com/fd/b8Ymwy4PRsNS.xml
+2024-12-13 14:37:14,065 - INFO - Saved 2 entries from https://politepol.com/fd/1jNMAkmHDN1t.xml
+2024-12-13 14:37:15,091 - INFO - Saved 1 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 14:37:28,292 - INFO - Saved 1 entries from https://politepol.com/fd/o3jNxZcrpo6w.xml
+2024-12-13 14:37:35,140 - INFO - Saved 1 entries from https://politepol.com/fd/M0YpTDNrnk8x.xml
+2024-12-13 14:37:45,741 - INFO - Saved 1 entries from https://defence24.pl/_RSS
+2024-12-13 14:37:55,922 - INFO - Saved 1 entries from https://politepol.com/fd/yMSQPMdW0A9d.xml
+2024-12-13 14:39:50,420 - INFO - Saved 1 entries from https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 14:40:28,046 - INFO - Saved 1 entries from https://politepol.com/fd/CGvZ0xwzWc9F.xml
+2024-12-13 14:40:29,153 - INFO - Saved 11 entries from http://rss.dziennik.pl/Dziennik-PL/
+2024-12-13 14:40:30,737 - INFO - Saved 3 entries from https://www.rp.pl/rss/1019
+2024-12-13 14:40:32,337 - INFO - Saved 2 entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 14:40:35,392 - INFO - Saved 1 entries from https://politepol.com/fd/1HxW1FCnF1sA.xml
+2024-12-13 14:40:35,792 - INFO - Saved 1 entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 14:40:36,686 - INFO - Saved 1 entries from https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 14:40:41,486 - INFO - Translated entry 1255
+2024-12-13 14:40:43,144 - INFO - Translated entry 1272
+2024-12-13 14:40:45,988 - INFO - Translated entry 1273
+2024-12-13 14:40:46,090 - INFO - Translated entry 1246
+2024-12-13 14:40:46,231 - INFO - Translated entry 1247
+2024-12-13 14:40:46,342 - INFO - Translated entry 1248
+2024-12-13 14:40:46,443 - INFO - Translated entry 1249
+2024-12-13 14:40:48,273 - INFO - Translated entry 1250
+2024-12-13 14:40:48,850 - INFO - Translated entry 1254
+2024-12-13 14:40:48,952 - INFO - Translated entry 1251
+2024-12-13 14:40:51,801 - INFO - Translated entry 1252
+2024-12-13 14:40:52,387 - INFO - Translated entry 1253
+2024-12-13 14:40:55,137 - INFO - Translated entry 1256
+2024-12-13 14:40:57,991 - INFO - Translated entry 1257
+2024-12-13 14:41:01,107 - INFO - Translated entry 1258
+2024-12-13 14:41:01,980 - INFO - Translated entry 1259
+2024-12-13 14:41:03,573 - INFO - Translated entry 1260
+2024-12-13 14:41:05,204 - INFO - Translated entry 1261
+2024-12-13 14:41:06,885 - INFO - Translated entry 1262
+2024-12-13 14:41:09,726 - INFO - Translated entry 1263
+2024-12-13 14:41:12,530 - INFO - Translated entry 1264
+2024-12-13 14:41:14,287 - INFO - Translated entry 1265
+2024-12-13 14:41:16,991 - INFO - Translated entry 1266
+2024-12-13 14:41:19,700 - INFO - Translated entry 1267
+2024-12-13 14:41:21,907 - INFO - Translated entry 1268
+2024-12-13 14:41:24,504 - INFO - Translated entry 1269
+2024-12-13 14:41:26,912 - INFO - Translated entry 1270
+2024-12-13 14:41:29,612 - INFO - Translated entry 1271
+2024-12-13 14:41:32,256 - INFO - Translated entry 1274
+2024-12-13 14:41:32,343 - INFO - No more entries to translate
+2024-12-13 14:41:36,308 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:41:38,531 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:41:41,829 - INFO - Successfully processed entry 1272
+2024-12-13 14:41:55,161 - INFO - Successfully processed entry 1246
+2024-12-13 14:42:07,073 - INFO - Successfully processed entry 652
+2024-12-13 14:43:13,231 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:43:16,516 - INFO - Successfully processed entry 656
+2024-12-13 14:44:26,963 - INFO - Successfully processed entry 869
+2024-12-13 14:44:36,125 - INFO - Successfully processed entry 659
+2024-12-13 14:44:44,103 - INFO - Successfully processed entry 661
+2024-12-13 14:44:55,393 - INFO - Successfully processed entry 662
+2024-12-13 14:44:57,498 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:44:57,590 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:45:00,979 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:45:06,582 - INFO - Successfully processed entry 723
+2024-12-13 14:45:17,774 - INFO - Successfully processed entry 663
+2024-12-13 14:45:32,471 - INFO - Successfully processed entry 664
+2024-12-13 14:45:41,573 - INFO - Successfully processed entry 666
+2024-12-13 14:45:51,300 - INFO - Successfully processed entry 725
+2024-12-13 14:45:58,359 - INFO - Successfully processed entry 670
+2024-12-13 14:48:09,970 - INFO - Successfully processed entry 672
+2024-12-13 14:48:19,182 - WARNING - Invalid category returned: Energy
+2024-12-13 14:48:19,401 - INFO - Successfully processed entry 676
+2024-12-13 14:48:25,814 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:48:26,596 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:48:29,339 - INFO - Successfully processed entry 677
+2024-12-13 14:48:45,639 - INFO - Successfully processed entry 681
+2024-12-13 14:48:57,210 - INFO - Successfully processed entry 682
+2024-12-13 14:49:06,195 - INFO - Successfully processed entry 870
+2024-12-13 14:49:20,003 - INFO - Successfully processed entry 791
+2024-12-13 14:49:31,721 - INFO - Successfully processed entry 686
+2024-12-13 14:49:33,835 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:49:37,311 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:49:38,203 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:49:44,786 - INFO - Successfully processed entry 688
+2024-12-13 14:49:47,757 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:49:53,739 - INFO - Successfully processed entry 693
+2024-12-13 14:49:59,430 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:50:00,994 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:50:04,674 - INFO - Successfully processed entry 876
+2024-12-13 14:50:11,439 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:50:12,600 - INFO - Successfully processed entry 710
+2024-12-13 14:50:19,419 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:50:23,279 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:50:55,383 - WARNING - Invalid category returned: Polish Politics
+2024-12-13 14:50:55,545 - INFO - Successfully processed entry 898
+2024-12-13 14:51:11,980 - INFO - Successfully processed entry 902
+2024-12-13 14:51:15,213 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:51:19,680 - INFO - Successfully processed entry 694
+2024-12-13 14:51:34,651 - INFO - Successfully processed entry 905
+2024-12-13 14:51:41,525 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:51:44,614 - INFO - Successfully processed entry 645
+2024-12-13 14:51:52,651 - INFO - Successfully processed entry 646
+2024-12-13 14:51:55,957 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:52:02,165 - INFO - Successfully processed entry 647
+2024-12-13 14:52:11,273 - INFO - Successfully processed entry 907
+2024-12-13 14:52:13,379 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:52:23,324 - INFO - Successfully processed entry 650
+2024-12-13 14:52:34,599 - INFO - Successfully processed entry 651
+2024-12-13 14:52:42,977 - INFO - Successfully processed entry 653
+2024-12-13 14:52:50,547 - INFO - Successfully processed entry 654
+2024-12-13 14:53:01,911 - INFO - Successfully processed entry 655
+2024-12-13 14:53:10,318 - INFO - Successfully processed entry 657
+2024-12-13 14:53:16,191 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:18,034 - INFO - Successfully processed entry 658
+2024-12-13 14:53:20,150 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:20,362 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:20,581 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:20,583 - ERROR - Failed to process entry 660: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:26,448 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:53:29,464 - INFO - Successfully processed entry 745
+2024-12-13 14:53:40,914 - INFO - Successfully processed entry 908
+2024-12-13 14:53:55,454 - INFO - Successfully processed entry 909
+2024-12-13 14:54:02,284 - INFO - Successfully processed entry 660
+2024-12-13 14:54:10,750 - INFO - Successfully processed entry 665
+2024-12-13 14:54:14,211 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:17,401 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:18,277 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:22,899 - INFO - Successfully processed entry 667
+2024-12-13 14:54:25,005 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:33,408 - INFO - Successfully processed entry 668
+2024-12-13 14:54:37,286 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:38,262 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:54:45,318 - INFO - Successfully processed entry 669
+2024-12-13 14:54:57,015 - INFO - Successfully processed entry 671
+2024-12-13 14:55:01,751 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:55:06,338 - INFO - Successfully processed entry 673
+2024-12-13 14:55:10,448 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:55:16,486 - INFO - Successfully processed entry 913
+2024-12-13 14:55:23,345 - INFO - Successfully processed entry 678
+2024-12-13 14:55:25,449 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:55:27,526 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 14:55:34,057 - INFO - Successfully processed entry 679
+2024-12-13 14:55:58,844 - INFO - Saved 1 entries from https://politepol.com/fd/21fLEtcxQnMj.xml
+2024-12-13 14:58:18,329 - INFO - Saved 1 entries from https://politepol.com/fd/W3LsgnhkgSuX.xml
+2024-12-13 14:58:21,186 - INFO - Saved 2 entries from https://forsal.pl/.feed
+2024-12-13 14:58:22,218 - INFO - Saved 2 entries from https://www.rp.pl/rss/1019
+2024-12-13 14:58:23,875 - INFO - Saved 2 entries from https://tvn24.pl/najnowsze.xml
+2024-12-13 14:58:26,285 - INFO - Saved 2 entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 14:58:27,097 - INFO - Saved 1 entries from https://wyborcza.pl/pub/rss/gazetawyborcza_kraj.xml
+2024-12-13 14:58:29,923 - INFO - Saved 1 entries from https://warsawnow.pl/feed/
+2024-12-13 14:58:33,315 - INFO - Translated entry 1283
+2024-12-13 14:58:35,991 - INFO - Translated entry 1284
+2024-12-13 14:58:38,684 - INFO - Translated entry 1286
+2024-12-13 14:58:41,590 - INFO - Translated entry 1285
+2024-12-13 14:58:41,676 - INFO - Translated entry 1275
+2024-12-13 14:58:43,344 - INFO - Translated entry 1276
+2024-12-13 14:58:45,995 - INFO - Translated entry 1277
+2024-12-13 14:58:47,525 - INFO - Translated entry 1278
+2024-12-13 14:58:50,171 - INFO - Translated entry 1279
+2024-12-13 14:58:51,869 - INFO - Translated entry 1280
+2024-12-13 14:58:54,492 - INFO - Translated entry 1281
+2024-12-13 14:58:56,830 - INFO - Translated entry 1282
+2024-12-13 14:58:56,909 - INFO - No more entries to translate
+2024-12-13 14:59:12,866 - INFO - Successfully processed entry 680
+2024-12-13 14:59:45,317 - INFO - Successfully processed entry 683
+2024-12-13 15:00:21,693 - INFO - Successfully processed entry 684
+2024-12-13 15:02:49,731 - INFO - Saved 3 entries from https://wiadomosci.wp.pl/rss.xml
+2024-12-13 15:02:53,184 - INFO - Translated entry 1287
+2024-12-13 15:02:56,596 - INFO - Translated entry 1288
+2024-12-13 15:02:58,179 - INFO - Translated entry 1289
+2024-12-13 15:02:58,256 - INFO - No more entries to translate
+2024-12-13 15:03:01,406 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:02,987 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:03,116 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:05,327 - INFO - Successfully processed entry 1288
+2024-12-13 15:03:07,417 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:08,907 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:09,114 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:12,157 - INFO - Successfully processed entry 1287
+2024-12-13 15:03:16,695 - INFO - Successfully processed entry 1289
+2024-12-13 15:03:19,275 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:20,308 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:20,492 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:21,101 - INFO - Successfully processed entry 685
+2024-12-13 15:03:24,354 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:25,540 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:25,922 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:27,498 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:27,499 - ERROR - Failed to process entry 687: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:31,474 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:31,962 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:33,654 - INFO - Successfully processed entry 687
+2024-12-13 15:03:36,484 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:37,349 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:38,068 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:40,695 - INFO - Successfully processed entry 689
+2024-12-13 15:03:43,657 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:44,134 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:46,326 - INFO - Successfully processed entry 915
+2024-12-13 15:03:49,924 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:50,601 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:53,419 - INFO - Successfully processed entry 695
+2024-12-13 15:03:56,319 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:56,452 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:57,059 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:57,059 - ERROR - Failed to process entry 697: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:03:59,636 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:00,372 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:02,499 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:03,404 - INFO - Successfully processed entry 697
+2024-12-13 15:04:07,303 - INFO - Successfully processed entry 698
+2024-12-13 15:04:10,539 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:11,283 - INFO - Successfully processed entry 700
+2024-12-13 15:04:14,010 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:14,223 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:17,439 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:18,275 - INFO - Successfully processed entry 701
+2024-12-13 15:04:20,889 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:21,899 - INFO - Successfully processed entry 702
+2024-12-13 15:04:24,775 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:25,511 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:28,607 - INFO - Successfully processed entry 703
+2024-12-13 15:04:32,396 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:32,481 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:34,432 - INFO - Successfully processed entry 706
+2024-12-13 15:04:37,257 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:38,059 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:38,303 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-13 15:04:40,482 - INFO - Successfully processed entry 707

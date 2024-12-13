@@ -22,6 +22,8 @@ class RSSSummarizer:
         self.mistral = Mistral(api_key=mistral_api_key)
         self.logger = logger
         self.config = config['summarization']
+        self.last_request_time = 0
+        self.min_request_interval = self.config.get('min_request_interval', 1.0)  # seconds
 
     def get_unsummarized_entries(self, batch_size: int = 5) -> List[Dict[str, Any]]:
         """
@@ -55,7 +57,7 @@ class RSSSummarizer:
     )
     def _make_mistral_request(self, messages: List[Dict[str, str]]) -> Optional[str]:
         """
-        Make a request to Mistral AI with exponential backoff retry.
+        Make a request to Mistral AI with rate limiting and exponential backoff retry.
         
         Args:
             messages: List of message dictionaries for the chat completion
@@ -63,6 +65,12 @@ class RSSSummarizer:
         Returns:
             Generated content or None if failed
         """
+        current_time = time.time()
+        time_since_last_request = current_time - self.last_request_time
+        if time_since_last_request < self.min_request_interval:
+            sleep_time = self.min_request_interval - time_since_last_request
+            time.sleep(sleep_time)
+        
         try:
             response = self.mistral.chat.complete(
                 model=self.config['model'],
@@ -70,6 +78,7 @@ class RSSSummarizer:
                 temperature=0.7,
                 max_tokens=500
             )
+            self.last_request_time = time.time()  # Update last request time
             return response.choices[0].message.content.strip() if response.choices else None
         except Exception as e:
             self.logger.error(f"Error in Mistral API request: {e}")
@@ -199,8 +208,8 @@ class RSSSummarizer:
             
             for entry in entries:
                 try:
-                    # Add base delay between entries to prevent rate limiting
-                    time.sleep(self.config.get('base_delay', 2))
+                    # Increased base delay between entries
+                    time.sleep(self.config.get('base_delay', 3))  # Increased from 2 to 3 seconds
                     
                     current_time = datetime.now(pytz.UTC).isoformat()
                     update_data = {}

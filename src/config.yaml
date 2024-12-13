@@ -47,6 +47,8 @@ summarization:
     - Finance
     - Weather
     - World News
+  min_request_interval: 1.5
+  base_delay: 3
 
 logging:
   directory: "logs"
