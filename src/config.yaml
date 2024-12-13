@@ -16,16 +16,37 @@ summarization:
   retry_delay_seconds: 30
   model: "mistral-small-latest"
   categories:
-    - Politics
-    - Economy
-    - Technology
-    - Society
     - Culture
-    - Sports
+    - Economy
+    - Education
     - Environment
     - Health
-    - Education
     - International
+    - Poland
+    - Polish News
+    - Polish Military
+    - Polish Defense
+    - Polish Armed Forces
+    - Polish Air Force
+    - Polish Navy
+    - Polish Army
+    - Polish Security Forces
+    - Polish Intelligence
+    - Polish Foreign Policy
+    - Polish Domestic Policy
+    - Polish Regional News
+    - Polish Economy
+    - Politics
+    - Science
+    - Security
+    - Society
+    - Sports
+    - Technology
+    - Business
+    - Entertainment
+    - Finance
+    - Weather
+    - World News
 
 logging:
   directory: "logs"
