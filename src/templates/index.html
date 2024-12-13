@@ -42,14 +42,20 @@
             <div class="Box">
                 <div class="Box-header d-flex flex-items-center">
                     <h2 class="Box-title flex-auto" id="content-header">RSS Articles</h2>
-                    <div class="d-flex flex-items-center">
-                        <div class="BtnGroup mr-3" role="group" aria-label="Sort articles">
-                            <button class="BtnGroup-item btn btn-sm selected" data-sort="newest">▼</button>
-                            <button class="BtnGroup-item btn btn-sm" data-sort="oldest">▲</button>
+                    <div class="d-flex flex-items-center gap-3">
+                        <div class="BtnGroup" role="group" aria-label="Sort articles">
+                            <button class="BtnGroup-item btn selected" data-sort="newest">
+                                <span class="octicon octicon-arrow-down"></span>
+                                Newest
+                            </button>
+                            <button class="BtnGroup-item btn" data-sort="oldest">
+                                <span class="octicon octicon-arrow-up"></span>
+                                Oldest
+                            </button>
                         </div>
-                        <label class="d-flex flex-items-center mr-3">
+                        <label class="mark-all-container">
                             <input type="checkbox" id="markAllRead" class="mr-2">
-                            <span class="text-small">Mark all as read</span>
+                            <span>Mark all as read</span>
                         </label>
                     </div>
                 </div>
