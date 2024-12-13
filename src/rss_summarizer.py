@@ -20,6 +20,7 @@ class RSSSummarizer:
                 .select("id", "title", "description")\
                 .is_("summarized_at", "null")\
                 .is_("ai_title_generated_at", "null")\
+                .is_("category_generated_at", "null")\
                 .not_.is_("translated_at", "null")\
                 .limit(batch_size)\
                 .execute()
@@ -120,6 +121,53 @@ class RSSSummarizer:
             self.logger.error(f"Error generating AI title after {self.config['max_retries']} attempts: {str(e)}")
             return ""
 
+    def create_category(self, title: str, description: str, retry_count: int = 0) -> str:
+        """Generate category using Mistral AI with retry logic"""
+        try:
+            if not self.mistral:
+                raise ValueError("Mistral client not properly initialized")
+
+            if retry_count == 0:
+                time.sleep(1)
+            else:
+                delay = self.config['retry_delay_seconds'] * (2 ** (retry_count - 1))
+                self.logger.warning(
+                    f"Rate limit hit, waiting {delay} seconds before retry "
+                    f"(attempt {retry_count + 1}/{self.config['max_retries']})"
+                )
+                time.sleep(delay)
+
+            messages = [
+                {
+                    "role": "user",
+                    "content": f"""Categorize this article into exactly one of these categories: 
+                    Politics, Economy, Technology, Society, Culture, Sports, Environment, Health, Education, International
+
+                    Title: {title}
+                    Content: {description}
+                    
+                    Respond with only the category name, no additional text."""
+                }
+            ]
+
+            response = self.mistral.chat.complete(
+                model=self.config['model'],
+                messages=messages
+            )
+
+            if response and response.choices:
+                return response.choices[0].message.content.strip()
+            return ""
+            
+        except Exception as e:
+            if "rate limit" in str(e).lower() and retry_count < self.config['max_retries']:
+                return self.create_category(title, description, retry_count + 1)
+            elif retry_count < self.config['max_retries']:
+                self.logger.error(f"Error in category generation: {str(e)}")
+                return self.create_category(title, description, retry_count + 1)
+            self.logger.error(f"Error generating category after {self.config['max_retries']} attempts: {str(e)}")
+            return ""
+
     def summarize_entries(self, batch_size: int = None) -> None:
         """Summarize and update entries"""
         if batch_size is None:
@@ -136,6 +184,7 @@ class RSSSummarizer:
                 try:
                     summary = self.create_summary(entry["title"], entry["description"])
                     ai_title = self.create_ai_title(entry["title"], entry["description"])
+                    category = self.create_category(entry["title"], entry["description"])
                     
                     current_time = datetime.now(pytz.UTC).isoformat()
                     update_data = {
@@ -147,6 +196,12 @@ class RSSSummarizer:
                         update_data.update({
                             "ai_title": ai_title,
                             "ai_title_generated_at": current_time
+                        })
+                    
+                    if category:
+                        update_data.update({
+                            "category": category,
+                            "category_generated_at": current_time
                         })
                     
                     self.supabase.table("rss_feeds")\
