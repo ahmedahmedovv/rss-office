@@ -31,10 +31,12 @@ def index():
 
 @app.route('/api/entries')
 def get_entries():
-    # Fetch only necessary fields
+    # Add ai_title and link to the selected fields
     response = supabase.table('rss_feeds').select(
         "category",
-        "summary"
+        "summary",
+        "ai_title",
+        "link"
     ).order('pub_date', desc=True).execute()
     
     return jsonify(response.data)

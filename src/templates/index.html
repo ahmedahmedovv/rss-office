@@ -149,7 +149,12 @@
                     entriesHtml += `
                         <div class="Box mb-3 article-box">
                             <div class="Box-header d-flex flex-items-center">
-                                <span class="Label Label--secondary">${entry.category || 'Uncategorized'}</span>
+                                <span class="Label Label--secondary mr-2">${entry.category || 'Uncategorized'}</span>
+                                <h3 class="Box-title">
+                                    <a href="${entry.link}" target="_blank" class="color-fg-default">
+                                        ${entry.ai_title || 'No title available'}
+                                    </a>
+                                </h3>
                             </div>
                             <div class="Box-body">
                                 <p class="color-fg-muted">${entry.summary || 'No summary available'}</p>
