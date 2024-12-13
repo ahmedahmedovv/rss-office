@@ -6,13 +6,18 @@ from services.redis_service import RedisService
 import uuid
 import logging
 import sys
+import os.path
 
 # Configure logging
+log_directory = 'log'
+if not os.path.exists(log_directory):
+    os.makedirs(log_directory)
+
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.ERROR,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('app.log'),
+        logging.FileHandler(os.path.join(log_directory, 'app.log')),
         logging.StreamHandler(sys.stdout)
     ]
 )
