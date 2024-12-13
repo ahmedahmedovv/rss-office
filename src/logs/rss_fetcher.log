@@ -188,3 +188,123 @@
 2024-12-13 11:42:22,966 - INFO - Processed entry 238
 2024-12-13 11:42:36,043 - INFO - Processed entry 240
 2024-12-13 11:42:53,337 - INFO - Processed entry 241
+2024-12-13 12:06:28,914 - INFO - Saved 7 entries from https://notesfrompoland.com/feed/
+2024-12-13 12:06:29,434 - INFO - Saved 36 entries from https://defence24.pl/_RSS
+2024-12-13 12:06:29,946 - INFO - Translated entry 263
+2024-12-13 12:06:30,046 - INFO - Translated entry 264
+2024-12-13 12:06:30,146 - INFO - Translated entry 265
+2024-12-13 12:06:30,244 - INFO - Translated entry 266
+2024-12-13 12:06:30,339 - INFO - Translated entry 267
+2024-12-13 12:06:30,491 - INFO - Translated entry 268
+2024-12-13 12:06:30,598 - INFO - Translated entry 269
+2024-12-13 12:06:32,456 - INFO - Translated entry 270
+2024-12-13 12:06:33,101 - INFO - Translated entry 271
+2024-12-13 12:06:34,472 - INFO - Translated entry 272
+2024-12-13 12:06:35,172 - INFO - Translated entry 273
+2024-12-13 12:06:35,763 - INFO - Translated entry 274
+2024-12-13 12:06:36,411 - INFO - Translated entry 275
+2024-12-13 12:06:37,028 - INFO - Translated entry 276
+2024-12-13 12:06:37,698 - INFO - Translated entry 292
+2024-12-13 12:06:38,327 - INFO - Translated entry 277
+2024-12-13 12:06:38,952 - INFO - Translated entry 278
+2024-12-13 12:06:39,586 - INFO - Translated entry 279
+2024-12-13 12:06:40,218 - INFO - Translated entry 280
+2024-12-13 12:06:40,919 - INFO - Translated entry 281
+2024-12-13 12:06:41,679 - INFO - Translated entry 282
+2024-12-13 12:06:42,377 - INFO - Translated entry 283
+2024-12-13 12:06:42,998 - INFO - Translated entry 284
+2024-12-13 12:06:43,660 - INFO - Translated entry 285
+2024-12-13 12:06:44,337 - INFO - Translated entry 286
+2024-12-13 12:06:44,972 - INFO - Translated entry 287
+2024-12-13 12:06:45,605 - INFO - Translated entry 288
+2024-12-13 12:06:46,248 - INFO - Translated entry 289
+2024-12-13 12:06:46,854 - INFO - Translated entry 290
+2024-12-13 12:06:47,511 - INFO - Translated entry 291
+2024-12-13 12:06:48,267 - INFO - Translated entry 293
+2024-12-13 12:06:48,877 - INFO - Translated entry 294
+2024-12-13 12:06:49,507 - INFO - Translated entry 295
+2024-12-13 12:06:50,118 - INFO - Translated entry 296
+2024-12-13 12:06:50,779 - INFO - Translated entry 297
+2024-12-13 12:06:51,419 - INFO - Translated entry 298
+2024-12-13 12:06:52,017 - INFO - Translated entry 299
+2024-12-13 12:06:52,660 - INFO - Translated entry 300
+2024-12-13 12:06:53,290 - INFO - Translated entry 301
+2024-12-13 12:06:54,912 - INFO - Translated entry 302
+2024-12-13 12:06:55,687 - INFO - Translated entry 303
+2024-12-13 12:06:57,396 - INFO - Translated entry 304
+2024-12-13 12:06:59,350 - INFO - Translated entry 305
+2024-12-13 12:06:59,438 - INFO - No more entries to translate
+2024-12-13 12:07:01,579 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:01,927 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:02,646 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:02,647 - ERROR - Failed to process entry 265: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:04,648 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:05,420 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:07,281 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:07,283 - ERROR - Failed to process entry 266: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:09,283 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:10,029 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:10,626 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:10,627 - ERROR - Failed to process entry 268: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:12,628 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:12,921 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:14,704 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:14,705 - ERROR - Failed to process entry 270: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:16,707 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:17,286 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:17,401 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:17,402 - ERROR - Failed to process entry 272: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:19,604 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:20,230 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:21,452 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:21,452 - ERROR - Failed to process entry 265: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:23,454 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:24,179 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:25,140 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:25,141 - ERROR - Failed to process entry 266: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:27,142 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:27,302 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:27,806 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:27,807 - ERROR - Failed to process entry 268: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:29,808 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:30,779 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:31,858 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:31,859 - ERROR - Failed to process entry 270: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:07:54,254 - INFO - No more entries to translate
+2024-12-13 12:07:56,433 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:07:56,682 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:07:58,046 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:07:58,047 - ERROR - Failed to process entry 265: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:08:46,751 - INFO - No more entries to translate
+2024-12-13 12:08:48,845 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:49,345 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:49,458 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:49,460 - ERROR - Failed to process entry 265: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:51,462 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:52,380 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:54,242 - ERROR - Error in Mistral API request: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:08:54,244 - ERROR - Failed to process entry 266: 'dict' object has no attribute 'model_dump'
+2024-12-13 12:09:48,942 - INFO - No more entries to translate
+2024-12-13 12:09:51,075 - ERROR - Error in Mistral API request: 'function' object has no attribute 'complete'
+2024-12-13 12:09:51,748 - ERROR - Error in Mistral API request: 'function' object has no attribute 'complete'
+2024-12-13 12:09:52,607 - ERROR - Error in Mistral API request: 'function' object has no attribute 'complete'
+2024-12-13 12:09:52,608 - ERROR - Failed to process entry 265: 'function' object has no attribute 'complete'
+2024-12-13 12:09:54,609 - ERROR - Error in Mistral API request: 'function' object has no attribute 'complete'
+2024-12-13 12:09:54,697 - ERROR - Error in Mistral API request: 'function' object has no attribute 'complete'
+2024-12-13 12:11:05,291 - ERROR - Application error: This client is deprecated. To migrate to the new client, please refer to this guide: https://github.com/mistralai/client-python/blob/main/MIGRATION.md. If you need to use this client anyway, pin your version to 0.4.2.
+2024-12-13 12:11:05,292 - ERROR - Detailed error trace:
+Traceback (most recent call last):
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\src\main.py", line 93, in main
+    summarizer = RSSSummarizer(
+                 ^^^^^^^^^^^^^^
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\src\rss_summarizer.py", line 22, in __init__
+    self.mistral = MistralClient(api_key=mistral_api_key)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ofis\Desktop\myapp\office\fetch-db\1\.venv\Lib\site-packages\mistralai\client.py", line 14, in __init__
+    raise NotImplementedError(MIGRATION_MESSAGE)
+NotImplementedError: This client is deprecated. To migrate to the new client, please refer to this guide: https://github.com/mistralai/client-python/blob/main/MIGRATION.md. If you need to use this client anyway, pin your version to 0.4.2.
+2024-12-13 12:12:26,902 - INFO - No more entries to translate
+2024-12-13 12:12:28,979 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:12:29,072 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:12:31,035 - ERROR - Error in Mistral API request: 'MistralClient' object has no attribute 'chat_completions'
+2024-12-13 12:12:31,038 - ERROR - Failed to process entry 265: 'MistralClient' object has no attribute 'chat_completions'

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS Entries</title>
+    <!-- Primer CSS -->
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+</head>
+<body class="container-lg px-3 py-5">
+    <div class="Box">
+        <div class="Box-header">
+            <h2 class="Box-title">RSS Entries</h2>
+        </div>
+        <div class="Box-body">
+            <div class="TableObject">
+                <div class="TableObject-item">
+                    <button class="btn btn-primary" onclick="refreshData()">Refresh Data</button>
+                </div>
+            </div>
+            <div class="mt-3">
+                <table class="data-table width-full">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Source</th>
+                            <th>Category</th>
+                            <th>Published Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entries-table-body">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function refreshData() {
+            fetch('/api/entries')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('entries-table-body');
+                    tableBody.innerHTML = '';
+                    
+                    data.forEach(entry => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="p-2">${entry.title || '-'}</td>
+                            <td class="p-2">${entry.source_url || '-'}</td>
+                            <td class="p-2">${entry.category || '-'}</td>
+                            <td class="p-2">${new Date(entry.pub_date).toLocaleDateString() || '-'}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', refreshData);
+    </script>
+</body>
+</html>
