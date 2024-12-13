@@ -36,7 +36,6 @@ https://www.wnp.pl/rss/serwis_rss_13.xml
 https://dziennikzbrojny.pl/rss
 https://politepol.com/fd/W3LsgnhkgSuX.xml
 https://www.bbn.gov.pl/dokumenty/rss/1-rss-o-2.rss
-https://politepol.com/fd/P0ekzeoRwcWT.xml
 https://www.hsw.pl/feed/
 https://politepol.com/fd/CGvZ0xwzWc9F.xml
 https://www.bankier.pl/rss/wiadomosci.xml
