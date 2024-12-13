@@ -24,6 +24,155 @@
                 flex-direction: column;
             }
         }
+        
+        /* Unread indicator styles */
+        .Box-row[data-read="false"]::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #2da44e;  /* GitHub green color */
+        }
+        
+        .Box-row {
+            position: relative;
+            transition: background-color 0.2s ease;
+        }
+        
+        /* Optional: Style for read items */
+        .Box-row[data-read="true"] {
+            opacity: 0.8;
+        }
+
+        /* Article Card Styles */
+        .Box-row {
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .Box-row:hover {
+            background-color: var(--color-bg-tertiary);
+        }
+
+        .Box-row[data-read="false"] {
+            border-left-color: #2da44e;
+        }
+
+        .Box-row[data-read="true"] .article-summary {
+            opacity: 0.7;
+        }
+
+        .article-summary {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .hover-text:hover {
+            color: var(--color-accent-fg);
+        }
+
+        .btn-read-toggle {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .Box-row:hover .btn-read-toggle {
+            opacity: 1;
+        }
+
+        .avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .btn-read-toggle {
+                opacity: 1;
+            }
+            
+            .article-summary {
+                -webkit-line-clamp: 3;
+            }
+        }
+
+        /* Feed Container Styles */
+        .feed-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .Box {
+            border: 1px solid var(--color-border-default);
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .Box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Remove default Box-row borders since each card is separate */
+        .Box .Box-row {
+            border-top: none;
+        }
+
+        /* Optional: Add a subtle background color */
+        .Box {
+            background-color: var(--color-canvas-subtle);
+        }
+
+        .feed-card {
+            width: 100%;
+        }
+
+        .feed-card .Box {
+            background-color: var(--color-canvas-default);
+            transition: background-color 0.2s ease;
+        }
+
+        .feed-card .Box:hover {
+            background-color: var(--color-canvas-subtle);
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        .article-summary {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .feed-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-header .d-flex {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .main-header .d-flex > div:last-child {
+                width: 100%;
+            }
+        }
     </style>
     <script>
         function filterByCategory(category) {
@@ -50,6 +199,66 @@
                 item.style.display = itemCategory === category ? 'block' : 'none';
             });
         }
+
+        // Initialize read status from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedItems = document.querySelectorAll('.Box-row');
+            feedItems.forEach(item => {
+                const feedId = item.getAttribute('data-feed-id');
+                const isRead = localStorage.getItem(`feed-${feedId}-read`) === 'true';
+                item.setAttribute('data-read', isRead);
+            });
+        });
+
+        // Update read status button text
+        function updateReadButtonText(element) {
+            const isRead = element.getAttribute('data-read') === 'true';
+            const buttonText = element.querySelector('.read-status');
+            if (buttonText) {
+                buttonText.textContent = isRead ? 'Mark as unread' : 'Mark as read';
+            }
+        }
+
+        // Toggle read status when clicked
+        document.querySelectorAll('.Box-row').forEach(item => {
+            updateReadButtonText(item); // Initial state
+            
+            item.querySelector('.btn-read-toggle').addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card click
+                const feedId = item.getAttribute('data-feed-id');
+                const currentReadState = item.getAttribute('data-read') === 'true';
+                const newReadState = !currentReadState;
+                
+                item.setAttribute('data-read', newReadState);
+                localStorage.setItem(`feed-${feedId}-read`, newReadState);
+                updateReadButtonText(item);
+            });
+
+            // Prevent link clicks from triggering card toggle
+            item.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => e.stopPropagation());
+            });
+        });
+
+        // Add function to mark all as read
+        function markAllAsRead() {
+            document.querySelectorAll('.Box-row').forEach(item => {
+                const feedId = item.getAttribute('data-feed-id');
+                item.setAttribute('data-read', 'true');
+                localStorage.setItem(`feed-${feedId}-read`, 'true');
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.feed-card').forEach(card => {
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const summary = card.querySelector('.article-summary')?.textContent.toLowerCase() || '';
+                const visible = title.includes(searchTerm) || summary.includes(searchTerm);
+                card.style.display = visible ? 'block' : 'none';
+            });
+        });
     </script>
 </head>
 <body>
@@ -81,38 +290,70 @@
                     </a>
                     {% endif %}
                 {% endfor %}
+
+                <div class="border-top pt-2 mt-2">
+                    <button class="btn btn-sm btn-block" onclick="markAllAsRead()">
+                        Mark all as read
+                    </button>
+                </div>
             </nav>
         </div>
 
         <!-- Main Content -->
-        <div class="container-lg px-3 py-6">
-            <h1 class="h1 mb-4">RSS Feeds</h1>
-            
-            <div class="Box">
-                {% for feed in feeds %}
-                <div class="Box-row" data-category="{{ feed.get('category', 'uncategorized') }}">
-                    <div class="d-flex flex-column">
-                        <h2 class="h3 mb-1">
-                            <a href="{{ feed.link }}" class="Link--primary">
-                                {{ feed.ai_title }}
-                            </a>
-                        </h2>
-                        {% if feed.summary %}
-                        <p class="color-text-secondary mb-2">{{ feed.summary }}</p>
-                        {% endif %}
-                        <div class="d-flex flex-items-center color-text-tertiary">
-                            <span class="mr-3">
-                                {% if feed.pub_date %}
-                                    {{ feed.pub_date.strftime('%Y-%m-%d %H:%M') if feed.pub_date is not string else feed.pub_date }}
-                                {% endif %}
-                            </span>
-                            {% if feed.category %}
-                            <span class="Label">{{ feed.category }}</span>
-                            {% endif %}
+        <div class="main-content">
+            <header class="main-header">
+                <div class="container-lg px-3 py-4">
+                    <div class="d-flex flex-items-center flex-justify-between">
+                        <div>
+                            <h1 class="h2 mb-1">RSS Feeds</h1>
+                            <p class="color-fg-muted">Stay updated with your favorite sources</p>
+                        </div>
+                        <div class="d-flex">
+                            <div class="position-relative">
+                                <input type="text" class="form-control width-full" 
+                                       placeholder="Search articles..." id="searchInput">
+                                <svg class="octicon position-absolute top-2 right-2" style="pointer-events: none;"
+                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+                                    <path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+            </header>
+
+            <div class="feed-wrapper">
+                <div class="container-lg px-3 py-3">
+                    <div class="feed-container">
+                        {% for feed in feeds %}
+                        <div class="feed-card" data-category="{{ feed.get('category', 'uncategorized') }}">
+                            <div class="Box p-3" data-read="false" data-feed-id="{{ feed.id }}">
+                                <div class="feed-card-content">
+                                    <div class="article-content">
+                                        <h2 class="h4 mb-2">
+                                            <a href="{{ feed.link }}" class="Link--primary" target="_blank">
+                                                {{ feed.ai_title }}
+                                            </a>
+                                        </h2>
+                                        {% if feed.summary %}
+                                        <p class="color-fg-muted mb-2 article-summary">
+                                            {{ feed.summary }}
+                                        </p>
+                                        {% endif %}
+                                        <div class="d-flex flex-items-center">
+                                            <span class="color-fg-muted text-small">
+                                                {% if feed.pub_date %}
+                                                    {{ feed.pub_date.strftime('%d/%m/%Y') if feed.pub_date is not string else feed.pub_date }}
+                                                {% endif %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
