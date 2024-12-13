@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, session
 from supabase import create_client
 from dotenv import load_dotenv
 import os
-from services.redis_service import RedisService
+from src.services.redis_service import RedisService
 import uuid
 import logging
 import sys
