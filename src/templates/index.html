@@ -7,10 +7,19 @@
     <!-- Primer CSS -->
     <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
     <style>
+        :root {
+            --reading-bg: #faf7f2;        /* Warm cream background */
+            --text-primary: #1a1814;      /* Very dark brown, almost black */
+            --text-secondary: #4a443e;    /* Dark warm gray */
+            --border-color: #e6e0d6;      /* Cream-tinted border */
+            --hover-bg: #f5f1e8;          /* Slightly darker cream for hover */
+        }
+
         .sidebar {
-            width: 250px;
+            width: 280px;
             min-height: 100vh;
-            border-right: 1px solid var(--color-border-default);
+            border-right: 1px solid var(--border-color);
+            background-color: var(--reading-bg);
         }
         
         @media (max-width: 768px) {
@@ -18,7 +27,7 @@
                 width: 100%;
                 min-height: auto;
                 border-right: none;
-                border-bottom: 1px solid var(--color-border-default);
+                border-bottom: 1px solid var(--border-color);
             }
             .layout-wrapper {
                 flex-direction: column;
@@ -26,24 +35,10 @@
         }
         
         /* Unread indicator styles */
-        .Box-row[data-read="false"]::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background-color: #2da44e;  /* GitHub green color */
-        }
-        
-        .Box-row {
-            position: relative;
-            transition: background-color 0.2s ease;
-        }
-        
-        /* Optional: Style for read items */
-        .Box-row[data-read="true"] {
-            opacity: 0.8;
-        }
+        /* .Box-row[data-read="false"]::before { ... } */
+        /* .Box-row[data-read="true"] { ... } */
+        /* .btn-read-toggle { ... } */
+        /* Any other read/unread related styles */
 
         /* Article Card Styles */
         .Box-row {
@@ -74,15 +69,6 @@
 
         .hover-text:hover {
             color: var(--color-accent-fg);
-        }
-
-        .btn-read-toggle {
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        .Box-row:hover .btn-read-toggle {
-            opacity: 1;
         }
 
         .avatar {
@@ -173,10 +159,111 @@
                 width: 100%;
             }
         }
+
+        .feed-wrapper {
+            background-color: var(--reading-bg);
+            min-height: calc(100vh - 120px);
+            padding: 20px 0;
+        }
+
+        .feed-card .Box {
+            background-color: #ffffff;     /* Pure white for maximum contrast */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feed-card .Box:hover {
+            background-color: var(--hover-bg);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Typography improvements */
+        .h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .article-summary {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .Link--primary {
+            color: var(--text-primary) !important;
+        }
+
+        .Link--primary:hover {
+            color: #8b4513 !important;    /* Warm brown for hover state */
+            text-decoration: none;
+        }
+
+        .color-fg-muted {
+            color: var(--text-secondary) !important;
+        }
+
+        /* Container width for better readability */
+        .container-lg {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Spacing improvements */
+        .Box {
+            padding: 1.5rem !important;
+        }
+
+        .feed-container {
+            gap: 16px;
+        }
+
+        /* Adjust article text for better readability at wider widths */
+        .article-summary {
+            max-width: 900px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1280px) {
+            .container-lg {
+                max-width: 100%;
+                padding: 0 16px;
+            }
+        }
+
+        /* Sidebar menu styling */
+        .menu-heading {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .menu-item {
+            color: var(--text-primary) !important;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item:hover {
+            background-color: var(--hover-bg);
+            color: #8b4513 !important;
+        }
+
+        .menu-item.selected {
+            background-color: var(--hover-bg);
+            color: #8b4513 !important;
+            font-weight: 600;
+        }
+
+        .Counter {
+            background-color: var(--border-color) !important;
+            color: var(--text-secondary) !important;
+        }
     </style>
     <script>
         function filterByCategory(category) {
-            const feedItems = document.querySelectorAll('.Box-row');
+            const feedItems = document.querySelectorAll('.feed-card');
             const activeItems = document.querySelectorAll('.menu-item');
             
             // Update active state in sidebar
@@ -199,66 +286,6 @@
                 item.style.display = itemCategory === category ? 'block' : 'none';
             });
         }
-
-        // Initialize read status from localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            const feedItems = document.querySelectorAll('.Box-row');
-            feedItems.forEach(item => {
-                const feedId = item.getAttribute('data-feed-id');
-                const isRead = localStorage.getItem(`feed-${feedId}-read`) === 'true';
-                item.setAttribute('data-read', isRead);
-            });
-        });
-
-        // Update read status button text
-        function updateReadButtonText(element) {
-            const isRead = element.getAttribute('data-read') === 'true';
-            const buttonText = element.querySelector('.read-status');
-            if (buttonText) {
-                buttonText.textContent = isRead ? 'Mark as unread' : 'Mark as read';
-            }
-        }
-
-        // Toggle read status when clicked
-        document.querySelectorAll('.Box-row').forEach(item => {
-            updateReadButtonText(item); // Initial state
-            
-            item.querySelector('.btn-read-toggle').addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent card click
-                const feedId = item.getAttribute('data-feed-id');
-                const currentReadState = item.getAttribute('data-read') === 'true';
-                const newReadState = !currentReadState;
-                
-                item.setAttribute('data-read', newReadState);
-                localStorage.setItem(`feed-${feedId}-read`, newReadState);
-                updateReadButtonText(item);
-            });
-
-            // Prevent link clicks from triggering card toggle
-            item.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (e) => e.stopPropagation());
-            });
-        });
-
-        // Add function to mark all as read
-        function markAllAsRead() {
-            document.querySelectorAll('.Box-row').forEach(item => {
-                const feedId = item.getAttribute('data-feed-id');
-                item.setAttribute('data-read', 'true');
-                localStorage.setItem(`feed-${feedId}-read`, 'true');
-            });
-        }
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            document.querySelectorAll('.feed-card').forEach(card => {
-                const title = card.querySelector('h2').textContent.toLowerCase();
-                const summary = card.querySelector('.article-summary')?.textContent.toLowerCase() || '';
-                const visible = title.includes(searchTerm) || summary.includes(searchTerm);
-                card.style.display = visible ? 'block' : 'none';
-            });
-        });
     </script>
 </head>
 <body>
@@ -290,12 +317,6 @@
                     </a>
                     {% endif %}
                 {% endfor %}
-
-                <div class="border-top pt-2 mt-2">
-                    <button class="btn btn-sm btn-block" onclick="markAllAsRead()">
-                        Mark all as read
-                    </button>
-                </div>
             </nav>
         </div>
 
@@ -308,16 +329,6 @@
                             <h1 class="h2 mb-1">RSS Feeds</h1>
                             <p class="color-fg-muted">Stay updated with your favorite sources</p>
                         </div>
-                        <div class="d-flex">
-                            <div class="position-relative">
-                                <input type="text" class="form-control width-full" 
-                                       placeholder="Search articles..." id="searchInput">
-                                <svg class="octicon position-absolute top-2 right-2" style="pointer-events: none;"
-                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                    <path fill-rule="evenodd" d="M11.5 7a4.499 4.499 0 11-8.998 0A4.499 4.499 0 0111.5 7zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path>
-                                </svg>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </header>
@@ -327,7 +338,7 @@
                     <div class="feed-container">
                         {% for feed in feeds %}
                         <div class="feed-card" data-category="{{ feed.get('category', 'uncategorized') }}">
-                            <div class="Box p-3" data-read="false" data-feed-id="{{ feed.id }}">
+                            <div class="Box p-3">
                                 <div class="feed-card-content">
                                     <div class="article-content">
                                         <h2 class="h4 mb-2">
