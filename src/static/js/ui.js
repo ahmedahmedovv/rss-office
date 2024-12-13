@@ -104,6 +104,16 @@ class UIManager {
     }
 
     filterArticles(category = null) {
+        if (!category) {
+            $('#articles').html(`
+                <div class="blankslate">
+                    <h3>Select a Category</h3>
+                    <p>Choose a category from the sidebar to view articles.</p>
+                </div>
+            `);
+            return;
+        }
+
         let filteredArticles = [...articleManager.allArticles];
         
         if (category) {

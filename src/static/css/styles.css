@@ -425,3 +425,100 @@ input:checked + .toggle-slider:before {
 .article-box.read .Link--primary {
     color: #666;
 }
+
+/* Tablet-specific styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Adjust sidebar */
+    .sidebar {
+        width: 280px;
+        left: 16px;
+        top: 16px;
+        max-height: calc(100vh - 32px);
+    }
+
+    /* Adjust main content area */
+    .content {
+        margin-left: 304px;
+        max-width: calc(100% - 304px);
+    }
+
+    /* Adjust container padding */
+    .container-lg {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Make category filters more compact */
+    .category-filter {
+        padding: 8px 12px;
+        margin: 4px 0;
+    }
+
+    /* Adjust font sizes for better readability */
+    .Box-title {
+        font-size: 1.1rem;
+    }
+
+    .category-filter {
+        font-size: 0.9rem;
+    }
+
+    /* Adjust button group sizes */
+    .BtnGroup-item {
+        padding: 4px 12px;
+        font-size: 14px;
+    }
+
+    /* Make article boxes more compact */
+    .article-box {
+        margin-bottom: 8px !important;
+    }
+
+    .Box-body {
+        padding: 6px 12px !important;
+    }
+
+    /* Adjust toggle switch size */
+    .toggle-switch {
+        width: 40px;
+        height: 20px;
+    }
+
+    .toggle-slider:before {
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+    }
+
+    input:checked + .toggle-slider:before {
+        transform: translateX(20px);
+    }
+}
+
+/* Handle landscape orientation specifically */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .content {
+        margin-left: 264px;
+        max-width: calc(100% - 264px);
+    }
+}
+
+/* Improve touch targets for tablet users */
+@media (pointer: coarse) {
+    .category-filter,
+    .BtnGroup-item,
+    .toggle-switch,
+    .article-box {
+        min-height: 44px; /* Apple's recommended minimum touch target size */
+    }
+
+    /* Add more space between interactive elements */
+    .Box-header .d-flex {
+        gap: 16px;
+    }
+}

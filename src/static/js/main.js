@@ -39,7 +39,7 @@ $(document).ready(function() {
                 uiManager.updateCategoryCounts();
             }, 0);
             
-            // Show articles immediately
+            // Show blank state instead of articles
             $('#loading').hide();
             $('#articles').show();
             uiManager.filterArticles();
