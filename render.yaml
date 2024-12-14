@@ -1,9 +1,20 @@
 services:
-  - type: web
+  - type: worker
     name: rss-feed-processor
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python src/runner.py
+    startCommand: python src/main.py
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0 
+        value: 3.11.0
+
+  - type: web
+    name: rss-feed-ping
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn src.web_ping:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PORT
+        value: 8080
