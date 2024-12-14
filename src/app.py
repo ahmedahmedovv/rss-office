@@ -1,51 +1,52 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from supabase import create_client
-from datetime import datetime
 import os
+from datetime import datetime
 from dotenv import load_dotenv
-from collections import defaultdict
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
 
 # Initialize Supabase client
-supabase = create_client(
-    os.getenv("SUPABASE_URL"),
-    os.getenv("SUPABASE_KEY")
-)
+supabase_url = os.getenv('SUPABASE_URL')
+supabase_key = os.getenv('SUPABASE_KEY')
+
+if not supabase_url or not supabase_key:
+    raise ValueError("Missing Supabase credentials in .env file")
+
+supabase = create_client(supabase_url, supabase_key)
 
 @app.route('/')
 def index():
-    # Fetch RSS feeds from Supabase
-    response = supabase.table('rss_feeds')\
-        .select('*')\
-        .order('pub_date', desc=True)\
-        .limit(10000)\
+    # Get category filter from query parameters
+    category = request.args.get('category', None)
+    
+    # Base query
+    query = supabase.table('rss_feeds').select('*').order('pub_date', desc=True)
+    
+    # Apply category filter if specified
+    if category:
+        query = query.eq('category', category)
+    
+    # Execute query
+    response = query.execute()
+    feeds = response.data
+
+    # Convert pub_date strings to datetime objects
+    for feed in feeds:
+        feed['pub_date'] = datetime.fromisoformat(feed['pub_date'].replace('Z', '+00:00'))
+
+    # Get unique categories for filter panel
+    categories_response = supabase.table('rss_feeds')\
+        .select('category')\
         .execute()
     
-    feeds = response.data
-    
-    # Convert string dates to datetime objects
-    for feed in feeds:
-        if isinstance(feed['pub_date'], str):
-            feed['pub_date'] = datetime.fromisoformat(feed['pub_date'].replace('Z', '+00:00'))
-    
-    # Prepare categories and counts
-    categories = set()
-    category_counts = defaultdict(int)
-    
-    # Count categories
-    for feed in feeds:
-        category = feed.get('category') or 'uncategorized'
-        categories.add(category)
-        category_counts[category] += 1
-    
-    return render_template('index.html', 
-                         feeds=feeds,
-                         categories=categories,
-                         category_counts=dict(category_counts))
+    # Filter out None values and get unique categories
+    unique_categories = sorted(set(item['category'] for item in categories_response.data if item['category']))
+
+    return render_template('index.html', feeds=feeds, categories=unique_categories, selected_category=category)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True)
