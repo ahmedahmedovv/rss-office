@@ -279,6 +279,38 @@
             background-color: var(--border-color) !important;
             color: var(--text-secondary) !important;
         }
+
+        /* Update the feed card styles for read state */
+        .feed-card[data-read="true"] .Box {
+            background-color: #f6f8fa !important;  /* Light gray background */
+            border-left: 4px solid #8250df !important;  /* Purple stripe */
+        }
+
+        .feed-card[data-read="true"] .article-content {
+            opacity: 0.7 !important;
+        }
+
+        .feed-card[data-read="true"] .h4 {
+            color: var(--text-secondary);
+        }
+
+        /* Update unread state styles */
+        .feed-card[data-read="false"] .Box {
+            background-color: #ffffff !important;  /* White background */
+            border-left: 4px solid #2da44e !important;  /* Green stripe */
+        }
+
+        /* Hover effects */
+        .feed-card .Box:hover {
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+        /* Ensure these styles are not being overridden */
+        .feed-card .Box {
+            transition: all 0.2s ease !important;
+        }
     </style>
     <script>
         function filterByCategory(category) {
@@ -304,6 +336,99 @@
                 const itemCategory = item.getAttribute('data-category');
                 item.style.display = itemCategory === category ? 'block' : 'none';
             });
+        }
+
+        // Store read states in localStorage
+        const READ_STATES_KEY = 'rss_read_states';
+
+        // Initialize or get existing read states
+        let readStates = JSON.parse(localStorage.getItem(READ_STATES_KEY) || '{}');
+
+        // Function to toggle read state
+        function toggleReadState(feedId, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            readStates[feedId] = !readStates[feedId];
+            localStorage.setItem(READ_STATES_KEY, JSON.stringify(readStates));
+            updateReadUI(feedId);
+        }
+
+        // Function to update UI based on read state
+        function updateReadUI(feedId) {
+            const feedCard = document.querySelector(`[data-feed-id="${feedId}"]`);
+            if (feedCard) {
+                const isRead = readStates[feedId] || false;
+                
+                // Force DOM update
+                feedCard.setAttribute('data-read', isRead);
+                
+                // Explicitly update the Box element styles
+                const boxElement = feedCard.querySelector('.Box');
+                if (boxElement) {
+                    if (isRead) {
+                        boxElement.style.backgroundColor = '#f6f8fa';
+                        boxElement.style.borderLeft = '4px solid #8250df';
+                    } else {
+                        boxElement.style.backgroundColor = '#ffffff';
+                        boxElement.style.borderLeft = '4px solid #2da44e';
+                    }
+                }
+
+                // Update button text
+                const button = feedCard.querySelector('.btn-read-toggle');
+                if (button) {
+                    button.textContent = isRead ? 'Mark as unread' : 'Mark as read';
+                }
+                
+                // Force a repaint
+                feedCard.style.display = 'none';
+                feedCard.offsetHeight;
+                feedCard.style.display = '';
+            }
+        }
+
+        // Initialize read states on page load
+        function initializeReadStates() {
+            const feedCards = document.querySelectorAll('.feed-card');
+            
+            feedCards.forEach(card => {
+                const feedId = card.getAttribute('data-feed-id');
+                if (feedId) {
+                    // Set initial read state
+                    updateReadUI(feedId);
+                    
+                    // Add click handler to the entire card
+                    card.addEventListener('click', (event) => {
+                        const isLink = event.target.tagName === 'A' || 
+                                     event.target.closest('a');
+                        const isReadButton = event.target.classList.contains('btn-read-toggle') ||
+                                           event.target.closest('.btn-read-toggle');
+                        
+                        if (isReadButton) {
+                            toggleReadState(feedId, event);
+                        } else if (isLink) {
+                            if (!readStates[feedId]) {
+                                readStates[feedId] = true;
+                                localStorage.setItem(READ_STATES_KEY, JSON.stringify(readStates));
+                                updateReadUI(feedId);
+                            }
+                        } else {
+                            toggleReadState(feedId, event);
+                        }
+                    });
+                }
+            });
+        }
+
+        // Make sure the DOM is loaded before running our code
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeReadStates();
+            });
+        } else {
+            initializeReadStates();
         }
     </script>
 </head>
@@ -397,69 +522,5 @@
             </div>
         </div>
     </div>
-    <script>
-    // Store read states in localStorage
-    const READ_STATES_KEY = 'rss_read_states';
-
-    // Initialize or get existing read states
-    let readStates = JSON.parse(localStorage.getItem(READ_STATES_KEY) || '{}');
-
-    // Function to toggle read state
-    function toggleReadState(feedId, event) {
-        // Prevent the default behavior if it's a link
-        if (event) {
-            event.preventDefault();
-        }
-        
-        readStates[feedId] = !readStates[feedId];
-        localStorage.setItem(READ_STATES_KEY, JSON.stringify(readStates));
-        updateReadUI(feedId);
-    }
-
-    // Function to update UI based on read state
-    function updateReadUI(feedId) {
-        const feedCard = document.querySelector(`[data-feed-id="${feedId}"]`);
-        if (feedCard) {
-            feedCard.setAttribute('data-read', readStates[feedId] ? 'true' : 'false');
-            const button = feedCard.querySelector('.btn-read-toggle');
-            if (button) {
-                button.textContent = readStates[feedId] ? 'Mark as unread' : 'Mark as read';
-            }
-        }
-    }
-
-    // Initialize read states on page load
-    function initializeReadStates() {
-        document.querySelectorAll('.feed-card').forEach(card => {
-            const feedId = card.getAttribute('data-feed-id');
-            if (feedId) {
-                // Set initial read state
-                card.setAttribute('data-read', readStates[feedId] ? 'true' : 'false');
-                
-                // Add click handler to the entire card
-                card.addEventListener('click', (event) => {
-                    // Check if the click is on the link
-                    const isLink = event.target.tagName === 'A' || 
-                                 event.target.closest('a');
-                    
-                    if (isLink) {
-                        // If it's a link, let it handle its own click
-                        // but still mark as read
-                        toggleReadState(feedId);
-                    } else {
-                        // If it's not a link, toggle read state
-                        event.preventDefault();
-                        toggleReadState(feedId);
-                    }
-                });
-            }
-        });
-    }
-
-    // Add click handler for articles
-    document.addEventListener('DOMContentLoaded', () => {
-        initializeReadStates();
-    });
-    </script>
 </body>
 </html>
