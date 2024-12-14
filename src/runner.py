@@ -4,7 +4,7 @@ import main
 
 def run_flask():
     # Remove debug=True when running with multiprocessing
-    app.app.run(host='0.0.0.0', port=5000)
+    app.app.run(host='0.0.0.0', port=5000, debug=True)
 
 def run_fetcher():
     main.main()
