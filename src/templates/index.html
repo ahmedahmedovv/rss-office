@@ -47,14 +47,18 @@
             <div class="container-lg clearfix">
                 <div class="Box">
                     {% for feed in feeds %}
-                    <div class="Box-row {% if feed.is_read %}Box-row--gray{% endif %}">
+                    <div class="Box-row {% if feed.is_read %}Box-row--gray{% endif %}" 
+                         onclick="markAsRead({{ feed.id }}, event)"
+                         style="cursor: pointer;">
                         <h3 class="Box-title d-flex flex-items-center">
-                            <a href="{{ feed.link }}" target="_blank" 
-                               onclick="markAsRead({{ feed.id }}, event)"
+                            <a href="{{ feed.link }}" 
+                               target="_blank" 
+                               onclick="event.stopPropagation()"
                                class="flex-auto">
                                 {{ feed.title }}
                             </a>
-                            <span class="Label Label--secondary ml-2 {% if feed.is_read %}Label--success{% endif %}">
+                            <span class="Label Label--secondary ml-2 {% if feed.is_read %}Label--success{% endif %}"
+                                  id="status-{{ feed.id }}">
                                 {{ 'Read' if feed.is_read else 'Unread' }}
                             </span>
                         </h3>
@@ -75,7 +79,15 @@
 
     <script>
     function markAsRead(feedId, event) {
-        fetch(`/mark-read/${feedId}`, {
+        // Don't toggle if clicking the title link
+        if (event.target.tagName === 'A') {
+            return;
+        }
+
+        const articleElement = event.currentTarget;
+        const statusLabel = articleElement.querySelector(`#status-${feedId}`);
+        
+        fetch(`/toggle-read/${feedId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,11 +96,17 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                const articleElement = event.target.closest('.Box-row');
-                articleElement.classList.add('Box-row--gray');
-                const statusLabel = articleElement.querySelector('.Label');
-                statusLabel.textContent = 'Read';
-                statusLabel.classList.add('Label--success');
+                if (data.is_read) {
+                    // Mark as read
+                    articleElement.classList.add('Box-row--gray');
+                    statusLabel.textContent = 'Read';
+                    statusLabel.classList.add('Label--success');
+                } else {
+                    // Mark as unread
+                    articleElement.classList.remove('Box-row--gray');
+                    statusLabel.textContent = 'Unread';
+                    statusLabel.classList.remove('Label--success');
+                }
             }
         })
         .catch(error => console.error('Error:', error));

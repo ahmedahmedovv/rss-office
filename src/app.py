@@ -93,5 +93,34 @@ def mark_read(feed_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/toggle-read/<int:feed_id>', methods=['POST'])
+@login_required
+def toggle_read(feed_id):
+    try:
+        # Check if article is already read
+        existing = supabase.table('read_articles')\
+            .select('id')\
+            .eq('user_id', current_user.id)\
+            .eq('feed_id', feed_id)\
+            .execute()
+        
+        if existing.data:
+            # If read, delete the record to mark as unread
+            supabase.table('read_articles')\
+                .delete()\
+                .eq('user_id', current_user.id)\
+                .eq('feed_id', feed_id)\
+                .execute()
+            return jsonify({'success': True, 'is_read': False})
+        else:
+            # If unread, insert record to mark as read
+            supabase.table('read_articles').insert({
+                'user_id': current_user.id,
+                'feed_id': feed_id
+            }).execute()
+            return jsonify({'success': True, 'is_read': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)
