@@ -7,6 +7,25 @@
     <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- New header section -->
+    <header class="Header">
+        <div class="Header-item">
+            <h1 class="Header-link f4 d-flex flex-items-center">
+                <svg height="32" class="octicon octicon-rss mr-2" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true">
+                    <path fill="currentColor" d="M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 1 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.75.75 0 0 1-.699-.798ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm.84-5.95a.75.75 0 0 0-.179 1.489c2.509.3 4.5 2.291 4.8 4.8a.75.75 0 1 0 1.49-.178A7.003 7.003 0 0 0 2.838 7.05Z"></path>
+                </svg>
+                <span>RSS Feed Reader</span>
+            </h1>
+        </div>
+        <div class="Header-item Header-item--full"></div>
+        <div class="Header-item mr-0">
+            <nav class="d-flex flex-items-center">
+                <a class="Header-link mr-3" href="/">Home</a>
+                <a class="Header-link" href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="Layout">
         <!-- Left sidebar -->
         <div class="Layout-sidebar">
@@ -28,11 +47,16 @@
             <div class="container-lg clearfix">
                 <div class="Box">
                     {% for feed in feeds %}
-                    <div class="Box-row">
-                        <h3 class="Box-title">
-                            <a href="{{ feed.link }}" target="_blank">
+                    <div class="Box-row {% if feed.is_read %}Box-row--gray{% endif %}">
+                        <h3 class="Box-title d-flex flex-items-center">
+                            <a href="{{ feed.link }}" target="_blank" 
+                               onclick="markAsRead({{ feed.id }}, event)"
+                               class="flex-auto">
                                 {{ feed.title }}
                             </a>
+                            <span class="Label Label--secondary ml-2 {% if feed.is_read %}Label--success{% endif %}">
+                                {{ 'Read' if feed.is_read else 'Unread' }}
+                            </span>
                         </h3>
                         <p class="color-fg-muted">
                             {{ feed.summary }}
@@ -48,5 +72,27 @@
             </div>
         </div>
     </div>
+
+    <script>
+    function markAsRead(feedId, event) {
+        fetch(`/mark-read/${feedId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const articleElement = event.target.closest('.Box-row');
+                articleElement.classList.add('Box-row--gray');
+                const statusLabel = articleElement.querySelector('.Label');
+                statusLabel.textContent = 'Read';
+                statusLabel.classList.add('Label--success');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>
 </body>
 </html>
