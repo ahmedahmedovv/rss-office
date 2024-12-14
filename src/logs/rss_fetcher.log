@@ -34,3 +34,190 @@
 2024-12-14 01:05:27,720 - INFO - No more entries to translate
 2024-12-14 01:05:35,562 - INFO - Successfully processed entry 1748
 2024-12-14 01:05:35,637 - INFO - No more entries to summarize
+2024-12-14 01:13:01,241 - INFO - No more entries to translate
+2024-12-14 01:13:01,303 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:13:04,598 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:05,098 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:08,391 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:09,475 - WARNING - Invalid category returned: Travel
+2024-12-14 01:13:09,607 - INFO - Successfully processed missing data for entry 424
+2024-12-14 01:13:12,698 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:15,524 - WARNING - Invalid category returned: Crime
+2024-12-14 01:13:15,660 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:13:19,105 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:21,809 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:22,393 - WARNING - Invalid category returned: Polish History
+2024-12-14 01:13:22,538 - INFO - Successfully processed missing data for entry 474
+2024-12-14 01:13:25,608 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:26,482 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:30,680 - WARNING - Invalid category returned: Travel
+2024-12-14 01:13:30,879 - INFO - Successfully processed missing data for entry 438
+2024-12-14 01:13:35,855 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:36,390 - WARNING - Invalid category returned: Transportation
+2024-12-14 01:13:36,498 - INFO - Successfully processed missing data for entry 397
+2024-12-14 01:13:36,559 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:13:41,732 - WARNING - Invalid category returned: Travel
+2024-12-14 01:13:41,857 - INFO - Successfully processed missing data for entry 424
+2024-12-14 01:13:44,931 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:47,557 - WARNING - Invalid category returned: Crime
+2024-12-14 01:13:48,045 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:13:51,118 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:51,474 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:13:55,947 - INFO - Successfully processed missing data for entry 474
+2024-12-14 01:14:00,931 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:01,519 - WARNING - Invalid category returned: Transportation
+2024-12-14 01:14:01,641 - INFO - Successfully processed missing data for entry 397
+2024-12-14 01:14:06,963 - INFO - Successfully processed missing data for entry 597
+2024-12-14 01:14:07,132 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:14:12,380 - INFO - Successfully processed missing data for entry 424
+2024-12-14 01:14:17,282 - WARNING - Invalid category returned: Crime
+2024-12-14 01:14:17,380 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:14:22,800 - WARNING - Invalid category returned: Transportation
+2024-12-14 01:14:22,921 - INFO - Successfully processed missing data for entry 397
+2024-12-14 01:14:27,867 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:29,046 - INFO - Successfully processed missing data for entry 803
+2024-12-14 01:14:32,116 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:32,758 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:36,938 - INFO - Successfully processed missing data for entry 676
+2024-12-14 01:14:37,001 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:14:42,698 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:42,892 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:14:43,866 - WARNING - Invalid category returned: Crime
+2024-12-14 01:14:44,034 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:14:49,229 - WARNING - Invalid category returned: History
+2024-12-14 01:14:53,273 - INFO - Successfully processed missing data for entry 613
+2024-12-14 01:14:58,367 - WARNING - Invalid category returned: Religion
+2024-12-14 01:14:58,469 - INFO - Successfully processed missing data for entry 599
+2024-12-14 01:15:03,658 - INFO - Successfully processed missing data for entry 761
+2024-12-14 01:15:11,013 - INFO - Successfully processed missing data for entry 778
+2024-12-14 01:15:11,077 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:15:16,254 - WARNING - Invalid category returned: Crime
+2024-12-14 01:15:16,522 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:15:22,743 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:23,381 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:24,767 - INFO - Successfully processed missing data for entry 820
+2024-12-14 01:15:31,797 - INFO - Successfully processed missing data for entry 868
+2024-12-14 01:15:34,870 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:35,532 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:36,030 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:36,030 - ERROR - Failed to process entry 837: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:43,317 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:44,156 - WARNING - Invalid category returned: Accidents
+2024-12-14 01:15:44,273 - INFO - Successfully processed missing data for entry 999
+2024-12-14 01:15:44,340 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:15:49,696 - WARNING - Invalid category returned: Crime
+2024-12-14 01:15:49,817 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:15:52,883 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:55,885 - WARNING - Invalid category returned: Accidents
+2024-12-14 01:15:55,987 - INFO - Successfully processed missing data for entry 999
+2024-12-14 01:15:59,059 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:15:59,537 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:03,054 - WARNING - Invalid category returned: History
+2024-12-14 01:16:03,315 - INFO - Successfully processed missing data for entry 1176
+2024-12-14 01:16:06,381 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:09,920 - WARNING - Invalid category returned: Crime
+2024-12-14 01:16:10,110 - INFO - Successfully processed missing data for entry 1095
+2024-12-14 01:16:13,177 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:13,716 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:13,936 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:13,937 - ERROR - Failed to process entry 1305: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:14,010 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:16:18,963 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:19,783 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:21,383 - WARNING - Invalid category returned: Crime
+2024-12-14 01:16:21,491 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:16:28,961 - WARNING - Invalid category returned: Accidents
+2024-12-14 01:16:29,070 - INFO - Successfully processed missing data for entry 999
+2024-12-14 01:16:36,546 - WARNING - Invalid category returned: Transport
+2024-12-14 01:16:36,650 - INFO - Successfully processed missing data for entry 1569
+2024-12-14 01:16:39,720 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:42,124 - WARNING - Invalid category returned: Energy
+2024-12-14 01:16:42,235 - INFO - Successfully processed missing data for entry 824
+2024-12-14 01:16:47,297 - WARNING - Invalid category returned: Polish History
+2024-12-14 01:16:47,393 - INFO - Successfully processed missing data for entry 704
+2024-12-14 01:16:47,594 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:16:52,711 - WARNING - Invalid category returned: Crime
+2024-12-14 01:16:52,815 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:16:55,881 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:16:58,460 - WARNING - Invalid category returned: Accidents
+2024-12-14 01:16:58,755 - INFO - Successfully processed missing data for entry 999
+2024-12-14 01:17:01,844 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:05,106 - INFO - Successfully processed missing data for entry 824
+2024-12-14 01:17:09,919 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:10,636 - WARNING - Invalid category returned: History
+2024-12-14 01:17:10,830 - INFO - Successfully processed missing data for entry 704
+2024-12-14 01:17:13,911 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:14,422 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:17,321 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:18,622 - WARNING - Invalid category returned: Crime
+2024-12-14 01:17:18,721 - INFO - Successfully processed missing data for entry 1416
+2024-12-14 01:17:18,783 - INFO - No new entries found. Checking for entries with missing data...
+2024-12-14 01:17:23,773 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:24,630 - WARNING - Invalid category returned: Crime
+2024-12-14 01:17:24,744 - INFO - Successfully processed missing data for entry 425
+2024-12-14 01:17:29,570 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:29,651 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:30,742 - WARNING - Invalid category returned: Accidents
+2024-12-14 01:17:30,897 - INFO - Successfully processed missing data for entry 999
+2024-12-14 01:17:33,969 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:34,199 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:34,885 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:34,886 - ERROR - Failed to process entry 704: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:40,230 - WARNING - Invalid category returned: Crime
+2024-12-14 01:17:40,392 - INFO - Successfully processed missing data for entry 765
+2024-12-14 01:17:45,304 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:45,701 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:17:46,576 - WARNING - Invalid category returned: Crimes
+2024-12-14 01:17:46,697 - INFO - Successfully processed missing data for entry 1030
+2024-12-14 01:17:46,775 - INFO - No new entries found. Checking for entries with missing data...

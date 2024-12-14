@@ -47,6 +47,11 @@ summarization:
     - Finance
     - Weather
     - World News
+    - Crime
+    - Transportation
+    - Travel
+    - History
+    - Other
   min_request_interval: 1.5
   base_delay: 3
 
