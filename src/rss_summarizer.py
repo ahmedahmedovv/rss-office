@@ -49,6 +49,28 @@ class RSSSummarizer:
             self.logger.error(f"Error fetching unsummarized entries: {e}")
             return []
 
+    def get_entries_with_missing_data(self, batch_size: int = 5) -> List[Dict[str, Any]]:
+        """
+        Fetch entries that have missing AI titles or categories.
+        
+        Args:
+            batch_size: Number of entries to fetch
+            
+        Returns:
+            List of entries with missing data
+        """
+        try:
+            result = self.supabase.table("rss_feeds")\
+                .select("id", "title", "description")\
+                .or_("ai_title_generated_at.is.null,category_generated_at.is.null")\
+                .not_.is_("translated_at", "null")\
+                .limit(batch_size)\
+                .execute()
+            return result.data
+        except Exception as e:
+            self.logger.error(f"Error fetching entries with missing data: {e}")
+            return []
+
     @backoff.on_exception(
         backoff.expo,
         Exception,
@@ -203,41 +225,41 @@ class RSSSummarizer:
             entries = self.get_unsummarized_entries(batch_size)
             
             if not entries:
-                self.logger.info("No more entries to summarize")
-                break
-            
+                # Check for entries with missing AI titles or categories
+                self.logger.info("No new entries found. Checking for entries with missing data...")
+                entries = self.get_entries_with_missing_data(batch_size)
+                
+                if not entries:
+                    self.logger.info("No entries with missing data found. Processing complete.")
+                    break
+                
             for entry in entries:
                 try:
                     # Increased base delay between entries
-                    time.sleep(self.config.get('base_delay', 3))  # Increased from 2 to 3 seconds
+                    time.sleep(self.config.get('base_delay', 3))
                     
                     current_time = datetime.now(pytz.UTC).isoformat()
                     update_data = {}
 
-                    # Generate and add summary
-                    if summary := self.create_summary(entry["title"], entry["description"]):
-                        update_data.update({
-                            "summary": summary,
-                            "summarized_at": current_time
-                        })
+                    # Only generate AI title if it's missing
+                    if entry.get("ai_title_generated_at") is None:
+                        if ai_title := self.create_ai_title(entry["title"], entry["description"]):
+                            update_data.update({
+                                "ai_title": ai_title,
+                                "ai_title_generated_at": current_time
+                            })
 
-                    # Generate and add AI title
-                    if ai_title := self.create_ai_title(entry["title"], entry["description"]):
-                        update_data.update({
-                            "ai_title": ai_title,
-                            "ai_title_generated_at": current_time
-                        })
-
-                    # Generate and add category
-                    if category := self.create_category(entry["title"], entry["description"]):
-                        update_data.update({
-                            "category": category,
-                            "category_generated_at": current_time
-                        })
+                    # Only generate category if it's missing
+                    if entry.get("category_generated_at") is None:
+                        if category := self.create_category(entry["title"], entry["description"]):
+                            update_data.update({
+                                "category": category,
+                                "category_generated_at": current_time
+                            })
 
                     if update_data:
                         self.update_entry(entry["id"], update_data)
-                        self.logger.info(f"Successfully processed entry {entry['id']}")
+                        self.logger.info(f"Successfully processed missing data for entry {entry['id']}")
                     
                 except Exception as e:
                     self.logger.error(f"Failed to process entry {entry['id']}: {e}")

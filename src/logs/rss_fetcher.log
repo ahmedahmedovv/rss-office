@@ -9,3 +9,28 @@
 {"message":"Requests rate limit exceeded"}
 2024-12-14 00:38:42,985 - INFO - Successfully processed entry 1737
 2024-12-14 00:38:43,046 - INFO - No more entries to summarize
+2024-12-14 01:01:29,586 - INFO - Saved 7 entries from https://feeds.feedburner.com/wPolitycepl
+2024-12-14 01:01:39,492 - INFO - Translated entry 1741
+2024-12-14 01:01:41,599 - INFO - Translated entry 1742
+2024-12-14 01:01:44,111 - INFO - Translated entry 1743
+2024-12-14 01:01:45,351 - INFO - Translated entry 1744
+2024-12-14 01:01:45,943 - INFO - Translated entry 1745
+2024-12-14 01:01:47,599 - INFO - Translated entry 1746
+2024-12-14 01:01:50,124 - INFO - Translated entry 1747
+2024-12-14 01:01:50,184 - INFO - No more entries to translate
+2024-12-14 01:02:01,841 - ERROR - Error in Mistral API request: API error occurred: Status 429
+{"message":"Requests rate limit exceeded"}
+2024-12-14 01:02:03,060 - INFO - Successfully processed entry 1742
+2024-12-14 01:02:10,365 - INFO - Successfully processed entry 1741
+2024-12-14 01:02:20,209 - INFO - Successfully processed entry 1743
+2024-12-14 01:02:29,672 - INFO - Successfully processed entry 1744
+2024-12-14 01:02:38,470 - WARNING - Invalid category returned: Polish Society
+2024-12-14 01:02:38,719 - INFO - Successfully processed entry 1745
+2024-12-14 01:02:46,972 - INFO - Successfully processed entry 1747
+2024-12-14 01:02:59,777 - INFO - Successfully processed entry 1746
+2024-12-14 01:03:00,015 - INFO - No more entries to summarize
+2024-12-14 01:05:24,370 - INFO - Saved 1 entries from http://www.tvp.info/tvp.info/rss+xml.php
+2024-12-14 01:05:27,662 - INFO - Translated entry 1748
+2024-12-14 01:05:27,720 - INFO - No more entries to translate
+2024-12-14 01:05:35,562 - INFO - Successfully processed entry 1748
+2024-12-14 01:05:35,637 - INFO - No more entries to summarize
