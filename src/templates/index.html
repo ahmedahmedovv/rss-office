@@ -35,10 +35,9 @@
                             </a>
                         </h3>
                         <p class="color-fg-muted">
-                            {{ feed.description }}
+                            {{ feed.summary }}
                         </p>
                         <div class="d-flex mt-2">
-                            <span class="Label mr-2">{{ feed.category or 'Uncategorized' }}</span>
                             <span class="color-fg-muted">
                                 {{ feed.pub_date.strftime('%Y-%m-%d %H:%M') }}
                             </span>
